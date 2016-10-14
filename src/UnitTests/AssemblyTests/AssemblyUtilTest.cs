@@ -47,7 +47,7 @@ namespace Appson.Composer.UnitTests.AssemblyTests
 		[TestMethod]
 		public void RegisterWithAssemblyName()
 		{
-			_context.RegisterAssembly("Compositional.Composer.UnitTests.TestAssembly");
+			_context.RegisterAssembly("Appson.Composer.UnitTests.TestAssembly");
 
 			var c = _context.GetComponent<IContractInAnotherAssembly>();
 

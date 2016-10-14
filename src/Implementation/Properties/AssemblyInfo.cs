@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("Compositional.Composer.Implementation")]
+[assembly: AssemblyTitle("Appson.Composer.Implementation")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Compositional Software Foundation")]
-[assembly: AssemblyProduct("Compositional.Composer.Implementation")]
-[assembly: AssemblyCopyright("Copyright © Compositional Software Foundation 2010")]
+[assembly: AssemblyCompany("Appson")]
+[assembly: AssemblyProduct("Appson.Composer.Implementation")]
+[assembly: AssemblyCopyright("Copyright © Appson 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

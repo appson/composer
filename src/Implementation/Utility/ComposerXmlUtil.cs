@@ -17,7 +17,7 @@ namespace Appson.Composer.Utility
 		public static void ProcessCompositionXml(this ComponentContext context, Stream configurationStream)
 		{
 			if (context == null)
-				throw new ArgumentNullException("context");
+				throw new ArgumentNullException(nameof(context));
 
 			var xmlProcessingContext = new XmlProcessingContext(context);
 			ProcessCompositionXml(configurationStream, xmlProcessingContext);
@@ -27,7 +27,7 @@ namespace Appson.Composer.Utility
 		public static void ProcessCompositionXml(this ComponentContext context, string configurationPath)
 		{
 			if (context == null)
-				throw new ArgumentNullException("context");
+				throw new ArgumentNullException(nameof(context));
 
 			var xmlProcessingContext = new XmlProcessingContext(context);
 			ProcessCompositionXml(configurationPath, xmlProcessingContext);
@@ -42,7 +42,7 @@ namespace Appson.Composer.Utility
 		public static void ProcessCompositionXmlFromResource(this ComponentContext context, Assembly assembly, string configurationResourceName)
 		{
 			if (context == null)
-				throw new ArgumentNullException("context");
+				throw new ArgumentNullException(nameof(context));
 
 			var xmlProcessingContext = new XmlProcessingContext(context);
 			ProcessCompositionXmlFromResource(assembly, configurationResourceName, xmlProcessingContext);
@@ -56,11 +56,11 @@ namespace Appson.Composer.Utility
 		internal static void ProcessCompositionXml(Stream configurationStream, XmlProcessingContext xmlProcessingContext)
 		{
 			if (configurationStream == null)
-				throw new ArgumentNullException("configurationStream");
+				throw new ArgumentNullException(nameof(configurationStream));
 
 			var xsdStream =
 				Assembly.GetExecutingAssembly().GetManifestResourceStream(
-					"Compositional.Composer.CompositionXml.Schema.compositionXml.1.0.xsd");
+                    "Appson.Composer.CompositionXml.Schema.compositionXml.1.0.xsd");
 
 			if (xsdStream == null)
 				throw new NullReferenceException("Could not load XSD resource from DLL.");
@@ -113,12 +113,11 @@ namespace Appson.Composer.Utility
 		internal static void ProcessCompositionXml(string configurationPath, XmlProcessingContext xmlProcessingContext)
 		{
 			if (configurationPath == null)
-				throw new ArgumentNullException("configurationPath");
+				throw new ArgumentNullException(nameof(configurationPath));
 
 			if (!File.Exists(configurationPath))
 			{
-				xmlProcessingContext.ReportError(
-					string.Format("Specified configuration file '{0}' does not exist.", configurationPath));
+				xmlProcessingContext.ReportError($"Specified configuration file '{configurationPath}' does not exist.");
 				return;
 			}
 
@@ -135,9 +134,7 @@ namespace Appson.Composer.Utility
 
 			if (stream == null)
 			{
-				xmlProcessingContext.ReportError(
-					string.Format("Resource name '{0}' could not be loaded from assembly '{1}'.", configurationResourceName,
-					              assembly.FullName));
+				xmlProcessingContext.ReportError($"Resource name '{configurationResourceName}' could not be loaded from assembly '{assembly.FullName}'.");
 				return;
 			}
 

@@ -38,7 +38,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void DoubleAttribute()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ADouble.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ADouble.xml");
 
 			var o = _context.GetVariable("doublepi");
 
@@ -54,7 +54,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void DoubleAttributeNaN()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ADouble.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ADouble.xml");
 
 			var o = _context.GetVariable("doubleNaN");
 
@@ -70,7 +70,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void DoubleAttributeZero()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ADouble.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ADouble.xml");
 
 			var oPlus = _context.GetVariable("double+0");
 			var oMinus = _context.GetVariable("double-0");
@@ -92,7 +92,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void DoubleAttributeInfinity()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ADouble.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ADouble.xml");
 
 			var oPlus = _context.GetVariable("double+inf");
 			var oMinus = _context.GetVariable("double-inf");
@@ -113,7 +113,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void DoubleElement()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EDouble.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EDouble.xml");
 
 			var o = _context.GetVariable("doublepi");
 
@@ -129,7 +129,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void DoubleElementNaN()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EDouble.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EDouble.xml");
 
 			var o = _context.GetVariable("doubleNaN");
 
@@ -145,7 +145,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void DoubleElementZero()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EDouble.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EDouble.xml");
 
 			var oPlus = _context.GetVariable("double+0");
 			var oMinus = _context.GetVariable("double-0");
@@ -167,7 +167,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void DoubleElementInfinity()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EDouble.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EDouble.xml");
 
 			var oPlus = _context.GetVariable("double+inf");
 			var oMinus = _context.GetVariable("double-inf");

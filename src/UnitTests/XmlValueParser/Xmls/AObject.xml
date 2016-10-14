@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
 
-	<UsingAssembly fullName="Compositional.Composer.UnitTests"/>
-	<Using namespace="Compositional.Composer.UnitTests.XmlValueParser.Components"/>
+	<UsingAssembly fullName="Appson.Composer.UnitTests"/>
+	<Using namespace="Appson.Composer.UnitTests.XmlValueParser.Components"/>
 	
 	<SetVariable name="simpleObject" objectType="SampleClass" />
 

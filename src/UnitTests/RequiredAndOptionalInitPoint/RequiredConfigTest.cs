@@ -38,7 +38,7 @@ namespace Appson.Composer.UnitTests.RequiredAndOptionalInitPoint
 		[TestMethod]
 		public void ReqConfigProvided()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.RequiredAndOptionalInitPoint.Xmls.ReqConfigProvided.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.RequiredAndOptionalInitPoint.Xmls.ReqConfigProvided.xml");
 
 			var c = _context.GetComponent<ComponentWithRequiredConfig>();
 
@@ -70,7 +70,7 @@ namespace Appson.Composer.UnitTests.RequiredAndOptionalInitPoint
 		[TestMethod]
 		public void ReqNamedConfigProvidedByReg()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.RequiredAndOptionalInitPoint.Xmls.ReqNamedConfigProvidedByReg.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.RequiredAndOptionalInitPoint.Xmls.ReqNamedConfigProvidedByReg.xml");
 
 			var c = _context.GetComponent<ComponentWithRequiredNamedConfig>();
 

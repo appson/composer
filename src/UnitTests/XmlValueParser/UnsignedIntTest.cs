@@ -37,7 +37,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeByteMax()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
 
 			var o = _context.GetVariable("bytemax");
 
@@ -51,7 +51,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeByteOne()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
 
 			var o = _context.GetVariable("byte1");
 
@@ -65,7 +65,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeUInt16Max()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
 
 			var o = _context.GetVariable("uint16max");
 
@@ -79,7 +79,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeUInt16One()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
 
 			var o = _context.GetVariable("uint161");
 
@@ -93,7 +93,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeUInt32Max()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
 
 			var o = _context.GetVariable("uint32max");
 
@@ -107,7 +107,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeUInt32One()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
 
 			var o = _context.GetVariable("uint321");
 
@@ -121,7 +121,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeUInt64Max()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
 
 			var o = _context.GetVariable("uint64max");
 
@@ -135,7 +135,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeUInt64One()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.AUInt.xml");
 
 			var o = _context.GetVariable("uint641");
 
@@ -149,7 +149,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementByteMax()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
 
 			var o = _context.GetVariable("bytemax");
 
@@ -163,7 +163,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementByteOne()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
 
 			var o = _context.GetVariable("byte1");
 
@@ -177,7 +177,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementUInt16Max()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
 
 			var o = _context.GetVariable("uint16max");
 
@@ -191,7 +191,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementUInt16One()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
 
 			var o = _context.GetVariable("uint161");
 
@@ -205,7 +205,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementUInt32Max()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
 
 			var o = _context.GetVariable("uint32max");
 
@@ -219,7 +219,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementUInt32One()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
 
 			var o = _context.GetVariable("uint321");
 
@@ -233,7 +233,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementUInt64Max()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
 
 			var o = _context.GetVariable("uint64max");
 
@@ -247,7 +247,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementUInt64One()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.EUInt.xml");
 
 			var o = _context.GetVariable("uint641");
 

@@ -38,7 +38,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeEmptyIntArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("emptyIntArray");
 
@@ -53,7 +53,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeEmptyStringArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("emptyStringArray");
 
@@ -68,7 +68,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeSingleIntArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("singleIntArray");
 
@@ -84,7 +84,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeSingleStringArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("singleStringArray");
 
@@ -100,7 +100,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeFourElementIntArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("fourElementIntArray");
 
@@ -117,7 +117,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeEmptyListOfInt()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("emptyListOfInt");
 
@@ -132,7 +132,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeEmptyListOfString()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("emptyListOfString");
 
@@ -147,7 +147,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeSingleListOfInt()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("singleListOfInt");
 
@@ -163,7 +163,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeSingleListOfString()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("singleListOfString");
 
@@ -179,7 +179,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeFourElementListOfInt()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("fourElementListOfInt");
 
@@ -196,7 +196,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeEmptyDictionary()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("emptyDictionary");
 
@@ -211,7 +211,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void AttributeFilledDictionary()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ACollection.xml");
 
 			var o = _context.GetVariable("filledDictionary");
 
@@ -230,7 +230,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementEmptyIntArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("emptyIntArray");
 
@@ -245,7 +245,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementEmptyStringArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("emptyStringArray");
 
@@ -260,7 +260,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementSingleIntArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("singleIntArray");
 
@@ -276,7 +276,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementSingleStringArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("singleStringArray");
 
@@ -292,7 +292,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementFourElementIntArray()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("fourElementIntArray");
 
@@ -309,7 +309,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementEmptyListOfInt()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("emptyListOfInt");
 
@@ -324,7 +324,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementEmptyListOfString()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("emptyListOfString");
 
@@ -339,7 +339,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementSingleListOfInt()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("singleListOfInt");
 
@@ -355,7 +355,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementSingleListOfString()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("singleListOfString");
 
@@ -371,7 +371,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementFourElementListOfInt()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("fourElementListOfInt");
 
@@ -388,7 +388,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementEmptyDictionary()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("emptyDictionary");
 
@@ -403,7 +403,7 @@ namespace Appson.Composer.UnitTests.XmlValueParser
 		[TestMethod]
 		public void ElementFilledDictionary()
 		{
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.XmlValueParser.Xmls.ECollection.xml");
 
 			var o = _context.GetVariable("filledDictionary");
 

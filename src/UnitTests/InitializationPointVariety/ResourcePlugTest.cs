@@ -26,7 +26,7 @@ namespace Appson.Composer.UnitTests.InitializationPointVariety
 		public void TestInitialize()
 		{
 			_context = new ComponentContext();
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.InitializationPointVariety.Xmls.ResourceComposition.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.InitializationPointVariety.Xmls.ResourceComposition.xml");
 		}
 
 		[TestCleanup]

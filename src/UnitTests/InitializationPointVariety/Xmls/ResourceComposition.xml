@@ -6,8 +6,8 @@
 				<Property name="Pointers" listElementType="IResourcePointer">
 					<Item objectType="AssemblyResourcePointer">
 						<Property name="Id" string="resourceId"/>
-						<Property name="Assembly" assemblyName="Compositional.Composer.UnitTests"/>
-						<Property name="ResourceName" string="Compositional.Composer.UnitTests.InitializationPointVariety.Resources.SampleResource.resx"/>
+						<Property name="Assembly" assemblyName="Appson.Composer.UnitTests"/>
+						<Property name="ResourceName" string="Appson.Composer.UnitTests.InitializationPointVariety.Resources.SampleResource.resx"/>
 					</Item>
 				</Property>
 		</ConfigurationPoint>

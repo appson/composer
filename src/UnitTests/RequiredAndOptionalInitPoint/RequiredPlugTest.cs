@@ -111,7 +111,7 @@ namespace Appson.Composer.UnitTests.RequiredAndOptionalInitPoint
 		public void ReqNamedPlugRedirectedUponRegistration()
 		{
 			_context.Register("someOtherName", typeof(PluggedComponent));
-			_context.ProcessCompositionXmlFromResource("Compositional.Composer.UnitTests.RequiredAndOptionalInitPoint.Xmls.ReqNamedPlugRedirected.xml");
+			_context.ProcessCompositionXmlFromResource("Appson.Composer.UnitTests.RequiredAndOptionalInitPoint.Xmls.ReqNamedPlugRedirected.xml");
 
 			var c = _context.GetComponent<ComponentWithRequiredNamedPlug>();
 
