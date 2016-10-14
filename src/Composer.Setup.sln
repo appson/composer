@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "Base\Base.csproj", "{6E50834F-6735-4FDB-BFBE-3F436DB636AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implementation", "Implementation\Implementation.csproj", "{FC5E430F-C51C-4988-9DE4-278C7579385B}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{6A2D2059-1DCA-43B1-9991-24466FC209B1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs05.codeplex.com/
+		SccProjectUniqueName0 = Base\\Base.csproj
+		SccProjectName0 = Base
+		SccLocalPath0 = Base
+		SccProjectUniqueName1 = Implementation\\Implementation.csproj
+		SccProjectName1 = Implementation
+		SccLocalPath1 = Implementation
+		SccLocalPath2 = .
+		SccProjectUniqueName3 = Setup\\Setup.vdproj
+		SccProjectName3 = Setup
+		SccLocalPath3 = Setup
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E50834F-6735-4FDB-BFBE-3F436DB636AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E50834F-6735-4FDB-BFBE-3F436DB636AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E50834F-6735-4FDB-BFBE-3F436DB636AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E50834F-6735-4FDB-BFBE-3F436DB636AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC5E430F-C51C-4988-9DE4-278C7579385B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5E430F-C51C-4988-9DE4-278C7579385B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC5E430F-C51C-4988-9DE4-278C7579385B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC5E430F-C51C-4988-9DE4-278C7579385B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A2D2059-1DCA-43B1-9991-24466FC209B1}.Debug|Any CPU.ActiveCfg = Debug
+		{6A2D2059-1DCA-43B1-9991-24466FC209B1}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

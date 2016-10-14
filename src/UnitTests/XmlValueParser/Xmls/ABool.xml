@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<SetVariable name="boolTrue" boolean="true"/>
+
+	<SetVariable name="boolFalse" boolean="false"/>
+
+	<SetVariable name="bool0" boolean="0"/>
+
+	<SetVariable name="bool1" boolean="1"/>
+
+</CompositionInfo>

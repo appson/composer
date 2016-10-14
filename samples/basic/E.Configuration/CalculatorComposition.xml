@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<UsingAssembly fullName="Compositional.Composer.Samples.Basic"/>
+	<Using namespace="Compositional.Composer.Samples.Basic"/>
+
+	<RegisterComponent type="DefaultProgramRunner">
+		<ConfigurationPoint name="Verbose" boolean="true" />
+	</RegisterComponent>
+
+	<RegisterComponent type="DefaultCalculator">
+		<ConfigurationPoint name="Verbose" boolean="true" />
+	</RegisterComponent>
+
+	<RegisterComponent type="DefaultAdder">
+		<ConfigurationPoint name="Verbose" boolean="true" />
+	</RegisterComponent>
+	
+	<RegisterComponent type="DefaultMultiplier">
+		<ConfigurationPoint name="Verbose" boolean="true" />
+	</RegisterComponent>
+
+	<RegisterComponent type="DefaultDivider">
+		<ConfigurationPoint name="Verbose" boolean="true" />
+	</RegisterComponent>
+
+</CompositionInfo>

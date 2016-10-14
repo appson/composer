@@ -1,0 +1,146 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A.SimpleComposition", "A.SimpleComposition\A.SimpleComposition.csproj", "{7301B542-4DB5-4398-8349-4466BFB9538A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E.Configuration", "E.Configuration\E.Configuration.csproj", "{42C75B2E-BFE9-42C4-B5E1-8C90BFF71096}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F.ConfigVariable", "F.ConfigVariable\F.ConfigVariable.csproj", "{5D292473-5557-46D0-B2E4-BC59955E08C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G.Notification", "G.Notification\G.Notification.csproj", "{159916AB-8566-4066-8B16-13E161F2FD86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H.Listener", "H.Listener\H.Listener.csproj", "{1A549668-A50D-4837-85C6-B748F5B330C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "J.EmittedAsComponent", "J.EmittedAsComponent\J.EmittedAsComponent.csproj", "{9630CCAF-9AEF-4A98-82B1-2D15D0C230C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B.UsingAssembly", "B.UsingAssembly\B.UsingAssembly.csproj", "{4E4B3670-E970-4E66-88CF-BC04C0DB9C3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C.ProgramAsComponent", "C.ProgramAsComponent\C.ProgramAsComponent.csproj", "{52A8B66C-D046-4E8C-9694-93102BFC619A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D.UsingXml", "D.UsingXml\D.UsingXml.csproj", "{74AC643B-58F7-4AFE-B5EC-4B3B6FE95793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I.EmittedClass", "I.EmittedClass\I.EmittedClass.csproj", "{88C49F8C-6C0C-49E1-BF31-E4C66C7041D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K.Interceptor", "K.Interceptor\K.Interceptor.csproj", "{980C76A2-0499-4094-90F4-F67C38057A11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L.CallFiltering", "L.CallFiltering\L.CallFiltering.csproj", "{B439652D-B006-4D34-AA14-B91049513E02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "M.CustomFactory", "M.CustomFactory\M.CustomFactory.csproj", "{E49EBD39-97EC-4314-940B-839348959683}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N.ComponentSets", "N.ComponentSets\N.ComponentSets.csproj", "{109DEFF3-C024-4A3A-ADCE-242B7C1DB146}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 15
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs05
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = A.SimpleComposition\\A.SimpleComposition.csproj
+		SccProjectName1 = A.SimpleComposition
+		SccLocalPath1 = A.SimpleComposition
+		SccProjectUniqueName2 = B.UsingAssembly\\B.UsingAssembly.csproj
+		SccProjectName2 = B.UsingAssembly
+		SccLocalPath2 = B.UsingAssembly
+		SccProjectUniqueName3 = C.ProgramAsComponent\\C.ProgramAsComponent.csproj
+		SccProjectName3 = C.ProgramAsComponent
+		SccLocalPath3 = C.ProgramAsComponent
+		SccProjectUniqueName4 = D.UsingXml\\D.UsingXml.csproj
+		SccProjectName4 = D.UsingXml
+		SccLocalPath4 = D.UsingXml
+		SccProjectUniqueName5 = E.Configuration\\E.Configuration.csproj
+		SccProjectName5 = E.Configuration
+		SccLocalPath5 = E.Configuration
+		SccProjectUniqueName6 = F.ConfigVariable\\F.ConfigVariable.csproj
+		SccProjectName6 = F.ConfigVariable
+		SccLocalPath6 = F.ConfigVariable
+		SccProjectUniqueName7 = G.Notification\\G.Notification.csproj
+		SccProjectName7 = G.Notification
+		SccLocalPath7 = G.Notification
+		SccProjectUniqueName8 = H.Listener\\H.Listener.csproj
+		SccProjectName8 = H.Listener
+		SccLocalPath8 = H.Listener
+		SccProjectUniqueName9 = I.EmittedClass\\I.EmittedClass.csproj
+		SccProjectName9 = I.EmittedClass
+		SccLocalPath9 = I.EmittedClass
+		SccProjectUniqueName10 = J.EmittedAsComponent\\J.EmittedAsComponent.csproj
+		SccProjectName10 = J.EmittedAsComponent
+		SccLocalPath10 = J.EmittedAsComponent
+		SccProjectUniqueName11 = K.Interceptor\\K.Interceptor.csproj
+		SccProjectName11 = K.Interceptor
+		SccLocalPath11 = K.Interceptor
+		SccProjectUniqueName12 = L.CallFiltering\\L.CallFiltering.csproj
+		SccProjectName12 = L.CallFiltering
+		SccLocalPath12 = L.CallFiltering
+		SccProjectUniqueName13 = M.CustomFactory\\M.CustomFactory.csproj
+		SccProjectName13 = M.CustomFactory
+		SccLocalPath13 = M.CustomFactory
+		SccProjectUniqueName14 = N.ComponentSets\\N.ComponentSets.csproj
+		SccProjectName14 = N.ComponentSets
+		SccLocalPath14 = N.ComponentSets
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7301B542-4DB5-4398-8349-4466BFB9538A}.Debug|x86.ActiveCfg = Debug|x86
+		{7301B542-4DB5-4398-8349-4466BFB9538A}.Debug|x86.Build.0 = Debug|x86
+		{7301B542-4DB5-4398-8349-4466BFB9538A}.Release|x86.ActiveCfg = Release|x86
+		{7301B542-4DB5-4398-8349-4466BFB9538A}.Release|x86.Build.0 = Release|x86
+		{42C75B2E-BFE9-42C4-B5E1-8C90BFF71096}.Debug|x86.ActiveCfg = Debug|x86
+		{42C75B2E-BFE9-42C4-B5E1-8C90BFF71096}.Debug|x86.Build.0 = Debug|x86
+		{42C75B2E-BFE9-42C4-B5E1-8C90BFF71096}.Release|x86.ActiveCfg = Release|x86
+		{42C75B2E-BFE9-42C4-B5E1-8C90BFF71096}.Release|x86.Build.0 = Release|x86
+		{5D292473-5557-46D0-B2E4-BC59955E08C8}.Debug|x86.ActiveCfg = Debug|x86
+		{5D292473-5557-46D0-B2E4-BC59955E08C8}.Debug|x86.Build.0 = Debug|x86
+		{5D292473-5557-46D0-B2E4-BC59955E08C8}.Release|x86.ActiveCfg = Release|x86
+		{5D292473-5557-46D0-B2E4-BC59955E08C8}.Release|x86.Build.0 = Release|x86
+		{159916AB-8566-4066-8B16-13E161F2FD86}.Debug|x86.ActiveCfg = Debug|x86
+		{159916AB-8566-4066-8B16-13E161F2FD86}.Debug|x86.Build.0 = Debug|x86
+		{159916AB-8566-4066-8B16-13E161F2FD86}.Release|x86.ActiveCfg = Release|x86
+		{159916AB-8566-4066-8B16-13E161F2FD86}.Release|x86.Build.0 = Release|x86
+		{1A549668-A50D-4837-85C6-B748F5B330C3}.Debug|x86.ActiveCfg = Debug|x86
+		{1A549668-A50D-4837-85C6-B748F5B330C3}.Debug|x86.Build.0 = Debug|x86
+		{1A549668-A50D-4837-85C6-B748F5B330C3}.Release|x86.ActiveCfg = Release|x86
+		{1A549668-A50D-4837-85C6-B748F5B330C3}.Release|x86.Build.0 = Release|x86
+		{9630CCAF-9AEF-4A98-82B1-2D15D0C230C9}.Debug|x86.ActiveCfg = Debug|x86
+		{9630CCAF-9AEF-4A98-82B1-2D15D0C230C9}.Debug|x86.Build.0 = Debug|x86
+		{9630CCAF-9AEF-4A98-82B1-2D15D0C230C9}.Release|x86.ActiveCfg = Release|x86
+		{9630CCAF-9AEF-4A98-82B1-2D15D0C230C9}.Release|x86.Build.0 = Release|x86
+		{4E4B3670-E970-4E66-88CF-BC04C0DB9C3C}.Debug|x86.ActiveCfg = Debug|x86
+		{4E4B3670-E970-4E66-88CF-BC04C0DB9C3C}.Debug|x86.Build.0 = Debug|x86
+		{4E4B3670-E970-4E66-88CF-BC04C0DB9C3C}.Release|x86.ActiveCfg = Release|x86
+		{4E4B3670-E970-4E66-88CF-BC04C0DB9C3C}.Release|x86.Build.0 = Release|x86
+		{52A8B66C-D046-4E8C-9694-93102BFC619A}.Debug|x86.ActiveCfg = Debug|x86
+		{52A8B66C-D046-4E8C-9694-93102BFC619A}.Debug|x86.Build.0 = Debug|x86
+		{52A8B66C-D046-4E8C-9694-93102BFC619A}.Release|x86.ActiveCfg = Release|x86
+		{52A8B66C-D046-4E8C-9694-93102BFC619A}.Release|x86.Build.0 = Release|x86
+		{74AC643B-58F7-4AFE-B5EC-4B3B6FE95793}.Debug|x86.ActiveCfg = Debug|x86
+		{74AC643B-58F7-4AFE-B5EC-4B3B6FE95793}.Debug|x86.Build.0 = Debug|x86
+		{74AC643B-58F7-4AFE-B5EC-4B3B6FE95793}.Release|x86.ActiveCfg = Release|x86
+		{74AC643B-58F7-4AFE-B5EC-4B3B6FE95793}.Release|x86.Build.0 = Release|x86
+		{88C49F8C-6C0C-49E1-BF31-E4C66C7041D5}.Debug|x86.ActiveCfg = Debug|x86
+		{88C49F8C-6C0C-49E1-BF31-E4C66C7041D5}.Debug|x86.Build.0 = Debug|x86
+		{88C49F8C-6C0C-49E1-BF31-E4C66C7041D5}.Release|x86.ActiveCfg = Release|x86
+		{88C49F8C-6C0C-49E1-BF31-E4C66C7041D5}.Release|x86.Build.0 = Release|x86
+		{980C76A2-0499-4094-90F4-F67C38057A11}.Debug|x86.ActiveCfg = Debug|x86
+		{980C76A2-0499-4094-90F4-F67C38057A11}.Debug|x86.Build.0 = Debug|x86
+		{980C76A2-0499-4094-90F4-F67C38057A11}.Release|x86.ActiveCfg = Release|x86
+		{980C76A2-0499-4094-90F4-F67C38057A11}.Release|x86.Build.0 = Release|x86
+		{B439652D-B006-4D34-AA14-B91049513E02}.Debug|x86.ActiveCfg = Debug|x86
+		{B439652D-B006-4D34-AA14-B91049513E02}.Debug|x86.Build.0 = Debug|x86
+		{B439652D-B006-4D34-AA14-B91049513E02}.Release|x86.ActiveCfg = Release|x86
+		{B439652D-B006-4D34-AA14-B91049513E02}.Release|x86.Build.0 = Release|x86
+		{E49EBD39-97EC-4314-940B-839348959683}.Debug|x86.ActiveCfg = Debug|x86
+		{E49EBD39-97EC-4314-940B-839348959683}.Debug|x86.Build.0 = Debug|x86
+		{E49EBD39-97EC-4314-940B-839348959683}.Release|x86.ActiveCfg = Release|x86
+		{E49EBD39-97EC-4314-940B-839348959683}.Release|x86.Build.0 = Release|x86
+		{109DEFF3-C024-4A3A-ADCE-242B7C1DB146}.Debug|x86.ActiveCfg = Debug|x86
+		{109DEFF3-C024-4A3A-ADCE-242B7C1DB146}.Debug|x86.Build.0 = Debug|x86
+		{109DEFF3-C024-4A3A-ADCE-242B7C1DB146}.Release|x86.ActiveCfg = Release|x86
+		{109DEFF3-C024-4A3A-ADCE-242B7C1DB146}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

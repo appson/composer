@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<SetVariable name="emptyIntArray">
+		<Array elementType="System.Int32">
+			
+		</Array>
+	</SetVariable>
+
+	<SetVariable name="emptyStringArray">
+		<Array elementType="System.String">
+			
+		</Array>
+	</SetVariable>
+
+	<SetVariable name="singleIntArray">
+		<Array elementType="System.Int32">
+			<Item>
+				<Int32>
+					0
+				</Int32>
+			</Item>
+		</Array>
+	</SetVariable>
+
+	<SetVariable name="singleStringArray">
+		<Array elementType="System.String">
+			<Item>
+				<String>
+					zero
+				</String>
+			</Item>
+		</Array>
+	</SetVariable>
+
+	<SetVariable name="fourElementIntArray">
+		<Array elementType="System.Int32">
+			<Item>
+				<Int32>
+					0
+				</Int32>
+			</Item>
+			<Item>
+				<Int32>
+					1
+				</Int32>
+			</Item>
+			<Item>
+				<Int32>
+					2
+				</Int32>
+			</Item>
+			<Item>
+				<Int32>
+					3
+				</Int32>
+			</Item>
+		</Array>
+	</SetVariable>
+
+	<SetVariable name="emptyListOfInt">
+		<List elementType="System.Int32">
+
+		</List>
+	</SetVariable>
+
+	<SetVariable name="emptyListOfString">
+		<List elementType="System.String">
+
+		</List>
+	</SetVariable>
+
+	<SetVariable name="singleListOfInt">
+		<List elementType="System.Int32">
+			<Item>
+				<Int32>
+					0
+				</Int32>
+			</Item>
+		</List>
+	</SetVariable>
+
+	<SetVariable name="singleListOfString">
+		<List elementType="System.String">
+			<Item>
+				<String>
+					zero
+				</String>
+			</Item>
+		</List>
+	</SetVariable>
+
+	<SetVariable name="fourElementListOfInt">
+		<List elementType="System.Int32">
+			<Item>
+				<Int32>
+					0
+				</Int32>
+			</Item>
+			<Item>
+				<Int32>
+					1
+				</Int32>
+			</Item>
+			<Item>
+				<Int32>
+					2
+				</Int32>
+			</Item>
+			<Item>
+				<Int32>
+					3
+				</Int32>
+			</Item>
+		</List>
+	</SetVariable>
+
+	<SetVariable name="emptyDictionary">
+		<Dictionary keyType="System.Int32" valueType="System.String">
+			
+		</Dictionary>
+	</SetVariable>
+
+	<SetVariable name="filledDictionary">
+		<Dictionary keyType="System.Int32" valueType="System.String">
+			<Item>
+				<Key>
+					<Int32>
+						1
+					</Int32>
+				</Key>
+				<Value>
+					<String>
+						one
+					</String>
+				</Value>
+			</Item>
+			<Item>
+				<Key>
+					<Int32>
+						3
+					</Int32>
+				</Key>
+				<Value>
+					<String>
+						three
+					</String>
+				</Value>
+			</Item>
+			<Item>
+				<Key>
+					<Int32>
+						5
+					</Int32>
+				</Key>
+				<Value>
+					<String>
+						five
+					</String>
+				</Value>
+			</Item>
+			<Item>
+				<Key>
+					<Int32>
+						7
+					</Int32>
+				</Key>
+				<Value>
+					<String>
+						seven
+					</String>
+				</Value>
+			</Item>
+		</Dictionary>
+	</SetVariable>
+
+</CompositionInfo>

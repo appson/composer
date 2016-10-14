@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<UsingAssembly fullName="Compositional.Composer.UnitTests"/>
+	<Using namespace="Compositional.Composer.UnitTests.InitializePlugs.Components"/>
+
+	<RegisterComponent type="SampleComponent" />
+
+	<SetVariable name="InitPointVariable">
+		<Int32>999</Int32>
+	</SetVariable>
+	
+</CompositionInfo>

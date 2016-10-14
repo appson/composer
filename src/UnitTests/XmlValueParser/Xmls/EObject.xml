@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<UsingAssembly fullName="Compositional.Composer.UnitTests"/>
+	<Using namespace="Compositional.Composer.UnitTests.XmlValueParser.Components"/>
+
+	<SetVariable name="simpleObject">
+		<Object type="SampleClass" />
+	</SetVariable>
+
+	<SetVariable name="objectWithPlugs">
+		<Object type="SampleClass" initializePlugs="true" />
+	</SetVariable>
+
+	<SetVariable name="objectWithField">
+		<Object type="SampleClass">
+			<Field name="Field">
+				<String>FieldValue</String>
+			</Field>
+		</Object>
+	</SetVariable>
+
+	<SetVariable name="objectWithProperty">
+		<Object type="SampleClass">
+			<Property name="Property">
+				<String>PropertyValue</String>
+			</Property>
+		</Object>
+	</SetVariable>
+
+	<SetVariable name="objectWithConstructorArg">
+		<Object type="SampleClass">
+			<ConstructorArgs>
+				<Arg>
+					<String>ConstructorArgValue</String>
+				</Arg>
+			</ConstructorArgs>
+		</Object>
+	</SetVariable>
+
+	<SetVariable name="objectWithEverything">
+		<Object type="SampleClass" initializePlugs="true">
+			<ConstructorArgs>
+				<Arg>
+					<String>ConstructorArgValue</String>
+				</Arg>
+			</ConstructorArgs>
+			<Property name="Property">
+				<String>PropertyValue</String>
+			</Property>
+			<Field name="Field">
+				<String>FieldValue</String>
+			</Field>
+		</Object>
+	</SetVariable>
+
+</CompositionInfo>

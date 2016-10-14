@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FC5E430F-C51C-4988-9DE4-278C7579385B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Compositional.Composer</RootNamespace>
+    <AssemblyName>Compositional.Composer.Implementation</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChildComponentContext.cs" />
+    <Compile Include="ComponentContext.cs" />
+    <Compile Include="ComponentContextUtils.cs" />
+    <Compile Include="CompositionalQueries\ComponentQuery.cs" />
+    <Compile Include="CompositionalQueries\LazyValueQuery.cs" />
+    <Compile Include="CompositionalQueries\ResourcePlugQuery.cs" />
+    <Compile Include="CompositionalQueries\VariableQuery.cs" />
+    <Compile Include="CompositionXml\CompositionInfoApplicator.cs" />
+    <Compile Include="CompositionXml\Info\CompositionCommandInfo.cs" />
+    <Compile Include="CompositionXml\Info\CompositionInfo.cs" />
+    <Compile Include="CompositionXml\Info\IncludeInfo.cs" />
+    <Compile Include="CompositionXml\Info\RegisterAssemblyInfo.cs" />
+    <Compile Include="CompositionXml\Info\RegisterComponentConfigurationPointInfo.cs" />
+    <Compile Include="CompositionXml\Info\RegisterComponentInfo.cs" />
+    <Compile Include="CompositionXml\Info\RegisterComponentPlugInfo.cs" />
+    <Compile Include="CompositionXml\Info\RegisterCompositionListenerInfo.cs" />
+    <Compile Include="CompositionXml\Info\RemoteComponentInfo.cs" />
+    <Compile Include="CompositionXml\Info\RemoveVariableInfo.cs" />
+    <Compile Include="CompositionXml\Info\SetVariableInfo.cs" />
+    <Compile Include="CompositionXml\Info\UnregisterFamilyInfo.cs" />
+    <Compile Include="CompositionXml\Info\UnregisterCompositionListenerInfo.cs" />
+    <Compile Include="CompositionXml\Info\UnregisterInfo.cs" />
+    <Compile Include="CompositionXml\Info\UsingAssemblyInfo.cs" />
+    <Compile Include="CompositionXml\Info\UsingInfo.cs" />
+    <Compile Include="CompositionXml\CompositionXmlValidationException.cs" />
+    <Compile Include="CompositionXml\TypeCache.cs" />
+    <Compile Include="CompositionXml\ValueParser\CollectionParserUtil.cs" />
+    <Compile Include="CompositionXml\ValueParser\ObjectParserUtil.cs" />
+    <Compile Include="CompositionXml\ValueParser\SimpleTypeParserUtil.cs" />
+    <Compile Include="CompositionXml\ValueParser\ValidatorUtil.cs" />
+    <Compile Include="CompositionXml\ValueParser\XmlValueParser.cs" />
+    <Compile Include="CompositionXml\XmlProcessingContext.cs" />
+    <Compile Include="Diagnostics\CountingCompositionListener.cs" />
+    <Compile Include="Diagnostics\TracingCompositionListener.cs" />
+    <Compile Include="Diagnostics\TracingInterceptor.cs" />
+    <Compile Include="Emitter\DefaultClassEmitter.cs" />
+    <Compile Include="Emitter\EmittedClassBase.cs" />
+    <Compile Include="Emitter\DynamicImplementationBuilder.cs" />
+    <Compile Include="Emitter\DefaultEventEmitter.cs" />
+    <Compile Include="Emitter\DefaultMethodEmitter.cs" />
+    <Compile Include="Emitter\DefaultPropertyEmitter.cs" />
+    <Compile Include="Factories\ConstructorArgSpecification.cs" />
+    <Compile Include="Factories\GenericLocalComponentFactory.cs" />
+    <Compile Include="Factories\Remote\CustomDataContractSerializerOperationBehavior.cs" />
+    <Compile Include="Factories\Remote\CustomOperationBehavior.cs" />
+    <Compile Include="Interceptor\AdaptedException.cs" />
+    <Compile Include="Interceptor\CallInfo.cs" />
+    <Compile Include="Interceptor\ICallInterceptor.cs" />
+    <Compile Include="Interceptor\InterceptingAdapterEmittedTypeHanlder.cs" />
+    <Compile Include="Interceptor\InterceptionException.cs" />
+    <Compile Include="Factories\LocalComponentFactory.cs" />
+    <Compile Include="Factories\PreInitializedComponentFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Factories\Remote\RemoteComponentFactory.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="Resources\AssemblyResourcePointer.cs" />
+    <Compile Include="Resources\ExecutableRelativeFilePointer.cs" />
+    <Compile Include="Resources\IResourcePointer.cs" />
+    <Compile Include="Resources\ResourcePointerList.cs" />
+    <Compile Include="Resources\ResourceProvider.cs" />
+    <Compile Include="Resources\ResourceRepository.cs" />
+    <Compile Include="Resources\WorkingDirectoryRelativeResourcePointer.cs" />
+    <Compile Include="Utility\ComposerAssemblyUtil.cs" />
+    <Compile Include="Utility\Matching\ArgumentValueCallFilter.cs" />
+    <Compile Include="Utility\Matching\ConjunctionCallFilter.cs" />
+    <Compile Include="Utility\Matching\ConjunctionNameFilter.cs" />
+    <Compile Include="Utility\Matching\ConjunctionTypeFilter.cs" />
+    <Compile Include="Utility\Matching\DelegateCallFilter.cs" />
+    <Compile Include="Utility\Matching\DelegateNameFilter.cs" />
+    <Compile Include="Utility\Matching\DelegateTypeFilter.cs" />
+    <Compile Include="Utility\Matching\DisjunctionCallFilter.cs" />
+    <Compile Include="Utility\Matching\DisjunctionNameFilter.cs" />
+    <Compile Include="Utility\Matching\DisjunctionTypeFilter.cs" />
+    <Compile Include="Utility\Matching\ExactNameFilter.cs" />
+    <Compile Include="Utility\Matching\FullNamePatternTypeFilter.cs" />
+    <Compile Include="Utility\Matching\ICallFilter.cs" />
+    <Compile Include="Utility\Matching\INameFilter.cs" />
+    <Compile Include="Utility\Matching\ITypeFilter.cs" />
+    <Compile Include="Utility\Matching\MethodNameCallFilter.cs" />
+    <Compile Include="Utility\Matching\MethodSignatureCallFilter.cs" />
+    <Compile Include="Utility\Matching\NamePatternTypeFilter.cs" />
+    <Compile Include="Utility\Matching\ParameterCountCallFilter.cs" />
+    <Compile Include="Utility\Matching\ParameterTypeCallFilter.cs" />
+    <Compile Include="Utility\Matching\PatternNameFilter.cs" />
+    <Compile Include="Utility\ComposerXmlUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{6E50834F-6735-4FDB-BFBE-3F436DB636AB}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CompositionXml\Schema\compositionXml.1.0.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CompositionXml\Schema\compositionXml.1.0.xsx">
+      <DependentUpon>compositionXml.1.0.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

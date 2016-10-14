@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<SetVariable name="doublepi">
+		<Double>3.14159265358979</Double>
+	</SetVariable>
+
+	<SetVariable name="doubleNaN">
+		<Double>NaN</Double>
+	</SetVariable>
+
+	<SetVariable name="double+0">
+		<Double>+0</Double>
+	</SetVariable>
+
+	<SetVariable name="double-0">
+		<Double>-0</Double>
+	</SetVariable>
+
+	<SetVariable name="double+inf">
+		<Double>Infinity</Double>
+	</SetVariable>
+
+	<SetVariable name="double-inf">
+		<Double>-Infinity</Double>
+	</SetVariable>
+
+</CompositionInfo>

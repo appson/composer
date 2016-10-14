@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<UsingAssembly fullName="Compositional.Composer.UnitTests"/>
+	<Using namespace="Compositional.Composer.UnitTests.RequiredAndOptionalInitPoint.Components"/>
+
+	<RegisterComponent type="ComponentWithRequiredConfig">
+		<ConfigurationPoint name="SomeConfig">
+			<String>SomeConfigValue</String>
+		</ConfigurationPoint>
+	</RegisterComponent>
+
+</CompositionInfo>

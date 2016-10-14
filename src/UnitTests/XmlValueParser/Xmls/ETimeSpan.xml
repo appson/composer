@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<SetVariable name="timeSpanString">
+		<TimeSpan>1:00:00</TimeSpan>
+	</SetVariable>
+
+	<SetVariable name="timeSpanDays">
+		<TimeSpan days="1" />
+	</SetVariable>
+
+	<SetVariable name="timeSpanHours">
+		<TimeSpan hours="1" />
+	</SetVariable>
+
+	<SetVariable name="timeSpanMinutes">
+		<TimeSpan minutes="1" />
+	</SetVariable>
+
+	<SetVariable name="timeSpanSeconds">
+		<TimeSpan seconds="1" />
+	</SetVariable>
+
+	<SetVariable name="timeSpanMilliseconds">
+		<TimeSpan milliseconds="1" />
+	</SetVariable>
+
+	<SetVariable name="timeSpanTicks">
+		<TimeSpan ticks="1" />
+	</SetVariable>
+
+	<SetVariable name="timeSpanAll">
+		<TimeSpan days="1" hours="1" minutes="1" seconds="1" milliseconds="1" />
+	</SetVariable>
+
+	<SetVariable name="timeSpanErrorString">
+		<TimeSpan hours="1">
+			1:00:00
+		</TimeSpan>
+	</SetVariable>
+
+	<SetVariable name="timeSpanErrorTicks">
+		<TimeSpan ticks="1" hours="1" />
+	</SetVariable>
+
+
+</CompositionInfo>

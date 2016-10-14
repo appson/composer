@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<SetVariable name="emptyIntArray" arrayElementType="System.Int32" />
+
+	<SetVariable name="emptyStringArray" arrayElementType="System.String" />
+
+	<SetVariable name="singleIntArray" arrayElementType="System.Int32">
+		<Item int32="0" />
+	</SetVariable>
+	
+	<SetVariable name="singleStringArray" arrayElementType="System.String">
+		<Item string="zero" />
+	</SetVariable>
+	
+	<SetVariable name="fourElementIntArray" arrayElementType="System.Int32">
+		<Item int32="0" />
+		<Item int32="1" />
+		<Item int32="2" />
+		<Item int32="3" />
+	</SetVariable>
+
+	<SetVariable name="emptyListOfInt" listElementType="System.Int32" />
+
+	<SetVariable name="emptyListOfString" listElementType="System.String" />
+
+	<SetVariable name="singleListOfInt" listElementType="System.Int32">
+		<Item int32="0" />
+	</SetVariable>
+
+	<SetVariable name="singleListOfString" listElementType="System.String">
+		<Item string="zero" />
+	</SetVariable>
+
+	<SetVariable name="fourElementListOfInt" listElementType="System.Int32">
+		<Item int32="0" />
+		<Item int32="1" />
+		<Item int32="2" />
+		<Item int32="3" />
+	</SetVariable>
+
+	<SetVariable name="emptyDictionary" dictionaryKeyType="System.Int32" dictionaryValueType="System.String" />
+
+	<SetVariable name="filledDictionary" dictionaryKeyType="System.Int32" dictionaryValueType="System.String">
+		<Item>
+			<Key int32="1" />
+			<Value string="one" />
+		</Item>
+		<Item>
+			<Key int32="3" />
+			<Value string="three" />
+		</Item>
+		<Item>
+			<Key int32="5" />
+			<Value string="five" />
+		</Item>
+		<Item>
+			<Key int32="7" />
+			<Value string="seven" />
+		</Item>
+	</SetVariable>
+
+</CompositionInfo>

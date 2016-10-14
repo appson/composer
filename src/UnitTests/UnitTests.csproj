@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE2E8CCD-71E9-4A16-92AE-A9BF590DA301}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Compositional.Composer.UnitTests</RootNamespace>
+    <AssemblyName>Compositional.Composer.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyTests\AssemblyUtilTest.cs" />
+    <Compile Include="CollectionOfComponents\ComponentFamilyTest.cs" />
+    <Compile Include="CollectionOfComponents\ComponentSetTest.cs" />
+    <Compile Include="CollectionOfComponents\Components\AnotherComponentOne.cs" />
+    <Compile Include="CollectionOfComponents\Components\AnotherComponentTwo.cs" />
+    <Compile Include="CollectionOfComponents\Components\IAnotherContract.cs" />
+    <Compile Include="CollectionOfComponents\Components\ISampleContract.cs" />
+    <Compile Include="CollectionOfComponents\Components\SampleComponentOne.cs" />
+    <Compile Include="CollectionOfComponents\Components\SampleComponentTwo.cs" />
+    <Compile Include="ComponentCaching\Components\Contracts.cs" />
+    <Compile Include="ComponentCaching\Components\NonSharedComponent.cs" />
+    <Compile Include="ComponentCaching\Components\SpcComponent.cs" />
+    <Compile Include="ComponentCaching\Components\SprComponent.cs" />
+    <Compile Include="ComponentCaching\NonSharedTest.cs" />
+    <Compile Include="ComponentCaching\SharedPerContractTest.cs" />
+    <Compile Include="ComponentCaching\SharedPerRegistrationTest.cs" />
+    <Compile Include="ComponentNaming\Components\ComponentWithDefaultName.cs" />
+    <Compile Include="ComponentNaming\Components\ComponentWithoutName.cs" />
+    <Compile Include="ComponentNaming\RegWithNameTest.cs" />
+    <Compile Include="ComponentNaming\RegWithNullTest.cs" />
+    <Compile Include="ComponentNaming\SimpleRegTest.cs" />
+    <Compile Include="CompositionByConstructor\Components\ConstructorWithIntegerParam.cs" />
+    <Compile Include="CompositionByConstructor\Components\ISampleContractA.cs" />
+    <Compile Include="CompositionByConstructor\Components\ISampleContractB.cs" />
+    <Compile Include="CompositionByConstructor\Components\MultiConstructorsWithDefault.cs" />
+    <Compile Include="CompositionByConstructor\Components\MultiConstructorsWithDefaultAndMarked.cs" />
+    <Compile Include="CompositionByConstructor\Components\MultipleMarkedConstructors.cs" />
+    <Compile Include="CompositionByConstructor\Components\NamesEqualToParamCount.cs" />
+    <Compile Include="CompositionByConstructor\Components\NamesLessThanParamCount.cs" />
+    <Compile Include="CompositionByConstructor\Components\NamesMoreThanParamCount.cs" />
+    <Compile Include="CompositionByConstructor\Components\NoDefaultMultipleUnmarkedConstructors.cs" />
+    <Compile Include="CompositionByConstructor\Components\PrivateDefaultNoneMarkedFromOtherConstructors.cs" />
+    <Compile Include="CompositionByConstructor\Components\PrivateDefaultSingleConstructor.cs" />
+    <Compile Include="CompositionByConstructor\Components\PrivateMarkedConstructor.cs" />
+    <Compile Include="CompositionByConstructor\Components\SampleComponentA.cs" />
+    <Compile Include="CompositionByConstructor\Components\SampleComponentB.cs" />
+    <Compile Include="CompositionByConstructor\Components\SingleNonDefaultConstructor.cs" />
+    <Compile Include="CompositionByConstructor\ErrorConstructorLogicTest.cs" />
+    <Compile Include="CompositionByConstructor\WorkingConstructorLogicTest.cs" />
+    <Compile Include="CompositionListener\Components\ISampleContract.cs" />
+    <Compile Include="CompositionListener\Components\NonSharedComponent.cs" />
+    <Compile Include="CompositionListener\Components\ParameterRecorderListener.cs" />
+    <Compile Include="CompositionListener\Components\ReplaceUponCreationListener.cs" />
+    <Compile Include="CompositionListener\Components\ReplaceUponRetrievalListener.cs" />
+    <Compile Include="CompositionListener\Components\SampleComponentOne.cs" />
+    <Compile Include="CompositionListener\Components\SampleComponentTwo.cs" />
+    <Compile Include="CompositionListener\Components\SharedComponent.cs" />
+    <Compile Include="CompositionListener\CountEventsTest.cs" />
+    <Compile Include="CompositionListener\EventParamsTest.cs" />
+    <Compile Include="CompositionListener\GeneralListenerTest.cs" />
+    <Compile Include="CompositionListener\ReplaceInstanceTest.cs" />
+    <Compile Include="CompositionNotification\Components\ExplicitInterfaceImpl.cs" />
+    <Compile Include="CompositionNotification\Components\ImplicitInterfaceImpl.cs" />
+    <Compile Include="CompositionNotification\Components\MultipleAttributedMethods.cs" />
+    <Compile Include="CompositionNotification\Components\NonOverlappingAttribAndInterface.cs" />
+    <Compile Include="CompositionNotification\Components\OverlappingAttribAndInterface.cs" />
+    <Compile Include="CompositionNotification\Components\SingleAttributedMethod.cs" />
+    <Compile Include="CompositionNotification\GetComponentTest.cs" />
+    <Compile Include="CompositionNotification\InitializePlugsTest.cs" />
+    <Compile Include="ConfigurationVariables\GetVariableTest.cs" />
+    <Compile Include="ConfigurationVariables\SetVariableTest.cs" />
+    <Compile Include="EmitterTests\BasicEmittingTest.cs" />
+    <Compile Include="EmitterTests\Components\IDoubleParamIndexer.cs" />
+    <Compile Include="EmitterTests\Components\IDynamicArg.cs" />
+    <Compile Include="EmitterTests\Components\IDynamicProperty.cs" />
+    <Compile Include="EmitterTests\Components\IDynamicReturnValue.cs" />
+    <Compile Include="EmitterTests\Components\IEmpty.cs" />
+    <Compile Include="EmitterTests\Components\IEvent.cs" />
+    <Compile Include="EmitterTests\Components\IGenericEmpty.cs" />
+    <Compile Include="EmitterTests\Components\IGenericEvent.cs" />
+    <Compile Include="EmitterTests\Components\IGenericInMethodArg.cs" />
+    <Compile Include="EmitterTests\Components\IGenericProperty.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithGeneric.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithGenericArg.cs" />
+    <Compile Include="EmitterTests\Components\IGenericInMethodResult.cs" />
+    <Compile Include="EmitterTests\Components\IIntArrayProperty.cs" />
+    <Compile Include="EmitterTests\Components\IIntMethodWithoutArgs.cs" />
+    <Compile Include="EmitterTests\Components\IIntParamIndexer.cs" />
+    <Compile Include="EmitterTests\Components\IIntProperty.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithGenericRefArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithGenericResult.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithIntArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithIntArrayArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithOptionalArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithOutIntArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithOutIntArrayArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithOutStringArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithOutStringArrayArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithRefIntArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithRefIntArrayArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithRefStringArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithRefStringArrayArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithStringArg.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithStringArrayArg.cs" />
+    <Compile Include="EmitterTests\Components\IReadOnlyIntProperty.cs" />
+    <Compile Include="EmitterTests\Components\IReadOnlyStringProperty.cs" />
+    <Compile Include="EmitterTests\Components\IStringArrayProperty.cs" />
+    <Compile Include="EmitterTests\Components\IStringMethodWithoutArgs.cs" />
+    <Compile Include="EmitterTests\Components\IStringParamIndexer.cs" />
+    <Compile Include="EmitterTests\Components\IStringProperty.cs" />
+    <Compile Include="EmitterTests\Components\IMethodWithoutArgs.cs" />
+    <Compile Include="EmitterTests\Components\IWriteOnlyIntProperty.cs" />
+    <Compile Include="EmitterTests\Components\IWriteOnlyStringProperty.cs" />
+    <Compile Include="EmitterTests\Components\ReferenceImplementations.cs" />
+    <Compile Include="EmitterTests\Components\SomeAbstractClass.cs" />
+    <Compile Include="EmitterTests\Components\SomeConcreteClass.cs" />
+    <Compile Include="EmitterTests\Components\TestingEmittedTypeHandler.cs" />
+    <Compile Include="EmitterTests\DynamicValueEmittingTest.cs" />
+    <Compile Include="EmitterTests\EventEmittingTest.cs" />
+    <Compile Include="EmitterTests\GenericsEmittingTest.cs" />
+    <Compile Include="EmitterTests\IndexerEmittingTest.cs" />
+    <Compile Include="EmitterTests\MethodEmittingTest.cs" />
+    <Compile Include="EmitterTests\PropertyEmittingTest.cs" />
+    <Compile Include="ErrorConditions\ComponentErrors.cs" />
+    <Compile Include="ErrorConditions\Components\ConfigPointWithoutASetter.cs" />
+    <Compile Include="ErrorConditions\Components\ConfigPointWithPrivateSetter.cs" />
+    <Compile Include="ErrorConditions\Components\IAnotherContract.cs" />
+    <Compile Include="ErrorConditions\Components\ISampleContract.cs" />
+    <Compile Include="ErrorConditions\Components\MultipleCompositionConstructors.cs" />
+    <Compile Include="ErrorConditions\Components\NoCompositionContructors.cs" />
+    <Compile Include="ErrorConditions\Components\NonContractConstructorArg.cs" />
+    <Compile Include="ErrorConditions\Components\NonContractPlugType.cs" />
+    <Compile Include="ErrorConditions\Components\NoProvidedContract.cs" />
+    <Compile Include="ErrorConditions\Components\NotAComponent.cs" />
+    <Compile Include="ErrorConditions\Components\ParameterizedNotification.cs" />
+    <Compile Include="ErrorConditions\Components\PlugWithoutSetter.cs" />
+    <Compile Include="ErrorConditions\Components\PlugWithPrivateSetter.cs" />
+    <Compile Include="ErrorConditions\Components\PrivateCompositionConstructor.cs" />
+    <Compile Include="ErrorConditions\Components\ResourcePlugWithoutName.cs" />
+    <Compile Include="ErrorConditions\Components\ResourcePlugWithWrongType.cs" />
+    <Compile Include="ErrorConditions\ConfigurationErrors.cs" />
+    <Compile Include="ErrorConditions\ConstructorErrors.cs" />
+    <Compile Include="ErrorConditions\NotificationErrors.cs" />
+    <Compile Include="ErrorConditions\PlugErrors.cs" />
+    <Compile Include="ErrorConditions\ResourceErrors.cs" />
+    <Compile Include="Generics\ClosedGenericsTest.cs" />
+    <Compile Include="Generics\Components\GenericComponent.cs" />
+    <Compile Include="Generics\Components\GenericComponentAndContract.cs" />
+    <Compile Include="Generics\Components\GenericContract.cs" />
+    <Compile Include="Generics\Components\GenericPlug.cs" />
+    <Compile Include="Generics\MiscGenericsTest.cs" />
+    <Compile Include="Generics\OpenGenericsTest.cs" />
+    <Compile Include="InitializationPointVariety\ComponentPlugTest.cs" />
+    <Compile Include="InitializationPointVariety\Components\ISampleContract.cs" />
+    <Compile Include="InitializationPointVariety\Components\SampleComponent.cs" />
+    <Compile Include="InitializationPointVariety\Components\WithFieldComponentPlug.cs" />
+    <Compile Include="InitializationPointVariety\Components\WithFieldConfigurationPoint.cs" />
+    <Compile Include="InitializationPointVariety\Components\WithFieldResourcePlug.cs" />
+    <Compile Include="InitializationPointVariety\Components\WithPropertyComponentPlug.cs" />
+    <Compile Include="InitializationPointVariety\Components\WithPropertyConfigurationPoint.cs" />
+    <Compile Include="InitializationPointVariety\Components\WithPropertyResourcePlug.cs" />
+    <Compile Include="InitializationPointVariety\ConfigurationPointTest.cs" />
+    <Compile Include="InitializationPointVariety\ResourcePlugTest.cs" />
+    <Compile Include="InitializationPointVariety\Resources\SampleResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SampleResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="InitializePlugs\Components\ClassWithInitializtionPoints.cs" />
+    <Compile Include="InitializePlugs\Components\ComponentWithInitializationPoints.cs" />
+    <Compile Include="InitializePlugs\Components\ISampleContract.cs" />
+    <Compile Include="InitializePlugs\Components\SampleComponent.cs" />
+    <Compile Include="InitializePlugs\InitializePlugsTest.cs" />
+    <Compile Include="InterceptorTests\CallHandlerOperationModesTest.cs" />
+    <Compile Include="InterceptorTests\Components\ISomeInterface.cs" />
+    <Compile Include="InterceptorTests\Components\RecordingInterceptor.cs" />
+    <Compile Include="InterceptorTests\Components\SomeInterfaceImplementation.cs" />
+    <Compile Include="InterceptorTests\InterceptorExceptionHandlingTest.cs" />
+    <Compile Include="InterceptorTests\MiscInterceptorTest.cs" />
+    <Compile Include="LazyTests\Components\ISampleContract.cs" />
+    <Compile Include="LazyTests\Components\SampleComponent.cs" />
+    <Compile Include="LazyTests\LazyGetAllComponentsTest.cs" />
+    <Compile Include="LazyTests\LazyGetComponentFamilyTest.cs" />
+    <Compile Include="LazyTests\LazyGetComponentTest.cs" />
+    <Compile Include="LazyTests\LazyGetVariableTest.cs" />
+    <Compile Include="ProvidedContractVariety\Components\AbstractContract.cs" />
+    <Compile Include="ProvidedContractVariety\Components\AbstractContractComponent.cs" />
+    <Compile Include="ProvidedContractVariety\Components\ConcreteContract.cs" />
+    <Compile Include="ProvidedContractVariety\Components\ConcreteContractComponent.cs" />
+    <Compile Include="ProvidedContractVariety\Components\IInterfaceContract.cs" />
+    <Compile Include="ProvidedContractVariety\Components\ISampleContractComponent.cs" />
+    <Compile Include="ProvidedContractVariety\Components\SelfContractComponent.cs" />
+    <Compile Include="ProvidedContractVariety\ProvidedContractTest.cs" />
+    <Compile Include="QueryVariety\Components\IContractWithNoComponent.cs" />
+    <Compile Include="QueryVariety\Components\ISampleContract.cs" />
+    <Compile Include="QueryVariety\Components\SampleComponent.cs" />
+    <Compile Include="QueryVariety\NamedComponentTest.cs" />
+    <Compile Include="QueryVariety\UnnamedComponentTest.cs" />
+    <Compile Include="RegisterVariety\Components\ComponentBoth.cs" />
+    <Compile Include="RegisterVariety\Components\ComponentOne.cs" />
+    <Compile Include="RegisterVariety\Components\ComponentTwo.cs" />
+    <Compile Include="RegisterVariety\Components\IContractOne.cs" />
+    <Compile Include="RegisterVariety\Components\IContractTwo.cs" />
+    <Compile Include="RegisterVariety\RegisterVarietyTest.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithOptionalConfig.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithOptionalNamedConfig.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithOptionalNamedPlug.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithOptionalPlug.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithRequiredConfig.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithRequiredNamedConfig.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithRequiredNamedPlug.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithRequiredPlug.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\IPluggedContract.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\Components\PluggedComponent.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\OptionalConfigTest.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\OptionalPlugTest.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\RequiredConfigTest.cs" />
+    <Compile Include="RequiredAndOptionalInitPoint\RequiredPlugTest.cs" />
+    <Compile Include="SimpleTests\InitialContextStateTest.cs" />
+    <Compile Include="SimpleTests\SimpleTestComponents\ComponentWithFieldPlug.cs" />
+    <Compile Include="SimpleTests\SimpleTestComponents\ComponentWithPropertyPlug.cs" />
+    <Compile Include="SimpleTests\SimpleTestComponents\EmptyComponentAndContract.cs" />
+    <Compile Include="SimpleTests\SimpleComponentTest.cs" />
+    <Compile Include="SimpleTests\SimplePlugTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlValueParser\BoolTest.cs" />
+    <Compile Include="XmlValueParser\CollectionsTest.cs" />
+    <Compile Include="XmlValueParser\Components\ISampleContract.cs" />
+    <Compile Include="XmlValueParser\Components\SampleClass.cs" />
+    <Compile Include="XmlValueParser\Components\SampleComponent.cs" />
+    <Compile Include="XmlValueParser\Components\SampleEnum.cs" />
+    <Compile Include="XmlValueParser\DoubleTest.cs" />
+    <Compile Include="XmlValueParser\IntTest.cs" />
+    <Compile Include="XmlValueParser\ObjectTest.cs" />
+    <Compile Include="XmlValueParser\OtherSimpleTest.cs" />
+    <Compile Include="XmlValueParser\SingleTest.cs" />
+    <Compile Include="XmlValueParser\TimeSpanTest.cs" />
+    <Compile Include="XmlValueParser\UnsignedIntTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{6E50834F-6735-4FDB-BFBE-3F436DB636AB}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Implementation\Implementation.csproj">
+      <Project>{FC5E430F-C51C-4988-9DE4-278C7579385B}</Project>
+      <Name>Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UnitTests.TestAssembly\UnitTests.TestAssembly.csproj">
+      <Project>{D45633EA-94E9-4D46-A569-1CAC69381F14}</Project>
+      <Name>UnitTests.TestAssembly</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="InitializationPointVariety\Resources\SampleResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SampleResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InitializePlugs\Xmls\Composition.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CompositionNotification\Xmls\Composition.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RequiredAndOptionalInitPoint\Xmls\OptNamedPlugRedirected.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RequiredAndOptionalInitPoint\Xmls\ReqNamedPlugRedirected.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RequiredAndOptionalInitPoint\Xmls\OptConfigProvided.xml" />
+    <EmbeddedResource Include="RequiredAndOptionalInitPoint\Xmls\OptNamedConfigProvidedByReg.xml" />
+    <EmbeddedResource Include="RequiredAndOptionalInitPoint\Xmls\ReqConfigProvided.xml" />
+    <EmbeddedResource Include="RequiredAndOptionalInitPoint\Xmls\ReqNamedConfigProvidedByReg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XmlValueParser\Xmls\ABool.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\ADouble.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\AInt.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\AOtherSimple.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\ASingle.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\AUInt.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\EBool.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\EDouble.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\EOtherSimple.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\EInt.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\ESingle.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\EUInt.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="InitializationPointVariety\Xmls\ResourceComposition.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XmlValueParser\Xmls\AObject.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XmlValueParser\Xmls\ACollection.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XmlValueParser\Xmls\ECollection.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XmlValueParser\Xmls\EObject.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XmlValueParser\Xmls\ATimeSpan.xml" />
+    <EmbeddedResource Include="XmlValueParser\Xmls\ETimeSpan.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

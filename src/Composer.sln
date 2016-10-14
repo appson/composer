@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{380DD0DC-2450-49AF-A7C6-5ADAB32EE954}"
+	ProjectSection(SolutionItems) = preProject
+		Composer1.vsmdi = Composer1.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+	ProjectSection(FolderStartupServices) = postProject
+		{B4F97281-0DBD-4835-9ED8-7DFB966E87FF} = {B4F97281-0DBD-4835-9ED8-7DFB966E87FF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base", "Base\Base.csproj", "{6E50834F-6735-4FDB-BFBE-3F436DB636AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implementation", "Implementation\Implementation.csproj", "{FC5E430F-C51C-4988-9DE4-278C7579385B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{BE2E8CCD-71E9-4A16-92AE-A9BF590DA301}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Models", "Models\Models.modelproj", "{CFF2728B-6C9F-470A-B8D6-12CCF86184FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.TestAssembly", "UnitTests.TestAssembly\UnitTests.TestAssembly.csproj", "{D45633EA-94E9-4D46-A569-1CAC69381F14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{122CF7E1-1005-41CF-AF29-DA3550BCF67D}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs05
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Base\\Base.csproj
+		SccProjectName1 = Base
+		SccLocalPath1 = Base
+		SccProjectUniqueName2 = Implementation\\Implementation.csproj
+		SccProjectName2 = Implementation
+		SccLocalPath2 = Implementation
+		SccProjectUniqueName3 = UnitTests\\UnitTests.csproj
+		SccProjectName3 = UnitTests
+		SccLocalPath3 = UnitTests
+		SccProjectUniqueName4 = Models\\Models.modelproj
+		SccProjectName4 = Models
+		SccLocalPath4 = Models
+		SccProjectUniqueName5 = UnitTests.TestAssembly\\UnitTests.TestAssembly.csproj
+		SccProjectName5 = UnitTests.TestAssembly
+		SccLocalPath5 = UnitTests.TestAssembly
+		SccProjectUniqueName6 = Web\\Web.csproj
+		SccProjectName6 = Web
+		SccLocalPath6 = Web
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E50834F-6735-4FDB-BFBE-3F436DB636AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E50834F-6735-4FDB-BFBE-3F436DB636AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E50834F-6735-4FDB-BFBE-3F436DB636AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E50834F-6735-4FDB-BFBE-3F436DB636AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC5E430F-C51C-4988-9DE4-278C7579385B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5E430F-C51C-4988-9DE4-278C7579385B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC5E430F-C51C-4988-9DE4-278C7579385B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC5E430F-C51C-4988-9DE4-278C7579385B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE2E8CCD-71E9-4A16-92AE-A9BF590DA301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE2E8CCD-71E9-4A16-92AE-A9BF590DA301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE2E8CCD-71E9-4A16-92AE-A9BF590DA301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE2E8CCD-71E9-4A16-92AE-A9BF590DA301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF2728B-6C9F-470A-B8D6-12CCF86184FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF2728B-6C9F-470A-B8D6-12CCF86184FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF2728B-6C9F-470A-B8D6-12CCF86184FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF2728B-6C9F-470A-B8D6-12CCF86184FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45633EA-94E9-4D46-A569-1CAC69381F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45633EA-94E9-4D46-A569-1CAC69381F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45633EA-94E9-4D46-A569-1CAC69381F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45633EA-94E9-4D46-A569-1CAC69381F14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{122CF7E1-1005-41CF-AF29-DA3550BCF67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{122CF7E1-1005-41CF-AF29-DA3550BCF67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{122CF7E1-1005-41CF-AF29-DA3550BCF67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{122CF7E1-1005-41CF-AF29-DA3550BCF67D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Composer1.vsmdi
+	EndGlobalSection
+	GlobalSection(TextTemplating) = postSolution
+		TextTemplating = 1
+	EndGlobalSection
+EndGlobal

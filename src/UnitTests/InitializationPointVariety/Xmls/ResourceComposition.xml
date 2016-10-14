@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<RegisterComponent type="ResourceProvider">
+		<ConfigurationPoint name="ResourcePointer" objectType="ResourcePointerList">
+				<Property name="Pointers" listElementType="IResourcePointer">
+					<Item objectType="AssemblyResourcePointer">
+						<Property name="Id" string="resourceId"/>
+						<Property name="Assembly" assemblyName="Compositional.Composer.UnitTests"/>
+						<Property name="ResourceName" string="Compositional.Composer.UnitTests.InitializationPointVariety.Resources.SampleResource.resx"/>
+					</Item>
+				</Property>
+		</ConfigurationPoint>
+	</RegisterComponent>
+	
+</CompositionInfo>

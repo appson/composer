@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<SetVariable name="Verbose" boolean="true" />
+
+	<RegisterAssembly fullName="Compositional.Composer.Samples.Basic"/>
+
+	<RegisterCompositionListener name="logToConsole" 
+								 objectType="Compositional.Composer.Samples.Basic.LogToConsoleListener, Compositional.Composer.Samples.Basic" />
+
+</CompositionInfo>

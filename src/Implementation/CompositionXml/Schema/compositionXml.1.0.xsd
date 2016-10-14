@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd" 
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		   targetNamespace="http://www.compositional.net/schema/compositionXml.1.0.xsd" 
+		   elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="CompositionInfo" type="CompositionInfoType">
+		<xs:annotation>
+			<xs:documentation>root element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="CompositionInfoType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Include" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="path" type="xs:string" use="optional" />
+					<xs:attribute name="assemblyName" type="xs:string" use="optional" />
+					<xs:attribute name="manifestResourceName" type="xs:string" use="optional" />
+					<xs:attribute name="ignoreOnError" type="xs:boolean" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RegisterAssembly" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="fullName" type="xs:string" use="required" />
+					<xs:attribute name="ignoreOnError" type="xs:boolean" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SetVariable" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="NodeValue">
+							<xs:attribute name="name" type="xs:string" use="required" />
+							<xs:attributeGroup ref="valueAttributes" />
+							<xs:attribute name="ignoreOnError" type="xs:boolean" />
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UsingAssembly" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="fullName" type="xs:string" use="required" />
+					<xs:attribute name="ignoreOnError" type="xs:boolean" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Using" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="namespace" type="xs:string" use="required" />
+					<xs:attribute name="ignoreOnError" type="xs:boolean" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RegisterCompositionListener" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="NodeValue">
+							<xs:attribute name="name" type="xs:string" use="required" />
+							<xs:attributeGroup ref="valueAttributes" />
+							<xs:attribute name="ignoreOnError" type="xs:boolean" />
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RegisterComponent" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="RegisterComponentType">
+							<xs:attribute name="type" type="xs:string" use="required" />
+							<xs:attribute name="contractType" type="xs:string" use="optional" />
+							<xs:attribute name="contractName" type="xs:string" use="optional" />
+							<xs:attribute name="ignoreOnError" type="xs:boolean" />
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RemoteComponent" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="contractType" type="xs:string" use="required" />
+					<xs:attribute name="contractName" type="xs:string" use="optional" />
+					<xs:attribute name="serverAddress" type="xs:string" use="optional" />
+					<xs:attribute name="serverAddressVariableName" type="xs:string" use="optional" />
+					<xs:attribute name="spnIdentity" type="xs:string" use="optional" />
+					<xs:attribute name="knownTypesVariableName" type="xs:string" use="optional" />
+					<xs:attribute name="securityMode" use="optional">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="None" />
+								<xs:enumeration value="Message" />
+								<xs:enumeration value="Transport" />
+								<xs:enumeration value="TransportWithMessageCredential" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="maxBufferSize" type="xs:long" use="optional" />
+					<xs:attribute name="maxReceivedMessageSize" type="xs:long" use="optional" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Unregister" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="contractType" type="xs:string" use="required" />
+					<xs:attribute name="contractName" type="xs:string" use="optional" />
+					<xs:attribute name="ignoreOnError" type="xs:boolean" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UnregisterFamily" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="contractType" type="xs:string" use="required" />
+					<xs:attribute name="ignoreOnError" type="xs:boolean" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RemoveVariable" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string" use="required" />
+					<xs:attribute name="ignoreOnError" type="xs:boolean" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UnRegisterCompositionListener" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="NodeValue">
+		<xs:complexContent>
+			<xs:extension base="ItemType">
+				<xs:choice>
+					<xs:element name="String" type="xs:string" minOccurs="0" />
+					<xs:element name="Boolean" type="xs:boolean" minOccurs="0" />
+					<xs:element name="Char" type="CharType" minOccurs="0" />
+					<xs:element name="SByte" type="xs:byte" minOccurs="0" />
+					<xs:element name="Byte" type="xs:unsignedByte" minOccurs="0" />
+					<xs:element name="Int16" type="xs:short" minOccurs="0" />
+					<xs:element name="Int32" type="xs:int" minOccurs="0" />
+					<xs:element name="Int64" type="xs:long" minOccurs="0" />
+					<xs:element name="UInt16" type="xs:unsignedShort" minOccurs="0" />
+					<xs:element name="UInt32" type="xs:unsignedInt" minOccurs="0" />
+					<xs:element name="UInt64" type="xs:unsignedLong" minOccurs="0" />
+					<xs:element name="Single" type="xs:float" minOccurs="0" />
+					<xs:element name="Double" type="xs:double" minOccurs="0" />
+					<xs:element name="DateTime" type="xs:date" minOccurs="0" />
+					<xs:element name="TimeSpan" minOccurs="0">
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="xs:string">
+									<xs:attribute name="ticks" type="xs:long" use="optional" />
+									<xs:attribute name="days" type="xs:int" use="optional" />
+									<xs:attribute name="hours" type="xs:int" use="optional" />
+									<xs:attribute name="minutes" type="xs:int" use="optional" />
+									<xs:attribute name="seconds" type="xs:int" use="optional" />
+									<xs:attribute name="milliseconds" type="xs:int" use="optional" />
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="ByteArray" type="xs:string" minOccurs="0" />
+					<xs:element name="Null" minOccurs="0" />
+					<xs:element name="ComponentContext" minOccurs="0" />
+					<xs:element name="Ref" minOccurs="0">
+						<xs:complexType>
+							<xs:attribute name="type" type="xs:string" use="required" />
+							<xs:attribute name="name" type="xs:string" use="optional" />
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Enum" minOccurs="0">
+						<xs:complexType>
+							<xs:attribute name="type" type="xs:string" use="required" />
+							<xs:attribute name="value" type="xs:string" use="required" />
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Type" minOccurs="0">
+						<xs:complexType>
+							<xs:attribute name="name" type="xs:string" use="required" />
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Assembly" minOccurs="0">
+						<xs:complexType>
+							<xs:attribute name="name" type="xs:string" use="required" />
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="ContentsOfVariable" minOccurs="0">
+						<xs:complexType>
+							<xs:attribute name="name" type="xs:string" use="required" />
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="SerializeBinary" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="NodeValue">
+									<xs:attributeGroup ref="valueAttributes" />
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Array" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="ItemType">
+									<xs:attribute name="elementType" type="xs:string" use="required" />
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="List" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="ItemType">
+									<xs:attribute name="elementType" type="xs:string" use="required" />
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Dictionary" minOccurs="0">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="ItemType">
+									<xs:attribute name="keyType" type="xs:string" use="required" />
+									<xs:attribute name="valueType" type="xs:string" use="required" />
+								</xs:extension>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Object" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="ConstructorArgs" minOccurs="0" maxOccurs="1">
+									<xs:complexType>
+										<xs:choice>
+											<xs:element name="Arg" minOccurs="0" maxOccurs="unbounded">
+												<xs:complexType>
+													<xs:complexContent>
+														<xs:extension base="NodeValue">
+															<xs:attributeGroup ref="valueAttributes" />
+														</xs:extension>
+													</xs:complexContent>
+												</xs:complexType>
+											</xs:element>
+										</xs:choice>
+									</xs:complexType>
+								</xs:element>
+								<xs:choice minOccurs="0" maxOccurs="unbounded">
+									<xs:element name="Property" minOccurs="1" maxOccurs="1">
+										<xs:complexType>
+											<xs:complexContent>
+												<xs:extension base="NodeValue">
+													<xs:attribute name="name" type="xs:string" use="required" />
+													<xs:attributeGroup ref="valueAttributes" />
+												</xs:extension>
+											</xs:complexContent>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Field" minOccurs="1" maxOccurs="1">
+										<xs:complexType>
+											<xs:complexContent>
+												<xs:extension base="NodeValue">
+													<xs:attribute name="name" type="xs:string" use="required" />
+													<xs:attributeGroup ref="valueAttributes" />
+												</xs:extension>
+											</xs:complexContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:choice>							
+							</xs:sequence>
+							<xs:attribute name="type" type="xs:string" use="required" />
+							<xs:attribute name="initializePlugs" type="xs:boolean" use="optional" />
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="WindowsRegistry" minOccurs="0">
+						<xs:complexType>
+							<xs:attribute name="keyPath" type="xs:string" use="required" />
+							<xs:attribute name="valueName" type="xs:string" use="optional" />
+						</xs:complexType>
+					</xs:element>
+					<xs:sequence minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="Key">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="NodeValue">
+										<xs:attributeGroup ref="valueAttributes" />
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Value">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="NodeValue">
+										<xs:attributeGroup ref="valueAttributes" />
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:sequence>
+						<xs:element name="ConstructorArgs" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="Arg" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:complexContent>
+												<xs:extension base="NodeValue">
+													<xs:attributeGroup ref="valueAttributes" />
+												</xs:extension>
+											</xs:complexContent>
+										</xs:complexType>
+									</xs:element>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Field" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="NodeValue">
+										<xs:attribute name="name" type="xs:string" use="required" />
+										<xs:attributeGroup ref="valueAttributes" />
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Property" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:complexContent>
+									<xs:extension base="NodeValue">
+										<xs:attribute name="name" type="xs:string" use="required" />
+										<xs:attributeGroup ref="valueAttributes" />
+									</xs:extension>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="CharType">
+		<xs:restriction base="xs:string">
+			<xs:length value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RegisterComponentType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Plug" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string" use="required" />
+					<xs:attribute name="refType" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string" />
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="refName" type="xs:string" use="optional" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ConfigurationPoint" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="NodeValue">
+							<xs:attributeGroup ref="valueAttributes" />
+							<xs:attribute name="name" type="xs:string" use="required" />
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ItemType">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Item">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="NodeValue">
+							<xs:attributeGroup ref="valueAttributes" />
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:attributeGroup name="valueAttributes">
+		<xs:attribute name="string" type="xs:string" use="optional" />
+		<xs:attribute name="boolean" type="xs:boolean" use="optional" />
+		<xs:attribute name="char" type="CharType" use="optional" />
+		<xs:attribute name="byte" type="xs:unsignedByte" use="optional" />
+		<xs:attribute name="sByte" type="xs:byte" use="optional" />
+		<xs:attribute name="int16" type="xs:short" use="optional" />
+		<xs:attribute name="int32" type="xs:int" use="optional" />
+		<xs:attribute name="int64" type="xs:long" use="optional" />
+		<xs:attribute name="uInt16" type="xs:unsignedShort" use="optional" />
+		<xs:attribute name="uInt32" type="xs:unsignedInt" use="optional" />
+		<xs:attribute name="uInt64" type="xs:unsignedLong" use="optional" />
+		<xs:attribute name="single" type="xs:float" use="optional" />
+		<xs:attribute name="double" type="xs:double" use="optional" />
+		<xs:attribute name="dateTime" type="xs:date" use="optional" />
+		<xs:attribute name="timeSpan" type="xs:string" use="optional" />
+		<xs:attribute name="timeSpanDays" type="xs:int" use="optional" />
+		<xs:attribute name="timeSpanHours" type="xs:int" use="optional" />
+		<xs:attribute name="timeSpanMinutes" type="xs:int" use="optional" />
+		<xs:attribute name="timeSpanSeconds" type="xs:int" use="optional" />
+		<xs:attribute name="timeSpanMilliseconds" type="xs:int" use="optional" />
+		<xs:attribute name="timeSpanTicks" type="xs:long" use="optional" />
+		<xs:attribute name="enumType" type="xs:string" use="optional" />
+		<xs:attribute name="enumValue" type="xs:string" use="optional" />
+		<xs:attribute name="typeName" type="xs:string" use="optional" />
+		<xs:attribute name="assemblyName" type="xs:string" use="optional" />
+		<xs:attribute name="contentsOfVariableName" type="xs:string" use="optional" />
+		<xs:attribute name="byteArray" type="xs:string" use="optional" />
+		<xs:attribute name="refType" type="xs:string" use="optional" />
+		<xs:attribute name="refName" type="xs:string" use="optional" />
+		<xs:attribute name="arrayElementType" type="xs:string" use="optional" />
+		<xs:attribute name="listElementType" type="xs:string" use="optional" />
+		<xs:attribute name="dictionaryKeyType" type="xs:string" use="optional" />
+		<xs:attribute name="dictionaryValueType" type="xs:string" use="optional" />
+		<xs:attribute name="objectType" type="xs:string" use="optional" />
+		<xs:attribute name="objectInitializePlugs" type="xs:boolean" use="optional" />
+		<xs:attribute name="windowsRegistryKeyPath" type="xs:string" use="optional" />
+		<xs:attribute name="windowsRegistryValueName" type="xs:string" use="optional" />
+	</xs:attributeGroup>
+</xs:schema>

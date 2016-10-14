@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<SetVariable name="sbytemax" sByte="127" />
+
+	<SetVariable name="sbyte-1" sByte="-1" />
+
+	<SetVariable name="int16max" int16="32767" />
+
+	<SetVariable name="int16-1" int16="-1" />
+
+	<SetVariable name="int32max" int32="2147483647" />
+
+	<SetVariable name="int32-1" int32="-1" />
+
+	<SetVariable name="int64max" int64="9223372036854775807" />
+
+	<SetVariable name="int64-1" int64="-1" />
+
+</CompositionInfo>

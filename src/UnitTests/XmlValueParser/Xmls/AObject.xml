@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<UsingAssembly fullName="Compositional.Composer.UnitTests"/>
+	<Using namespace="Compositional.Composer.UnitTests.XmlValueParser.Components"/>
+	
+	<SetVariable name="simpleObject" objectType="SampleClass" />
+
+	<SetVariable name="objectWithPlugs" objectType="SampleClass" objectInitializePlugs="true" />
+
+	<SetVariable name="objectWithField" objectType="SampleClass">
+		<Field name="Field" string="FieldValue" />
+	</SetVariable>
+
+	<SetVariable name="objectWithProperty" objectType="SampleClass">
+		<Property name="Property" string="PropertyValue" />
+	</SetVariable>
+
+	<SetVariable name="objectWithConstructorArg" objectType="SampleClass">
+		<ConstructorArgs>
+			<Arg string="ConstructorArgValue" />
+		</ConstructorArgs>
+	</SetVariable>
+
+	
+	<SetVariable name="objectWithEverything" objectType="SampleClass" objectInitializePlugs="true">
+		<ConstructorArgs>
+			<Arg string="ConstructorArgValue" />
+		</ConstructorArgs>
+		<Field name="Field" string="FieldValue" />
+		<Property name="Property" string="PropertyValue" />
+	</SetVariable>
+	
+</CompositionInfo>

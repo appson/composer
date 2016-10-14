@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<UsingAssembly fullName="Compositional.Composer.UnitTests"/>
+	<Using namespace="Compositional.Composer.UnitTests.XmlValueParser.Components"/>
+
+	<SetVariable name="charA">
+		<Char>A</Char>
+	</SetVariable>
+
+	<SetVariable name="char~">
+		<Char>~</Char>
+	</SetVariable>
+
+	<SetVariable name="datetime">
+		<DateTime>2010-12-22</DateTime>
+	</SetVariable>
+
+	<SetVariable name="string">
+		<String>sampleString</String>
+	</SetVariable>
+
+	<SetVariable name="byteArray">
+		<ByteArray>
+			00 01 02 03 - 04 05 06 07 -- 08 09 0A 0B - 0C 0D 0E 0F
+			10 11 12 13 - 14 15 16 17 -- 18 19 1A 1B - 1C 1D 1E 1F
+		</ByteArray>
+	</SetVariable>
+
+	<SetVariable name="nullRef">
+		<Null />
+	</SetVariable>
+
+	<SetVariable name="componentContext">
+		<ComponentContext />
+	</SetVariable>
+
+	<SetVariable name="enumOne">
+		<Enum type="SampleEnum" value="ValueOne"/>
+	</SetVariable>
+
+	<SetVariable name="enumTen">
+		<Enum type="SampleEnum" value="ValueTen"/>
+	</SetVariable>
+
+	<SetVariable name="refWithoutName">
+		<Ref type="ISampleContract"/>
+	</SetVariable>
+
+	<SetVariable name="refWithName">
+		<Ref type="ISampleContract" name="sampleContractName"/>
+	</SetVariable>
+
+	<SetVariable name="typeInt">
+		<Type name="System.Int32"/>
+	</SetVariable>
+
+	<SetVariable name="typeISampleContract">
+		<Type name="ISampleContract"/>
+	</SetVariable>
+
+	<SetVariable name="assembly">
+		<Assembly name="Compositional.Composer.UnitTests" />
+	</SetVariable>
+
+	<SetVariable name="contentsOfString">
+		<ContentsOfVariable name="string" />
+	</SetVariable >
+
+	<SetVariable name="contentsOfByteArray">
+		<ContentsOfVariable name="byteArray" />
+	</SetVariable>
+
+	<SetVariable name="registry">
+		<WindowsRegistry keyPath="HKEY_CURRENT_USER\Volatile Environment" valueName="USERNAME" />
+	</SetVariable>
+
+</CompositionInfo>

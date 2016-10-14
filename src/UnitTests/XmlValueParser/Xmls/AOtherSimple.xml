@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<UsingAssembly fullName="Compositional.Composer.UnitTests"/>
+	<Using namespace="Compositional.Composer.UnitTests.XmlValueParser.Components"/>
+
+	<SetVariable name="charA" char="A" />
+
+	<SetVariable name="char~" char="~" />
+
+	<SetVariable name="datetime" dateTime="2010-12-22" />
+
+	<SetVariable name="string" string="sampleString" />
+
+	<SetVariable name="byteArray" byteArray="
+			00 01 02 03 - 04 05 06 07 -- 08 09 0A 0B - 0C 0D 0E 0F
+			10 11 12 13 - 14 15 16 17 -- 18 19 1A 1B - 1C 1D 1E 1F" />
+
+	<SetVariable name="enumOne" enumType="SampleEnum" enumValue="ValueOne" />
+
+	<SetVariable name="enumTen" enumType="SampleEnum" enumValue="ValueTen" />
+
+	<SetVariable name="refWithoutName" refType="ISampleContract" />
+
+	<SetVariable name="refWithName" refType="ISampleContract" refName="sampleContractName" />
+
+	<SetVariable name="typeInt" typeName="System.Int32" />
+
+	<SetVariable name="typeISampleContract" typeName="ISampleContract" />
+
+	<SetVariable name="assembly" assemblyName="Compositional.Composer.UnitTests" />
+
+	<SetVariable name="contentsOfString" contentsOfVariableName="string" />
+
+	<SetVariable name="contentsOfByteArray" contentsOfVariableName="byteArray" />
+
+	<SetVariable name="registry" windowsRegistryKeyPath="HKEY_CURRENT_USER\Volatile Environment" windowsRegistryValueName="USERNAME" />
+
+</CompositionInfo>

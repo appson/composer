@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<UsingAssembly fullName="Compositional.Composer.Samples.Basic"/>
+	<Using namespace="Compositional.Composer.Samples.Basic"/>
+
+	<RegisterComponent type="DefaultProgramRunner" />
+	<RegisterComponent type="DefaultCalculator" />
+	<RegisterComponent type="DefaultAdder" />
+	<RegisterComponent type="DefaultMultiplier" />
+	<RegisterComponent type="DefaultDivider" />
+	
+</CompositionInfo>

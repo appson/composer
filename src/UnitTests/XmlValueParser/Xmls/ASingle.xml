@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CompositionInfo xmlns="http://www.compositional.net/schema/compositionXml.1.0.xsd">
+
+	<SetVariable name="singlepi" single="3.141593" />
+
+	<SetVariable name="singleNaN" single="NaN" />
+
+	<SetVariable name="single+0" single="+0" />
+
+	<SetVariable name="single-0" single="-0" />
+
+	<SetVariable name="single+inf" single="Infinity" />
+
+	<SetVariable name="single-inf" single="-Infinity" />
+
+</CompositionInfo>
