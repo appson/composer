@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.ErrorConditions.Components
+﻿namespace Appson.Composer.UnitTests.ErrorConditions.Components
 {
 	[Contract]
 	public interface ISampleContract

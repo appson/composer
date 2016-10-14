@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Compositional.Composer.UnitTests.InitializePlugs.Components;
+using Appson.Composer.UnitTests.InitializePlugs.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Compositional.Composer.Utility;
+using Appson.Composer.Utility;
 
-namespace Compositional.Composer.UnitTests.InitializePlugs
+namespace Appson.Composer.UnitTests.InitializePlugs
 {
 	[TestClass]
 	public class InitializePlugsTest

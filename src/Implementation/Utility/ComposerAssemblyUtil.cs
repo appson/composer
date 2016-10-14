@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Compositional.Composer.Utility
+namespace Appson.Composer.Utility
 {
 	public static class ComposerAssemblyUtil
 	{

@@ -1,7 +1,7 @@
-﻿using Compositional.Composer.UnitTests.ProvidedContractVariety.Components;
+﻿using Appson.Composer.UnitTests.ProvidedContractVariety.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.ProvidedContractVariety
+namespace Appson.Composer.UnitTests.ProvidedContractVariety
 {
 	[TestClass]
 	public class ProvidedContractTest

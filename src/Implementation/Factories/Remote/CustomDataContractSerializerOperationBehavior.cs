@@ -5,7 +5,7 @@ using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Xml;
 
-namespace Compositional.Composer.Factories.Remote
+namespace Appson.Composer.Factories.Remote
 {
 	public class CustomDataContractSerializerOperationBehavior : DataContractSerializerOperationBehavior
 	{

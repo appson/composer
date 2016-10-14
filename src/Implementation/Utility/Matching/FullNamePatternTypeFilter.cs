@@ -1,7 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace Compositional.Composer.Utility.Matching
+namespace Appson.Composer.Utility.Matching
 {
 	public class FullNamePatternTypeFilter : ITypeFilter
 	{

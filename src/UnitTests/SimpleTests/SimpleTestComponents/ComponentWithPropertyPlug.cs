@@ -1,4 +1,4 @@
-namespace Compositional.Composer.UnitTests.SimpleTests.SimpleTestComponents
+namespace Appson.Composer.UnitTests.SimpleTests.SimpleTestComponents
 {
 	[Contract]
 	[Component]

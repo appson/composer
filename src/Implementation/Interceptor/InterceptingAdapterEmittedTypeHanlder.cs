@@ -1,8 +1,8 @@
 using System;
 using System.Reflection;
-using Compositional.Composer.Emitter;
+using Appson.Composer.Emitter;
 
-namespace Compositional.Composer.Interceptor
+namespace Appson.Composer.Interceptor
 {
 	/// <summary>
 	/// Acts as a dynamic adapter for any object, by implementing the IEmittedTypeHandler

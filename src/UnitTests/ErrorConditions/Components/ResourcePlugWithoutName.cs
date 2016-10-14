@@ -1,6 +1,6 @@
 ﻿using System.Resources;
 
-namespace Compositional.Composer.UnitTests.ErrorConditions.Components
+namespace Appson.Composer.UnitTests.ErrorConditions.Components
 {
 	[Contract]
 	[Component]

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
     public class ChildComponentContext : ComponentContext
     {

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.ServiceModel;
 using System.Xml;
-using Compositional.Composer.CompositionalQueries;
-using Compositional.Composer.CompositionXml.Info;
-using Compositional.Composer.CompositionXml.ValueParser;
-using Compositional.Composer.Factories;
-using Compositional.Composer.Factories.Remote;
-using Compositional.Composer.Utility;
+using Appson.Composer.CompositionalQueries;
+using Appson.Composer.CompositionXml.Info;
+using Appson.Composer.CompositionXml.ValueParser;
+using Appson.Composer.Factories;
+using Appson.Composer.Factories.Remote;
+using Appson.Composer.Utility;
 
-namespace Compositional.Composer.CompositionXml
+namespace Appson.Composer.CompositionXml
 {
 	internal static class CompositionInfoApplicator
 	{

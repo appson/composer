@@ -1,6 +1,6 @@
 using System;
 
-namespace Compositional.Composer.Emitter
+namespace Appson.Composer.Emitter
 {
 	/// <summary>
 	/// Specifies the type interface which can handle any method calls dynamically.

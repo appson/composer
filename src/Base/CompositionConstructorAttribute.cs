@@ -1,6 +1,6 @@
 using System;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	/// <summary>
 	/// Specifies the constructor to be used to create the component instance when composing.

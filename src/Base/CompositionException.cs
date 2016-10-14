@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	[Serializable]
 	public class CompositionException : Exception

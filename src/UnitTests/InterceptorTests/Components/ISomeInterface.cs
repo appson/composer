@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.InterceptorTests.Components
+﻿namespace Appson.Composer.UnitTests.InterceptorTests.Components
 {
 	public interface ISomeInterface
 	{

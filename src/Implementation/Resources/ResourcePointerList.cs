@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Resources;
 
-namespace Compositional.Composer.Resources
+namespace Appson.Composer.Resources
 {
 	public class ResourcePointerList : IResourcePointer
 	{

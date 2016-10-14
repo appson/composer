@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Compositional.Composer.Resources
+namespace Appson.Composer.Resources
 {
 	public class ResourceRepository
 	{

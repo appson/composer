@@ -8,8 +8,8 @@
     <ProjectGuid>{6E50834F-6735-4FDB-BFBE-3F436DB636AB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Compositional.Composer</RootNamespace>
-    <AssemblyName>Compositional.Composer</AssemblyName>
+    <RootNamespace>Appson.Composer</RootNamespace>
+    <AssemblyName>Appson.Composer</AssemblyName>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>

@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.CompositionByConstructor.Components
+﻿namespace Appson.Composer.UnitTests.CompositionByConstructor.Components
 {
 	[Component]
 	[ComponentCache(null)]

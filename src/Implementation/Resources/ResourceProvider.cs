@@ -3,7 +3,7 @@ using System.IO;
 using System.Resources;
 using System.Text.RegularExpressions;
 
-namespace Compositional.Composer.Resources
+namespace Appson.Composer.Resources
 {
 	[Component]
 	public class ResourceProvider : IResourceProvider

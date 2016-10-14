@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace Compositional.Composer.CompositionXml
+namespace Appson.Composer.CompositionXml
 {
 	internal class XmlProcessingContext
 	{

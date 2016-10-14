@@ -1,9 +1,9 @@
 using System;
 using System.Diagnostics;
-using Compositional.Composer.Interceptor;
+using Appson.Composer.Interceptor;
 
 
-namespace Compositional.Composer.Diagnostics
+namespace Appson.Composer.Diagnostics
 {
 	public class TracingInterceptor : ICallInterceptor
 	{

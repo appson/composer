@@ -1,8 +1,8 @@
-﻿using Compositional.Composer.UnitTests.CompositionNotification.Components;
-using Compositional.Composer.Utility;
+﻿using Appson.Composer.UnitTests.CompositionNotification.Components;
+using Appson.Composer.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.CompositionNotification
+namespace Appson.Composer.UnitTests.CompositionNotification
 {
 	[TestClass]
 	public class InitializePlugsTest

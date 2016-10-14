@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	/// <summary>
 	/// Specifies the extension points for the Composer implementation to plug additional

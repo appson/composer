@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace Compositional.Composer.Utility
+namespace Appson.Composer.Utility
 {
 	public static class ComposerLocalThreadBinder
 	{

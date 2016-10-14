@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.QueryVariety.Components
+﻿namespace Appson.Composer.UnitTests.QueryVariety.Components
 {
 	[Contract]
 	public interface IContractWithNoComponent

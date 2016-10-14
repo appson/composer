@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace Compositional.Composer.CompositionXml.Info
+namespace Appson.Composer.CompositionXml.Info
 {
 	[XmlRoot(Namespace = "http://www.compositional.net/schema/compositionXml.1.0.xsd")]
 	public class CompositionInfo

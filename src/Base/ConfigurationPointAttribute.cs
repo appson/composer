@@ -1,6 +1,6 @@
 using System;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	/// <summary>
 	/// Specifies a Configuration Point in a component, where a configuration

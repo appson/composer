@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
 using Microsoft.Win32;
 
-namespace Compositional.Composer.CompositionXml.ValueParser
+namespace Appson.Composer.CompositionXml.ValueParser
 {
 	internal static class SimpleTypeParserUtil
 	{

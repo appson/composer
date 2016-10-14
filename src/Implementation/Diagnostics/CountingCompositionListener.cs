@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Compositional.Composer.Utility.Matching;
+using Appson.Composer.Utility.Matching;
 
-namespace Compositional.Composer.Diagnostics
+namespace Appson.Composer.Diagnostics
 {
 	public class CountingCompositionListener : ICompositionListener
 	{

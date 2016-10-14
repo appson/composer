@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace Compositional.Composer.Web
+namespace Appson.Composer.Web
 {
 	[Contract]
 	[Component]

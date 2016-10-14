@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 
 
-namespace Compositional.Composer.Utility.Matching
+namespace Appson.Composer.Utility.Matching
 {
 	public class ConjunctionTypeFilter : ITypeFilter
 	{

@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace Compositional.Composer.CompositionXml.Info
+namespace Appson.Composer.CompositionXml.Info
 {
 	public abstract class CompositionCommandInfo
 	{

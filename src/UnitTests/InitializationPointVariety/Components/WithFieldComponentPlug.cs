@@ -1,5 +1,5 @@
 ﻿
-namespace Compositional.Composer.UnitTests.InitializationPointVariety.Components
+namespace Appson.Composer.UnitTests.InitializationPointVariety.Components
 {
 	[Contract]
 	[Component]

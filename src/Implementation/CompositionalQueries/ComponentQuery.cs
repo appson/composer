@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Compositional.Composer.CompositionalQueries
+namespace Appson.Composer.CompositionalQueries
 {
 	public class ComponentQuery : ICompositionalQuery
 	{

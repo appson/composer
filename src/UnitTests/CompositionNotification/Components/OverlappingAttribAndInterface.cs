@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.CompositionNotification.Components
+﻿namespace Appson.Composer.UnitTests.CompositionNotification.Components
 {
 	[Contract]
 	[Component]

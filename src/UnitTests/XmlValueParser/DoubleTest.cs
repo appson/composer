@@ -1,8 +1,8 @@
 ﻿using System;
-using Compositional.Composer.Utility;
+using Appson.Composer.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.XmlValueParser
+namespace Appson.Composer.UnitTests.XmlValueParser
 {
 	[TestClass]
 	public class DoubleTest

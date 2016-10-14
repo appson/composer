@@ -1,8 +1,8 @@
 using System.Xml;
 using System.Xml.Serialization;
-using Compositional.Composer.CompositionXml.ValueParser;
+using Appson.Composer.CompositionXml.ValueParser;
 
-namespace Compositional.Composer.CompositionXml.Info
+namespace Appson.Composer.CompositionXml.Info
 {
 	public class SetVariableInfo : CompositionCommandInfo
 	{

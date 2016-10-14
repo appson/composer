@@ -2,7 +2,7 @@
 using System;
 using System.Reflection;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	public class InitializationPointSpecification
 	{

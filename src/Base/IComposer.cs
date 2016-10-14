@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 //	public delegate void CompositionCompletionNotificationDelegate();
 

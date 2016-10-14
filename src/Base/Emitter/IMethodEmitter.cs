@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace Compositional.Composer.Emitter
+namespace Appson.Composer.Emitter
 {
 	[Contract]
 	public interface IMethodEmitter

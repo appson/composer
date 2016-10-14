@@ -1,7 +1,7 @@
 ﻿using System;
-using Compositional.Composer.Cache;
+using Appson.Composer.Cache;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	[AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
 	public class ComponentCacheAttribute : Attribute

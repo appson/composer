@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.Generics.Components
+﻿namespace Appson.Composer.UnitTests.Generics.Components
 {
 	[Component]
 	public class ClosedComponentOne : IGenericContractOne<string>

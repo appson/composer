@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Compositional.Composer.Diagnostics;
-using Compositional.Composer.Resources;
-using Compositional.Composer.Utility.Matching;
+using Appson.Composer.Diagnostics;
+using Appson.Composer.Resources;
+using Appson.Composer.Utility.Matching;
 
 
-namespace Compositional.Composer.CompositionXml
+namespace Appson.Composer.CompositionXml
 {
 	internal class TypeCache
 	{

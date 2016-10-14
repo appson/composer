@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Compositional.Composer.Factories
+namespace Appson.Composer.Factories
 {
 	public class GenericLocalComponentFactory : IComponentFactory
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	[Contract]
 	public interface IComponentContext

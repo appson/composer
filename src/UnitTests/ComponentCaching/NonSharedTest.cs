@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Compositional.Composer.UnitTests.ComponentInstantiations.Components;
+using Appson.Composer.UnitTests.ComponentInstantiations.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.ComponentInstantiations
+namespace Appson.Composer.UnitTests.ComponentInstantiations
 {
 	[TestClass]
 	public class NonSharedTest

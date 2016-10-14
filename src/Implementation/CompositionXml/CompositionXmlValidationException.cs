@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace Compositional.Composer.CompositionXml
+namespace Appson.Composer.CompositionXml
 {
 	[Serializable]
 	public class CompositionXmlValidationException : Exception

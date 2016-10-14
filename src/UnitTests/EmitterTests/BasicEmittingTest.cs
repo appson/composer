@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Reflection.Emit;
-using Compositional.Composer.Emitter;
-using Compositional.Composer.UnitTests.EmitterTests.Components;
+using Appson.Composer.Emitter;
+using Appson.Composer.UnitTests.EmitterTests.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Compositional.Composer.Utility;
+using Appson.Composer.Utility;
 
-namespace Compositional.Composer.UnitTests.EmitterTests
+namespace Appson.Composer.UnitTests.EmitterTests
 {
 	[TestClass]
 	public class BasicEmittingTest

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Resources;
 using System.Linq;
-using Compositional.Composer.Cache;
-using Compositional.Composer.CompositionalQueries;
-using Compositional.Composer.Utility;
+using Appson.Composer.CompositionalQueries;
+using Appson.Composer.Cache;
+using Appson.Composer.Utility;
 
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	public static class ComponentContextUtils
 	{

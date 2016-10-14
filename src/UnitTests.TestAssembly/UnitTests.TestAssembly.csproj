@@ -8,8 +8,8 @@
     <ProjectGuid>{D45633EA-94E9-4D46-A569-1CAC69381F14}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Compositional.Composer.UnitTests.TestAssembly</RootNamespace>
-    <AssemblyName>Compositional.Composer.UnitTests.TestAssembly</AssemblyName>
+    <RootNamespace>Appson.Composer.UnitTests.TestAssembly</RootNamespace>
+    <AssemblyName>Appson.Composer.UnitTests.TestAssembly</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>

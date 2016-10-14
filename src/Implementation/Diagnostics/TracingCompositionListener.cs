@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using Compositional.Composer.Emitter;
-using Compositional.Composer.Interceptor;
-using Compositional.Composer.Utility.Matching;
-using Compositional.Composer.Utility;
+using Appson.Composer.Emitter;
+using Appson.Composer.Interceptor;
+using Appson.Composer.Utility.Matching;
+using Appson.Composer.Utility;
 
 
-namespace Compositional.Composer.Diagnostics
+namespace Appson.Composer.Diagnostics
 {
 	public class TracingCompositionListener : ICompositionListener
 	{

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
-using Compositional.Composer.Emitter;
+using Appson.Composer.Emitter;
 
-namespace Compositional.Composer.Utility
+namespace Appson.Composer.Utility
 {
 	public static class EmitterExtensions
 	{

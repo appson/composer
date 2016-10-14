@@ -1,6 +1,6 @@
 using System;
 
-namespace Compositional.Composer.Emitter
+namespace Appson.Composer.Emitter
 {
 	/// <summary>
 	/// Abstract base class for all dynamically generated classes

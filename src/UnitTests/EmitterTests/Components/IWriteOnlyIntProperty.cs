@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.EmitterTests.Components
+﻿namespace Appson.Composer.UnitTests.EmitterTests.Components
 {
 	public interface IWriteOnlyIntProperty
 	{

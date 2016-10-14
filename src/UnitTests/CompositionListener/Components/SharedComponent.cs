@@ -1,6 +1,6 @@
-﻿using Compositional.Composer.Cache;
+﻿using Appson.Composer.Cache;
 
-namespace Compositional.Composer.UnitTests.CompositionListener.Components
+namespace Appson.Composer.UnitTests.CompositionListener.Components
 {
 	[Component]
 	[ComponentCache(typeof(ContractAgnosticComponentCache))]

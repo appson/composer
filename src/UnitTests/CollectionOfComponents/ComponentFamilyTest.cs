@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Compositional.Composer.UnitTests.CollectionOfComponents.Components;
+using Appson.Composer.UnitTests.CollectionOfComponents.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.CollectionOfComponents
+namespace Appson.Composer.UnitTests.CollectionOfComponents
 {
 	[TestClass]
 	public class ComponentFamilyTest

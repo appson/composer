@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Threading;
 
-namespace Compositional.Composer.Emitter
+namespace Appson.Composer.Emitter
 {
 	[Component]
 	[ComponentCache(null)]

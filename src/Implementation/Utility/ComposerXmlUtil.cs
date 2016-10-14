@@ -4,11 +4,11 @@ using System.Reflection;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
-using Compositional.Composer.CompositionXml;
-using Compositional.Composer.CompositionXml.Info;
+using Appson.Composer.CompositionXml;
+using Appson.Composer.CompositionXml.Info;
 
 
-namespace Compositional.Composer.Utility
+namespace Appson.Composer.Utility
 {
 	public static class ComposerXmlUtil
 	{

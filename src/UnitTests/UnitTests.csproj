@@ -9,8 +9,8 @@
     <ProjectGuid>{BE2E8CCD-71E9-4A16-92AE-A9BF590DA301}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Compositional.Composer.UnitTests</RootNamespace>
-    <AssemblyName>Compositional.Composer.UnitTests</AssemblyName>
+    <RootNamespace>Appson.Composer.UnitTests</RootNamespace>
+    <AssemblyName>Appson.Composer.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

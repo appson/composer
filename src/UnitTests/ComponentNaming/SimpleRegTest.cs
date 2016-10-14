@@ -1,7 +1,7 @@
-﻿using Compositional.Composer.UnitTests.ComponentNaming.Components;
+﻿using Appson.Composer.UnitTests.ComponentNaming.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.ComponentNaming
+namespace Appson.Composer.UnitTests.ComponentNaming
 {
 	[TestClass]
 	public class SimpleRegTest

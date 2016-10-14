@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.RequiredAndOptionalInitPoint.Components
+﻿namespace Appson.Composer.UnitTests.RequiredAndOptionalInitPoint.Components
 {
 	[Component]
 	public class PluggedComponent : IPluggedContract

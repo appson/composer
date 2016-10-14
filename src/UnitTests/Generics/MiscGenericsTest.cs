@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Compositional.Composer.UnitTests.Generics.Components;
+using Appson.Composer.UnitTests.Generics.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.Generics
+namespace Appson.Composer.UnitTests.Generics
 {
 	[TestClass]
 	public class MiscGenericsTest

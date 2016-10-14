@@ -1,9 +1,9 @@
-﻿using Compositional.Composer.UnitTests.LazyTests.Components;
-using Compositional.Composer.Utility;
+﻿using Appson.Composer.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using Appson.Composer.UnitTests.LazyTests.Components;
 
-namespace Compositional.Composer.UnitTests.LazyTests
+namespace Appson.Composer.UnitTests.LazyTests
 {
 	[TestClass]
 	public class LazyGetAllComponentsTest

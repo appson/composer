@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Compositional.Composer.Interceptor
+namespace Appson.Composer.Interceptor
 {
 	/// <summary>
 	/// Encapsulates an exception that has occured during interception of a method call.

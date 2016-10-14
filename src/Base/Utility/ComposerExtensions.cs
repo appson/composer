@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Compositional.Composer.Utility
+namespace Appson.Composer.Utility
 {
 	public static class ComposerExtensions
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Compositional.Composer.UnitTests.CompositionListener.Components
+namespace Appson.Composer.UnitTests.CompositionListener.Components
 {
 	internal class ParameterRecorderListener : ICompositionListener
 	{

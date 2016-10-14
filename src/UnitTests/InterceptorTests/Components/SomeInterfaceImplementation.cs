@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Compositional.Composer.UnitTests.InterceptorTests.Components
+namespace Appson.Composer.UnitTests.InterceptorTests.Components
 {
 	internal class SomeInterfaceImplementation : ISomeInterface
 	{

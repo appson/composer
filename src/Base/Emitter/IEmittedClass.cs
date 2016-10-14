@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Compositional.Composer.Emitter
+namespace Appson.Composer.Emitter
 {
 	public interface IEmittedClass
 	{

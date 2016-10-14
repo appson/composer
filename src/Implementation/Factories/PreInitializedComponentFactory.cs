@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Compositional.Composer.Factories
+namespace Appson.Composer.Factories
 {
 	public class PreInitializedComponentFactory : IComponentFactory
 	{

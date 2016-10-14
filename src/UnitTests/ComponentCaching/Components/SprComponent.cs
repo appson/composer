@@ -1,6 +1,6 @@
-﻿using Compositional.Composer.Cache;
+﻿using Appson.Composer.Cache;
 
-namespace Compositional.Composer.UnitTests.ComponentInstantiations.Components
+namespace Appson.Composer.UnitTests.ComponentInstantiations.Components
 {
 	[Contract]
 	[Component]

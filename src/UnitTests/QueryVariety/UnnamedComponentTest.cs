@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Compositional.Composer.UnitTests.QueryVariety.Components;
+using Appson.Composer.UnitTests.QueryVariety.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.QueryVariety
+namespace Appson.Composer.UnitTests.QueryVariety
 {
 	[TestClass]
 	public class UnnamedComponentTest

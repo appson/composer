@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.ConfigurationVariables
+namespace Appson.Composer.UnitTests.ConfigurationVariables
 {
 	[TestClass]
 	public class GetVariableTest

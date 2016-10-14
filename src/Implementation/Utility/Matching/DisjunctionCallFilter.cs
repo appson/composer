@@ -1,8 +1,8 @@
 using System.Linq;
-using Compositional.Composer.Interceptor;
+using Appson.Composer.Interceptor;
 
 
-namespace Compositional.Composer.Utility.Matching
+namespace Appson.Composer.Utility.Matching
 {
 	public class DisjunctionCallFilter : ICallFilter
 	{

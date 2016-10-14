@@ -1,6 +1,6 @@
 using System.Xml;
 
-namespace Compositional.Composer.CompositionXml.ValueParser
+namespace Appson.Composer.CompositionXml.ValueParser
 {
 	internal static class ValidatorUtil
 	{

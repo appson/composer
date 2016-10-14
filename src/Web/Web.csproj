@@ -8,8 +8,8 @@
     <ProjectGuid>{122CF7E1-1005-41CF-AF29-DA3550BCF67D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Compositional.Composer.Web</RootNamespace>
-    <AssemblyName>Compositional.Composer.Web</AssemblyName>
+    <RootNamespace>Appson.Composer.Web</RootNamespace>
+    <AssemblyName>Appson.Composer.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>

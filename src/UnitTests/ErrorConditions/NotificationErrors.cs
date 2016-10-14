@@ -1,7 +1,7 @@
-﻿using Compositional.Composer.UnitTests.ErrorConditions.Components;
+﻿using Appson.Composer.UnitTests.ErrorConditions.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.ErrorConditions
+namespace Appson.Composer.UnitTests.ErrorConditions
 {
 	[TestClass]
 	public class NotificationErrors

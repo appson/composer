@@ -1,7 +1,7 @@
 ﻿using System;
-using Compositional.Composer.Interceptor;
+using Appson.Composer.Interceptor;
 
-namespace Compositional.Composer.UnitTests.InterceptorTests.Components
+namespace Appson.Composer.UnitTests.InterceptorTests.Components
 {
 	internal class RecordingInterceptor : ICallInterceptor
 	{

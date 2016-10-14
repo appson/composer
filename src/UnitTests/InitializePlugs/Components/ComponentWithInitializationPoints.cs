@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.InitializePlugs.Components
+﻿namespace Appson.Composer.UnitTests.InitializePlugs.Components
 {
 	[Contract]
 	[Component]

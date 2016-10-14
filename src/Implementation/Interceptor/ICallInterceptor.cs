@@ -1,4 +1,4 @@
-namespace Compositional.Composer.Interceptor
+namespace Appson.Composer.Interceptor
 {
 	/// <summary>
 	/// Specifies an interface for call interceptors, where the implementation can be notified

@@ -1,4 +1,4 @@
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	/// <summary>
 	/// Provides a means for the Component to be notified of the completion of composition process.

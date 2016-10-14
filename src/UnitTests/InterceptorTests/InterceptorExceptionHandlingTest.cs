@@ -1,11 +1,11 @@
 ﻿using System;
-using Compositional.Composer.Emitter;
-using Compositional.Composer.Interceptor;
-using Compositional.Composer.UnitTests.InterceptorTests.Components;
-using Compositional.Composer.Utility;
+using Appson.Composer.Emitter;
+using Appson.Composer.Interceptor;
+using Appson.Composer.UnitTests.InterceptorTests.Components;
+using Appson.Composer.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.InterceptorTests
+namespace Appson.Composer.UnitTests.InterceptorTests
 {
 	[TestClass]
 	public class InterceptorExceptionHandlingTest

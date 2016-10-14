@@ -1,8 +1,8 @@
-﻿using Compositional.Composer.UnitTests.TestAssembly;
+﻿using Appson.Composer.UnitTests.TestAssembly;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Compositional.Composer.Utility;
+using Appson.Composer.Utility;
 
-namespace Compositional.Composer.UnitTests.AssemblyTests
+namespace Appson.Composer.UnitTests.AssemblyTests
 {
 	[TestClass]
 	public class AssemblyUtilTest

@@ -1,8 +1,8 @@
-﻿using Compositional.Composer.UnitTests.LazyTests.Components;
+﻿using Appson.Composer.UnitTests.LazyTests.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Compositional.Composer.Utility;
+using Appson.Composer.Utility;
 
-namespace Compositional.Composer.UnitTests.LazyTests
+namespace Appson.Composer.UnitTests.LazyTests
 {
 	[TestClass]
 	public class LazyGetComponentTest

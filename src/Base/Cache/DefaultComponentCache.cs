@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Compositional.Composer.Cache
+namespace Appson.Composer.Cache
 {
 	[Contract]
 	[Component]

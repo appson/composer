@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Compositional.Composer.UnitTests.XmlValueParser.Components;
-using Compositional.Composer.Utility;
+using Appson.Composer.UnitTests.XmlValueParser.Components;
+using Appson.Composer.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.XmlValueParser
+namespace Appson.Composer.UnitTests.XmlValueParser
 {
 	[TestClass]
 	public class ObjectTest

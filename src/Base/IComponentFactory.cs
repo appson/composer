@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	/// <summary>
 	/// Specifies the interface required by factories that actually create the component instance.

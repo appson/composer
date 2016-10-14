@@ -1,6 +1,6 @@
 using System;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	/// <summary>
 	/// Designates a field or property to be a Resource Manager Plug, in order for the

@@ -4,7 +4,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 
-namespace Compositional.Composer.Factories.Remote
+namespace Appson.Composer.Factories.Remote
 {
 	public class RemoteComponentFactory : IComponentFactory
 	{

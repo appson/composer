@@ -1,7 +1,7 @@
 ﻿using System;
-using Compositional.Composer.Emitter;
+using Appson.Composer.Emitter;
 
-namespace Compositional.Composer.UnitTests.EmitterTests.Components
+namespace Appson.Composer.UnitTests.EmitterTests.Components
 {
 	internal class ReferenceMethodWithoutArgs : EmittedClassBase, IMethodWithoutArgs
 	{

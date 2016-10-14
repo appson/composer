@@ -1,7 +1,7 @@
-using Compositional.Composer.UnitTests.SimpleTests.SimpleTestComponents;
+using Appson.Composer.UnitTests.SimpleTests.SimpleTestComponents;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.SimpleTests
+namespace Appson.Composer.UnitTests.SimpleTests
 {
 	[TestClass]
 	public class SimpleComponentTest

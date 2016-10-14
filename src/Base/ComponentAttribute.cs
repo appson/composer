@@ -1,6 +1,6 @@
 using System;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	/// <summary>
 	/// Marks a class as being a "Component", which can then provide functionality to

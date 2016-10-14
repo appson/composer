@@ -1,6 +1,6 @@
 using System;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	/// <summary>
 	/// The primary key structure to identify component contracts, which contains a

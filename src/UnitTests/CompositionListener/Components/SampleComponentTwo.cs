@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.CompositionListener.Components
+﻿namespace Appson.Composer.UnitTests.CompositionListener.Components
 {
 	[Component]
 	public class SampleComponentTwo : ISampleContract

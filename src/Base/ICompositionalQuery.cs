@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer
+﻿namespace Appson.Composer
 {
 	public interface ICompositionalQuery
 	{

@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.Factories
+﻿namespace Appson.Composer.Factories
 {
 	public class ConstructorArgSpecification
 	{

@@ -1,7 +1,7 @@
 using System;
 
 
-namespace Compositional.Composer.Utility.Matching
+namespace Appson.Composer.Utility.Matching
 {
 	public class DelegateTypeFilter : ITypeFilter
 	{

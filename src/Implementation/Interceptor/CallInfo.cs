@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Compositional.Composer.Interceptor
+namespace Appson.Composer.Interceptor
 {
 	/// <summary>
 	/// Encapsulates all available information when performing a method call,

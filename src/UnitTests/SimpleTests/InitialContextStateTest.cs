@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.SimpleTests
+namespace Appson.Composer.UnitTests.SimpleTests
 {
 	[TestClass]
 	public class InitialContextStateTest

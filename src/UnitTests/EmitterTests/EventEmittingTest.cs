@@ -1,7 +1,7 @@
-using Compositional.Composer.UnitTests.EmitterTests.Components;
+using Appson.Composer.UnitTests.EmitterTests.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.EmitterTests
+namespace Appson.Composer.UnitTests.EmitterTests
 {
 	[TestClass]
 	public class EventEmittingTest

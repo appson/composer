@@ -4,7 +4,7 @@ using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 
-namespace Compositional.Composer.Factories.Remote
+namespace Appson.Composer.Factories.Remote
 {
 	public class CustomOperationBehavior : Attribute, IOperationBehavior
 	{

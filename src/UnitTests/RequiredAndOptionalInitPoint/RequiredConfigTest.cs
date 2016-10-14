@@ -1,8 +1,8 @@
-﻿using Compositional.Composer.UnitTests.RequiredAndOptionalInitPoint.Components;
-using Compositional.Composer.Utility;
+﻿using Appson.Composer.UnitTests.RequiredAndOptionalInitPoint.Components;
+using Appson.Composer.Utility;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.RequiredAndOptionalInitPoint
+namespace Appson.Composer.UnitTests.RequiredAndOptionalInitPoint
 {
 	[TestClass]
 	public class RequiredConfigTest

@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using System.Resources;
 
-namespace Compositional.Composer.Resources
+namespace Appson.Composer.Resources
 {
 	public class AssemblyResourcePointer : IResourcePointer
 	{

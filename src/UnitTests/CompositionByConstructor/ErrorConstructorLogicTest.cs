@@ -1,7 +1,7 @@
-﻿using Compositional.Composer.UnitTests.CompositionByConstructor.Components;
+﻿using Appson.Composer.UnitTests.CompositionByConstructor.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.CompositionByConstructor
+namespace Appson.Composer.UnitTests.CompositionByConstructor
 {
 	[TestClass]
 	public class ErrorConstructorLogicTest

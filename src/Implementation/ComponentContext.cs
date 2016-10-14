@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Compositional.Composer.Cache;
-using Compositional.Composer.Emitter;
-using Compositional.Composer.Factories;
+using Appson.Composer.Cache;
+using Appson.Composer.Emitter;
+using Appson.Composer.Factories;
 
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	[Contract]
 	[Component]

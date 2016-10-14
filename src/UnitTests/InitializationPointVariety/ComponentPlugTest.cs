@@ -1,7 +1,7 @@
-﻿using Compositional.Composer.UnitTests.InitializationPointVariety.Components;
+﻿using Appson.Composer.UnitTests.InitializationPointVariety.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.InitializationPointVariety
+namespace Appson.Composer.UnitTests.InitializationPointVariety
 {
 	[TestClass]
 	public class ComponentPlugTest

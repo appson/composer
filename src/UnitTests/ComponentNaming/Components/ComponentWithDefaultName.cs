@@ -1,4 +1,4 @@
-﻿namespace Compositional.Composer.UnitTests.ComponentNaming.Components
+﻿namespace Appson.Composer.UnitTests.ComponentNaming.Components
 {
 	[Contract]
 	[Component("defaultName")]

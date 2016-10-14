@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Compositional.Composer.Cache;
-using Compositional.Composer.CompositionalQueries;
+using Appson.Composer.Cache;
+using Appson.Composer.CompositionalQueries;
 
 
-namespace Compositional.Composer.Factories
+namespace Appson.Composer.Factories
 {
 	public class LocalComponentFactory : IComponentFactory
 	{

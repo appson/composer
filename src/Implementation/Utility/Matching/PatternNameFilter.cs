@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace Compositional.Composer.Utility.Matching
+namespace Appson.Composer.Utility.Matching
 {
 	public class PatternNameFilter : INameFilter
 	{

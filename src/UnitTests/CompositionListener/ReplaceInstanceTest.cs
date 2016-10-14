@@ -1,7 +1,7 @@
-﻿using Compositional.Composer.UnitTests.CompositionListener.Components;
+﻿using Appson.Composer.UnitTests.CompositionListener.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.CompositionListener
+namespace Appson.Composer.UnitTests.CompositionListener
 {
 	[TestClass]
 	public class ReplaceInstanceTest

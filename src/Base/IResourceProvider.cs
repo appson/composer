@@ -3,7 +3,7 @@ using System.IO;
 using System.Resources;
 using System.Text.RegularExpressions;
 
-namespace Compositional.Composer
+namespace Appson.Composer
 {
 	/// <summary>
 	/// Specifies the interface to be used to query for ResourceManagers, when

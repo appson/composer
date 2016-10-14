@@ -1,8 +1,8 @@
-﻿using Compositional.Composer.Factories;
-using Compositional.Composer.UnitTests.RegisterVariety.Components;
+﻿using Appson.Composer.Factories;
+using Appson.Composer.UnitTests.RegisterVariety.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Compositional.Composer.UnitTests.RegisterVariety
+namespace Appson.Composer.UnitTests.RegisterVariety
 {
 	[TestClass]
 	public class RegisterVarietyTest
