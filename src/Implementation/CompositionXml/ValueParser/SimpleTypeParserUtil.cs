@@ -226,67 +226,67 @@ namespace Appson.Composer.CompositionXml.ValueParser
 		public static SByte ParseSByte(string value)
 		{
 			value = value.Trim();
-			return SByte.Parse(value);
+			return SByte.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static Byte ParseByte(string value)
 		{
 			value = value.Trim();
-			return Byte.Parse(value);
+			return Byte.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static Int16 ParseInt16(string value)
 		{
 			value = value.Trim();
-			return Int16.Parse(value);
+			return Int16.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static Int32 ParseInt32(string value)
 		{
 			value = value.Trim();
-			return Int32.Parse(value);
+			return Int32.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static Int64 ParseInt64(string value)
 		{
 			value = value.Trim();
-			return Int64.Parse(value);
+			return Int64.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static UInt16 ParseUInt16(string value)
 		{
 			value = value.Trim();
-			return UInt16.Parse(value);
+			return UInt16.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static UInt32 ParseUInt32(string value)
 		{
 			value = value.Trim();
-			return UInt32.Parse(value);
+			return UInt32.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static UInt64 ParseUInt64(string value)
 		{
 			value = value.Trim();
-			return UInt64.Parse(value);
+			return UInt64.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static Single ParseSingle(string value)
 		{
 			value = value.Trim();
-			return Single.Parse(value);
+			return Single.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static Double ParseDouble(string value)
 		{
 			value = value.Trim();
-			return Double.Parse(value);
+			return Double.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static DateTime ParseDateTime(string value)
 		{
 			value = value.Trim();
-			return DateTime.Parse(value);
+			return DateTime.Parse(value, CultureInfo.InvariantCulture);
 		}
 
 		public static String ParseString(string value)
