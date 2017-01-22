@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Appson.Composer.Implementation</id>
+    <version>1.1.0</version>
+    <title>Appson Composer - Implementation</title>
+    <summary>Implementation of the contracts defined in Base package</summary>
+    <authors>appson</authors>
+    <owners>appson</owners>
+    <licenseUrl>https://github.com/appson/composer</licenseUrl>
+    <projectUrl>https://github.com/appson/composer</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      Composer is an extensible Compositional Architecture framework,
+      providing a set of functionality such as Inversion of Control container (IoC),
+      Dependency Injection (DI), Plug-in framework,
+      Aspect Oriented Programming (AOP),
+      Configurability and Composability for components.
+    </description>
+    <copyright>Copyright appson.tech 2017</copyright>
+    <tags>composer iocdi ioc-di dependency-injection</tags>
+  </metadata>
+</package>
