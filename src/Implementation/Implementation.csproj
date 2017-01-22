@@ -57,6 +57,10 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Appson.Composer, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Appson.Composer.Base.1.1.0\lib\net40-client\Appson.Composer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -153,12 +157,6 @@
     <Compile Include="Utility\ComposerXmlUtil.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Base\Base.csproj">
-      <Project>{6E50834F-6735-4FDB-BFBE-3F436DB636AB}</Project>
-      <Name>Base</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +185,8 @@
     <None Include="CompositionXml\Schema\compositionXml.1.0.xsx">
       <DependentUpon>compositionXml.1.0.xsd</DependentUpon>
     </None>
+    <None Include="Implementation.nuspec" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

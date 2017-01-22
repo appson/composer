@@ -38,6 +38,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Appson.Composer, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Appson.Composer.Base.1.1.0\lib\net40-client\Appson.Composer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Appson.Composer.Implementation, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Appson.Composer.Implementation.1.1.0\lib\net40-client\Appson.Composer.Implementation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -94,17 +102,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Base\Base.csproj">
-      <Project>{6E50834F-6735-4FDB-BFBE-3F436DB636AB}</Project>
-      <Name>Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Implementation\Implementation.csproj">
-      <Project>{fc5e430f-c51c-4988-9de4-278c7579385b}</Project>
-      <Name>Implementation</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Web.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
