@@ -24,6 +24,9 @@ namespace Appson.Composer.Factories
 
 		public LocalComponentFactory(Type targetType)
 		{
+            if (targetType == null)
+                throw new ArgumentNullException(nameof(targetType));
+
 			_targetType = targetType;
 
 			_composer = null;
@@ -125,12 +128,9 @@ namespace Appson.Composer.Factories
 
 		#region Public properties
 
-		public Type TargetType
-		{
-			get { return _targetType; }
-		}
+		public Type TargetType => _targetType;
 
-		public ConstructorInfo TargetConstructor
+	    public ConstructorInfo TargetConstructor
 		{
 			get { return _targetConstructor; }
 			set
@@ -177,10 +177,20 @@ namespace Appson.Composer.Factories
 
 		private void CompleteConfiguration()
 		{
-			LoadInitializationPoints();
-			LoadTargetConstructor();
-			LoadComponentCache();
-			LoadCompositionNotificationMethods();
+		    try
+		    {
+		        LoadInitializationPoints();
+		        LoadTargetConstructor();
+		        LoadComponentCache();
+		        LoadCompositionNotificationMethods();
+
+		    }
+		    catch(Exception e)
+		    {
+		        throw new CompositionException(
+                    $"Could not initialize LocalComponentFactory for type '{_targetType.FullName}'", 
+                    e);
+		    }
 		}
 
 		private void LoadTargetConstructor()
@@ -229,10 +239,8 @@ namespace Appson.Composer.Factories
 			{
 				if (!ComponentContextUtils.HasContractAttribute(parameterInfo.ParameterType))
 					throw new CompositionException(
-						string.Format(
-							"Parameter '{0}' of the constructor of type '{1}' is not of a Contract type. " +
-							"All parameters of the composition constructor must be of Contract types, so that Composer can query for a component and pass it to them.",
-							parameterInfo.Name, _targetType.FullName));
+					        $"Parameter '{parameterInfo.Name}' of the constructor of type '{_targetType.FullName}' is not of a Contract type. " +
+					        "All parameters of the composition constructor must be of Contract types, so that Composer can query for a component and pass it to them.");
 
 				if ((queryNames != null) && (queryNames.Length > parameterInfo.Position))
 					_constructorArgs.Add(new ConstructorArgSpecification(true,
@@ -337,7 +345,7 @@ namespace Appson.Composer.Factories
 
 		private static ConstructorInfo FindDefaultConstructor(IEnumerable<ConstructorInfo> candidateConstructors)
 		{
-			return candidateConstructors.Where(c => c.GetParameters().Length == 0).FirstOrDefault();
+			return candidateConstructors.FirstOrDefault(c => c.GetParameters().Length == 0);
 		}
 
 		private ComponentCacheEntry CreateComponent(ContractIdentity contract, IEnumerable<ICompositionListener> listenerChain)
@@ -373,10 +381,9 @@ namespace Appson.Composer.Factories
 			             		OriginalComponentInstance = originalComponentInstance
 			             	};
 
-			if (_componentCache != null)
-				_componentCache.PutInCache(contract, result);
+		    _componentCache?.PutInCache(contract, result);
 
-			// Complete the object initialization by applying the initialization
+		    // Complete the object initialization by applying the initialization
 			// points. They should be applied to the original component instance,
 			// as the reference may have been changed by composition listeners to
 			// an instance that does not have the original configuration points.
@@ -400,6 +407,9 @@ namespace Appson.Composer.Factories
 		private List<object> PrepareConstructorArguments()
 		{
 			var constructorArguments = new List<object>();
+
+            if (_constructorArgs == null)
+                throw new CompositionException("LocalComponentFactory is not property initialized. _constructorArgs is null.");
 
 			foreach (var cas in _constructorArgs)
 			{
@@ -482,8 +492,7 @@ namespace Appson.Composer.Factories
 			{
 				if (initializationPoint.Query == null)
 					throw new CompositionException(
-						string.Format("Query is null for initialization point '{0}' on component instance of type '{1}'",
-						              initializationPoint.Name, _targetType.FullName));
+					        $"Query is null for initialization point '{initializationPoint.Name}' on component instance of type '{_targetType.FullName}'");
 
 				var initializationPointResult = initializationPoint.Query.Query(_composer);
 

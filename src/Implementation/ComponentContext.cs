@@ -81,9 +81,9 @@ namespace Appson.Composer
         public virtual void Register(Type contract, string name, Type component)
 		{
 			if (contract == null)
-				throw new ArgumentNullException("contract");
+				throw new ArgumentNullException(nameof(contract));
 			if (component == null)
-				throw new ArgumentNullException("component");
+				throw new ArgumentNullException(nameof(component));
 
 			ComponentContextUtils.ThrowIfNotSubTypeOf(contract, component);
 
@@ -115,7 +115,7 @@ namespace Appson.Composer
         public virtual void Register(string name, Type componentType)
 		{
 			if (componentType == null)
-				throw new ArgumentNullException("componentType");
+				throw new ArgumentNullException(nameof(componentType));
 
 			Register(name, CreateDefaultFactory(componentType));
 		}
@@ -128,9 +128,9 @@ namespace Appson.Composer
         public virtual void Register(Type contract, string name, IComponentFactory factory)
 		{
 			if (contract == null)
-				throw new ArgumentNullException("contract");
+				throw new ArgumentNullException(nameof(contract));
 			if (factory == null)
-				throw new ArgumentNullException("factory");
+				throw new ArgumentNullException(nameof(factory));
 
 			InternalRegister(contract, name, factory, true);
 		}
@@ -180,11 +180,10 @@ namespace Appson.Composer
         public virtual void RegisterCompositionListener(string name, ICompositionListener listener)
 		{
 			if (name == null)
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 
 			if ((_compositionListeners.ContainsKey(name)) && (listener != null))
-				throw new ArgumentException(
-					string.Format("Another composition listener with the name '{0}' is already registered.", name));
+				throw new ArgumentException($"Another composition listener with the name '{name}' is already registered.");
 
 			if (listener == null)
 				_compositionListeners.Remove(name);
@@ -280,7 +279,7 @@ namespace Appson.Composer
         public virtual object GetVariable(string name)
 		{
 			if (name == null)
-				throw new ArgumentNullException("name");
+				throw new ArgumentNullException(nameof(name));
 
 			var variableValue = _variables.ContainsKey(name) ? _variables[name] : null;
 
@@ -305,8 +304,7 @@ namespace Appson.Composer
 			{
 				if (initializationPoint.Query == null)
 					throw new CompositionException(
-						string.Format("Query is null for initialization point '{0}' on component instance of type '{1}'",
-						              initializationPoint.Name, componentType.FullName));
+					        $"Query is null for initialization point '{initializationPoint.Name}' on component instance of type '{componentType.FullName}'");
 
 				var initializationPointResult = initializationPoint.Query.Query(this);
 				initializationPointResults.Add(initializationPointResult);
@@ -352,9 +350,9 @@ namespace Appson.Composer
 									  bool performChecking)
 		{
 			if (contract == null)
-				throw new ArgumentNullException("contract");
+				throw new ArgumentNullException(nameof(contract));
 			if (factory == null)
-				throw new ArgumentNullException("factory");
+				throw new ArgumentNullException(nameof(factory));
 
 			if (performChecking)
 				ComponentContextUtils.ThrowIfNotContract(contract);
