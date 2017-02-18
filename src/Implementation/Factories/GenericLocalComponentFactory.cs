@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using Appson.Composer.Cache;
 
 namespace Appson.Composer.Factories
 {
@@ -16,11 +16,8 @@ namespace Appson.Composer.Factories
         /// </summary>
         private readonly IDictionary<Type, Type> _contractTypes;
 
-        private readonly IDictionary<Type, LocalComponentFactory> _subFactories;
-
+        private readonly ConcurrentDictionary<Type, LocalComponentFactory> _subFactories;
         private readonly Type _targetType;
-        private IComponentCache _componentCache;
-
         private readonly List<InitializationPointSpecification> _initializationPoints;
 
         public GenericLocalComponentFactory(Type targetType)
@@ -32,7 +29,7 @@ namespace Appson.Composer.Factories
             _composer = null;
 
             _contractTypes = new Dictionary<Type, Type>();
-            _subFactories = new Dictionary<Type, LocalComponentFactory>();
+            _subFactories = new ConcurrentDictionary<Type, LocalComponentFactory>();
             _initializationPoints = new List<InitializationPointSpecification>();
 
             ExtractContractTypes();
@@ -43,8 +40,6 @@ namespace Appson.Composer.Factories
         public void Initialize(IComposer composer)
         {
             _composer = composer;
-            LoadComponentCache();
-
         }
 
         public IEnumerable<Type> GetContractTypes()
@@ -72,17 +67,15 @@ namespace Appson.Composer.Factories
             var originalGenericContractType = _contractTypes[requestedGenericContractType];
             var closedTargetType = CloseGenericType(_targetType, originalGenericContractType, requestedClosedContractType);
 
-            lock (_componentCache.SynchronizationObject)
+            var subFactory = _subFactories.GetOrAdd(closedTargetType, type =>
             {
-                if (!_subFactories.ContainsKey(closedTargetType))
-                {
-                    _subFactories[closedTargetType] = new LocalComponentFactory(closedTargetType);
-                    _subFactories[closedTargetType].InitializationPoints.AddRange(_initializationPoints);
-                    _subFactories[closedTargetType].Initialize(_composer);
-                }
+                var newSubFactory = new LocalComponentFactory(type);
+                newSubFactory.InitializationPoints.AddRange(_initializationPoints);
+                newSubFactory.Initialize(_composer);
+                return newSubFactory;
+            });
 
-                return _subFactories[closedTargetType].GetComponentInstance(contract, listenerChain);
-            }
+            return subFactory.GetComponentInstance(contract, listenerChain);
         }
 
         #endregion
@@ -103,38 +96,6 @@ namespace Appson.Composer.Factories
         #endregion
 
         #region Private helper methods
-
-        private void LoadComponentCache()
-        {
-            var attribute = ComponentContextUtils.GetComponentCacheAttribute(_targetType);
-
-            if (attribute == null)
-            {
-                _componentCache = _composer.GetComponent<DefaultComponentCache>();
-                return;
-            }
-
-            if (attribute.ComponentCacheType == null)
-            {
-                _componentCache = null;
-                return;
-            }
-
-            var result = _composer.GetComponent(attribute.ComponentCacheType, attribute.ComponentCacheName);
-            if (result == null)
-                throw new CompositionException("Can not register component type " + _targetType.FullName +
-                                               " because the specified ComponentCache contract (type=" +
-                                               attribute.ComponentCacheType.FullName +
-                                               ", name=" + (attribute.ComponentCacheName ?? "null") +
-                                               ") could not be queried from Composer.");
-
-            if (!(result is IComponentCache))
-                throw new CompositionException("Component cache type " + result.GetType().FullName +
-                                               " that is specified as component cache handler on component " + _targetType.FullName +
-                                               " does not implement IComponentCache interface.");
-
-            _componentCache = (IComponentCache)result;
-        }
 
         private void ExtractContractTypes()
         {
