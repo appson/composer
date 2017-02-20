@@ -19,5 +19,8 @@
     </description>
     <copyright>Copyright appson.tech 2017</copyright>
     <tags>composer iocdi ioc-di dependency-injection</tags>
+    <dependencies>
+      <dependency id="Appson.Composer.Base" version="1.1.0" />
+    </dependencies>
   </metadata>
 </package>
