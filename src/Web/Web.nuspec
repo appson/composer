@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Appson.Composer.Web</id>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <title>Appson Composer - Web</title>
     <summary>Extensions and utilities for using Composer in Web environment</summary>
     <authors>appson</authors>
