@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Appson.Composer.Web.Configuration
+namespace Appson.Composer.Configuration
 {
 	public class SetupCompositionXmlsCollection : ConfigurationElementCollection
 	{

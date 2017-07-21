@@ -3,7 +3,7 @@
 namespace Appson.Composer
 {
 	[Contract]
-	public interface IComponentContext
+	public interface IComponentContext : IComposer
 	{
 		void Register(Type contract, Type component);
 		void Register(Type component);

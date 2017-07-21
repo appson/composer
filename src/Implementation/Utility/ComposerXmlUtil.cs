@@ -14,7 +14,7 @@ namespace Appson.Composer.Utility
 	{
 		#region Public methods
 
-		public static void ProcessCompositionXml(this ComponentContext context, Stream configurationStream)
+		public static void ProcessCompositionXml(this IComponentContext context, Stream configurationStream)
 		{
 			if (context == null)
 				throw new ArgumentNullException(nameof(context));
@@ -24,7 +24,7 @@ namespace Appson.Composer.Utility
 			xmlProcessingContext.ThrowIfErrors();
 		}
 
-		public static void ProcessCompositionXml(this ComponentContext context, string configurationPath)
+		public static void ProcessCompositionXml(this IComponentContext context, string configurationPath)
 		{
 			if (context == null)
 				throw new ArgumentNullException(nameof(context));
@@ -34,12 +34,12 @@ namespace Appson.Composer.Utility
 			xmlProcessingContext.ThrowIfErrors();
 		}
 
-		public static void ProcessCompositionXmlFromResource(this ComponentContext context, string configurationResourceName)
+		public static void ProcessCompositionXmlFromResource(this IComponentContext context, string configurationResourceName)
 		{
 			context.ProcessCompositionXmlFromResource(Assembly.GetCallingAssembly(), configurationResourceName);
 		}
 
-		public static void ProcessCompositionXmlFromResource(this ComponentContext context, Assembly assembly, string configurationResourceName)
+		public static void ProcessCompositionXmlFromResource(this IComponentContext context, Assembly assembly, string configurationResourceName)
 		{
 			if (context == null)
 				throw new ArgumentNullException(nameof(context));
@@ -68,12 +68,9 @@ namespace Appson.Composer.Utility
 			var schema =
 				XmlSchema.Read(
 					xsdStream,
-					delegate(object sender, ValidationEventArgs e)
-					{
-						throw new CompositionXmlValidationException(
-							"Could not load XSD for Composition XML. Message: " + e.Message + "; Sender: " +
-							sender, e.Exception);
-					});
+				    (sender, e) => throw new CompositionXmlValidationException(
+				        "Could not load XSD for Composition XML. Message: " + e.Message + "; Sender: " +
+				        sender, e.Exception));
 
 			var schemaSet = new XmlSchemaSet();
 			schemaSet.Add(schema);

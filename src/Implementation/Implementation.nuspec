@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Appson.Composer.Implementation</id>
-    <version>1.1.1</version>
+    <version>1.2.1</version>
     <title>Appson Composer - Implementation</title>
     <summary>Implementation of the contracts defined in Base package</summary>
     <authors>appson</authors>
@@ -20,7 +20,7 @@
     <copyright>Copyright appson.tech 2017</copyright>
     <tags>composer iocdi ioc-di dependency-injection</tags>
     <dependencies>
-      <dependency id="Appson.Composer.Base" version="1.1.0" />
+      <dependency id="Appson.Composer.Base" version="1.2.1" />
     </dependencies>
   </metadata>
 </package>

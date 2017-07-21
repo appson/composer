@@ -7,12 +7,12 @@ namespace Appson.Composer.CompositionXml
 {
 	internal class XmlProcessingContext
 	{
-		private readonly ComponentContext _componentContext;
+		private readonly IComponentContext _componentContext;
 		private readonly List<XmlProcessingError> _errors;
 		private readonly List<string> _runningLocation;
 		private readonly TypeCache _typeCache;
 
-		public XmlProcessingContext(ComponentContext componentContext)
+		public XmlProcessingContext(IComponentContext componentContext)
 		{
 			_componentContext = componentContext;
 			_typeCache = new TypeCache();
@@ -28,30 +28,18 @@ namespace Appson.Composer.CompositionXml
 			_errors = new List<XmlProcessingError>();
 		}
 
-		public ComponentContext ComponentContext
-		{
-			get { return _componentContext; }
-		}
+		public IComponentContext ComponentContext => _componentContext;
 
-		public TypeCache TypeCache
-		{
-			get { return _typeCache; }
-		}
+	    public TypeCache TypeCache => _typeCache;
 
-		public List<XmlProcessingError> Errors
-		{
-			get { return _errors; }
-		}
+	    public List<XmlProcessingError> Errors => _errors;
 
-		public string RunningLocationText
-		{
-			get { return string.Join(" > ", _runningLocation.ToArray()); }
-		}
+	    public string RunningLocationText => string.Join(" > ", _runningLocation.ToArray());
 
-		public void EnterRunningLocation(string locationText)
+	    public void EnterRunningLocation(string locationText)
 		{
 			if (locationText == null)
-				throw new ArgumentNullException("locationText");
+				throw new ArgumentNullException(nameof(locationText));
 
 			_runningLocation.Add(locationText);
 		}

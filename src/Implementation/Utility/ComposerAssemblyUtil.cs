@@ -8,24 +8,24 @@ namespace Appson.Composer.Utility
 	{
 		#region Public utility methods
 
-		public static void RegisterAssembly(this ComponentContext context, Assembly assembly)
+		public static void RegisterAssembly(this IComponentContext context, Assembly assembly)
 		{
 			if (assembly == null)
-				throw new ArgumentNullException("assembly");
+				throw new ArgumentNullException(nameof(assembly));
 
 			if (context == null)
-				throw new ArgumentNullException("context");
+				throw new ArgumentNullException(nameof(context));
 
 			ExtractAllComponents(assembly, context);
 		}
 
-		public static void RegisterAssembly(this ComponentContext context, string name)
+		public static void RegisterAssembly(this IComponentContext context, string name)
 		{
 			var assembly = Assembly.Load(name);
 			context.RegisterAssembly(assembly);
 		}
 
-		public static void RegisterAssemblyFile(this ComponentContext context, string path)
+		public static void RegisterAssemblyFile(this IComponentContext context, string path)
 		{
 			var assembly = Assembly.LoadFile(path);
 			context.RegisterAssembly(assembly);
@@ -35,7 +35,7 @@ namespace Appson.Composer.Utility
 
 		#region Private helper methods
 
-		private static void ExtractAllComponents(Assembly assembly, ComponentContext context)
+		private static void ExtractAllComponents(Assembly assembly, IComponentContext context)
 		{
 			Type[] types;
 

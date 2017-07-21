@@ -1,10 +1,7 @@
-﻿using System.Configuration;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Web;
-using System.Web.Hosting;
 using System.Web.Mvc;
 using Appson.Composer.Utility;
-using Appson.Composer.Web.Configuration;
 using Appson.Composer.Web.Contracts;
 
 namespace Appson.Composer.Web
@@ -18,8 +15,8 @@ namespace Appson.Composer.Web
 		// TODO: Change to IComponentContext
 		public static ComponentContext ComponentContext
 		{
-			get { return GetComponentContext(HttpContext.Current.Application); }
-			private set { SetComponentContext(value, HttpContext.Current.Application); }
+			get => GetComponentContext(HttpContext.Current.Application);
+		    private set => SetComponentContext(value, HttpContext.Current.Application);
 		}
 
 		public static ComponentContext GetComponentContext(HttpApplicationState application)
@@ -46,27 +43,15 @@ namespace Appson.Composer.Web
 		{
 			ComponentContext = composer;
 
-			var configuration = LoadConfiguration();
+			RegisterDefaultComponents(composer);
+			SetResolver(composer);
 
-			if (configuration.RegisterDefaultComponents)
-				RegisterDefaultComponents(composer);
-
-			if (configuration.SetResolver)
-				SetResolver(composer);
-
-			foreach (SetupCompositionXml xml in configuration.SetupCompositionXmls)
-				RunCompositionXml(composer, xml.AssemblyName, xml.ManifestResourceName, xml.Path);
+            composer.ProcessApplicationConfiguration();
 		}
 
 		#endregion
 
 		#region Private helper methods
-
-		private static CompositionConfiguration LoadConfiguration()
-		{
-			var configuration = (CompositionConfiguration) ConfigurationManager.GetSection("composition");
-			return configuration;
-		}
 
 		private static void RegisterDefaultComponents(ComponentContext composer)
 		{
@@ -79,19 +64,6 @@ namespace Appson.Composer.Web
 
 			if (dependencyResolverContract != null)
 				DependencyResolver.SetResolver(dependencyResolverContract);
-		}
-
-		private static void RunCompositionXml(ComponentContext composer, string assemblyName,
-		                                      string manifestResourceName, string path)
-		{
-			if (!string.IsNullOrEmpty(path))
-			{
-				composer.ProcessCompositionXml(HostingEnvironment.MapPath(path));
-				return;
-			}
-
-			var assembly = Assembly.Load(assemblyName);
-			composer.ProcessCompositionXmlFromResource(assembly, manifestResourceName);
 		}
 
 		#endregion

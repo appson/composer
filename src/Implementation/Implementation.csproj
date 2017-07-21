@@ -58,6 +58,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel">
@@ -98,6 +99,9 @@
     <Compile Include="CompositionXml\ValueParser\ValidatorUtil.cs" />
     <Compile Include="CompositionXml\ValueParser\XmlValueParser.cs" />
     <Compile Include="CompositionXml\XmlProcessingContext.cs" />
+    <Compile Include="Configuration\CompositionConfiguration.cs" />
+    <Compile Include="Configuration\SetupCompositionXml.cs" />
+    <Compile Include="Configuration\SetupCompositionXmlsCollection.cs" />
     <Compile Include="Diagnostics\CountingCompositionListener.cs" />
     <Compile Include="Diagnostics\TracingCompositionListener.cs" />
     <Compile Include="Diagnostics\TracingInterceptor.cs" />
@@ -129,6 +133,7 @@
     <Compile Include="Resources\ResourceRepository.cs" />
     <Compile Include="Resources\WorkingDirectoryRelativeResourcePointer.cs" />
     <Compile Include="Utility\ComposerAssemblyUtil.cs" />
+    <Compile Include="Utility\ComposerConfigurationUtil.cs" />
     <Compile Include="Utility\Matching\ArgumentValueCallFilter.cs" />
     <Compile Include="Utility\Matching\ConjunctionCallFilter.cs" />
     <Compile Include="Utility\Matching\ConjunctionNameFilter.cs" />

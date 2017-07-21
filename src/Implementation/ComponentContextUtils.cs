@@ -4,7 +4,6 @@ using System.Reflection;
 using System.Resources;
 using System.Linq;
 using Appson.Composer.CompositionalQueries;
-using Appson.Composer.Cache;
 using Appson.Composer.Utility;
 
 
@@ -65,7 +64,7 @@ namespace Appson.Composer
 			// TODO: Move throwing to usage, provide a better message. (why should be a [component])
 			if (!HasComponentAttribute(component))
 				throw new CompositionException(
-					string.Format("The type {0} should be marked with [Component] attribute.", component.FullName));
+				        $"The type {component.FullName} should be marked with [Component] attribute.");
 		}
 
 		internal static void ThrowIfNotContract(Type contract)
@@ -73,14 +72,14 @@ namespace Appson.Composer
 			// TODO: Move throwing to usage, provide a better message. (why should be a [contract])
 			if (!HasContractAttribute(contract))
 				throw new CompositionException(
-					string.Format("The type {0} should be marked with [Contract] attribute.", contract.FullName));
+				        $"The type {contract.FullName} should be marked with [Contract] attribute.");
 		}
 
 		internal static void ThrowIfNotSubTypeOf(Type contract, Type component)
 		{
 			if (!component.IsSubclassOf(contract) && component.GetInterface(contract.Name) == null)
-				throw new CompositionException(string.Format("Component type '{0}' is not a sub-type of contract '{1}",
-				                                             component.FullName, contract.FullName));
+				throw new CompositionException(
+				        $"Component type '{component.FullName}' is not a sub-type of contract '{contract.FullName}");
 		}
 
 		internal static ComponentCacheAttribute GetComponentCacheAttribute(Type component)
@@ -138,11 +137,9 @@ namespace Appson.Composer
 			if (initializationPoints.Any(i => i.Name == memberInfo.Name))
 			{
 				if (!IsInitializationPoint(memberInfo))
-					throw new CompositionException(string.Format(
-						"The member '{0}' of type '{1}' is in the list of initialization points, " +
-						"but it doesn't have any of the attributes for an initialization point associated.",
-						memberInfo.Name,
-						memberInfo.ReflectedType.FullName));
+					throw new CompositionException(
+					        $"The member '{memberInfo.Name}' of type '{memberInfo.ReflectedType?.FullName}' is in the list of initialization points, " +
+					        "but it doesn't have any of the attributes for an initialization point associated.");
 
 				// Ignore the member if it is already in the
 				// initialization points of the component configuration
@@ -183,16 +180,14 @@ namespace Appson.Composer
 						break;
 
 					default:
-						throw new CompositionException(string.Format(
-							"Member '{0}' of type '{1}' cannot be marked with a [ComponentPlug] attribute." + 
-							"An initialization point should either be a field or a property.",
-							memberInfo.Name,
-							memberInfo.ReflectedType.FullName));
+						throw new CompositionException(
+						    $"Member '{memberInfo.Name}' of type '{memberInfo.ReflectedType?.FullName}' cannot be marked with a [ComponentPlug] attribute." +
+						    "An initialization point should either be a field or a property.");
 				}
 
 				if (!HasContractAttribute(contractType))
 					throw new CompositionException("Component Plug '" + memberInfo.Name + "' on type '" +
-					                               memberInfo.ReflectedType.FullName + "' is of type '" + contractType.FullName +
+					                               memberInfo.ReflectedType?.FullName + "' is of type '" + contractType.FullName +
 					                               "' which is not a contract (is not marked with [Contract])");
 
 				initializationPoints.Add(
@@ -219,16 +214,14 @@ namespace Appson.Composer
 						break;
 
 					default:
-						throw new CompositionException(string.Format(
-							"Member '{0}' of type '{1}' cannot be marked with a [ResourcePlug] attribute." +
-							"An initialization point should either be a field or a property.",
-							memberInfo.Name,
-							memberInfo.ReflectedType.FullName));
+						throw new CompositionException(
+						    $"Member '{memberInfo.Name}' of type '{memberInfo.ReflectedType?.FullName}' cannot be marked with a [ResourcePlug] attribute." +
+						    "An initialization point should either be a field or a property.");
 				}
 
 				if (resourceManagerPlugType != typeof(ResourceManager))
 					throw new CompositionException("The ResourceManagerPlug named '" + memberInfo.Name + "' in the type '" +
-					                               memberInfo.ReflectedType.FullName + "' is of type '" +
+					                               memberInfo.ReflectedType?.FullName + "' is of type '" +
 					                               resourceManagerPlugType.FullName +
 					                               "', where resource plugs can only be of type 'ResourceManager'.");
 
@@ -236,7 +229,7 @@ namespace Appson.Composer
 
 				if (resourceId == null)
 					throw new CompositionException("The ResourceManagerPlug named '" + memberInfo.Name + "' in the type '" +
-												   memberInfo.ReflectedType.FullName + "' does not have an Id associated with it.");
+												   memberInfo.ReflectedType?.FullName + "' does not have an Id associated with it.");
 
 				initializationPoints.Add(
 					new InitializationPointSpecification(memberInfo.Name,
@@ -285,7 +278,7 @@ namespace Appson.Composer
 
 				if (!fieldInfo.IsPublic)
 					throw new CompositionException("Initialization point '" + memberInfo.Name + "' of type '" +
-					                               memberInfo.ReflectedType.FullName + "' is not public, and can not be set.");
+					                               memberInfo.ReflectedType?.FullName + "' is not public, and can not be set.");
 
 				return;
 			}
@@ -296,13 +289,13 @@ namespace Appson.Composer
 
 				if ((!propertyInfo.CanWrite) || (propertyInfo.GetSetMethod() == null))
 					throw new CompositionException("Initialization point '" + memberInfo.Name + "' of type '" +
-					                               memberInfo.ReflectedType.FullName + "' does not have a public setter.");
+					                               memberInfo.ReflectedType?.FullName + "' does not have a public setter.");
 
 				return;
 			}
 
 			throw new CompositionException("Initialization point '" + memberInfo.Name + "' of type '" +
-										   memberInfo.ReflectedType.FullName + "' is not a writable field or property.");
+										   memberInfo.ReflectedType?.FullName + "' is not a writable field or property.");
 		}
 
 		internal static bool IsOnCompositionCompleteMethod(MemberInfo memberInfo)
@@ -328,15 +321,11 @@ namespace Appson.Composer
 
 			if (methodInfo.ReturnType != typeof(void))
 				throw new CompositionException(
-					string.Format(
-						"Return type of the method has to be 'void' to be an [OnCompositionComplete] method. Method '{0}' in type '{1}' is marked with [OnCompositionComplete] but the return type is '{2}'.",
-						methodInfo.Name, methodInfo.DeclaringType.FullName, methodInfo.ReturnType.FullName));
+				        $"Return type of the method has to be 'void' to be an [OnCompositionComplete] method. Method '{methodInfo.Name}' in type '{methodInfo.DeclaringType?.FullName}' is marked with [OnCompositionComplete] but the return type is '{methodInfo.ReturnType.FullName}'.");
 
 			if (methodInfo.GetParameters().Length > 0)
 				throw new CompositionException(
-					string.Format(
-						"A method should not receive any arguments to be an [OnCompositionComplete] method. Method '{0}' in type '{1}' is marked with [OnCompositionComplete] but expects '{2}' arguments.",
-						methodInfo.Name, methodInfo.DeclaringType.FullName, methodInfo.GetParameters().Length));
+				        $"A method should not receive any arguments to be an [OnCompositionComplete] method. Method '{methodInfo.Name}' in type '{methodInfo.DeclaringType?.FullName}' is marked with [OnCompositionComplete] but expects '{methodInfo.GetParameters().Length}' arguments.");
 
 			// Set the member as the [OnCompositionComplete] method on the component configuration.
 
@@ -451,8 +440,7 @@ namespace Appson.Composer
 
 				if (fieldInfo == null)
 					throw new CompositionException(
-						string.Format("Field '{0}' not found in type '{1}'.", memberName,
-									  targetType.FullName));
+					        $"Field '{memberName}' not found in type '{targetType.FullName}'.");
 
 				fieldInfo.SetValue(targetObject, value);
 				return;
@@ -464,8 +452,7 @@ namespace Appson.Composer
 
 				if (propertyInfo == null)
 					throw new CompositionException(
-						string.Format("Property '{0}' not found in type '{1}'.", memberName,
-									  targetType.FullName));
+					        $"Property '{memberName}' not found in type '{targetType.FullName}'.");
 
 				propertyInfo.SetValue(targetObject, value, null);
 				return;
@@ -477,16 +464,14 @@ namespace Appson.Composer
 
 				if (memberInfos.Length == 0)
 					throw new CompositionException(
-						string.Format("Member '{0}' not found in type '{1}'.", memberName,
-									  targetType.FullName));
+					        $"Member '{memberName}' not found in type '{targetType.FullName}'.");
 
 				var applicableMembers =
 					memberInfos.Where(m => m.MemberType == MemberTypes.Field || m.MemberType == MemberTypes.Property).ToArray();
 
 				if (applicableMembers.Length == 0)
 					throw new CompositionException(
-						string.Format("No property / field found with name '{0}' in type '{1}'.", memberName,
-									  targetType.FullName));
+					        $"No property / field found with name '{memberName}' in type '{targetType.FullName}'.");
 
 				var memberInfo = applicableMembers[0];
 

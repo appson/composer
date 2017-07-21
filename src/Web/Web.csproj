@@ -82,9 +82,6 @@
     <Compile Include="Cache\SessionComponentCache.cs" />
     <Compile Include="Components\ComposerDependencyResolver.cs" />
     <Compile Include="ComposerWebUtil.cs" />
-    <Compile Include="Configuration\CompositionConfiguration.cs" />
-    <Compile Include="Configuration\SetupCompositionXml.cs" />
-    <Compile Include="Configuration\SetupCompositionXmlsCollection.cs" />
     <Compile Include="Contracts\IControllerActivatorContract.cs" />
     <Compile Include="Contracts\IControllerFactoryContract.cs" />
     <Compile Include="Contracts\IDependencyResolverContract.cs" />

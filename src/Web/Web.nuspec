@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Appson.Composer.Web</id>
-    <version>1.1.2</version>
+    <version>2.0.1</version>
     <title>Appson Composer - Web</title>
     <summary>Extensions and utilities for using Composer in Web environment</summary>
     <authors>appson</authors>
@@ -20,8 +20,8 @@
     <copyright>Copyright appson.tech 2017</copyright>
     <tags>composer iocdi ioc-di dependency-injection</tags>
     <dependencies>
-      <dependency id="Appson.Composer.Base" version="1.1.0" />
-      <dependency id="Appson.Composer.Implementation" version="1.1.0" />
+      <dependency id="Appson.Composer.Base" version="1.2.1" />
+      <dependency id="Appson.Composer.Implementation" version="1.2.1" />
     </dependencies>
   </metadata>
 </package>
