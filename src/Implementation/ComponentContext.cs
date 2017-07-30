@@ -50,6 +50,8 @@ namespace Appson.Composer
                 CreateDefaultFactory(typeof(ContractAgnosticComponentCache)), false);
             InternalRegister(typeof(StaticComponentCache), null,
                 CreateDefaultFactory(typeof(StaticComponentCache)), false);
+            InternalRegister(typeof(ThreadLocalComponentCache), null,
+                CreateDefaultFactory(typeof(ThreadLocalComponentCache)), false);
 
             InternalRegister(typeof(IClassEmitter), null,
                 CreateDefaultFactory(typeof(DefaultClassEmitter)), false);

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 
 namespace Appson.Composer.Cache
 {
     [Contract]
     [Component]
-    [ComponentCache(null)]
+    [ComponentCache(typeof(StaticComponentCache))]
     public class ThreadLocalComponentCache : IComponentCache
     {
         private readonly ThreadLocal<IDictionary<ContractIdentity, ComponentCacheEntry>> _cacheContent =
