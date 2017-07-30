@@ -25,11 +25,8 @@ namespace Appson.Composer.Cache
 			cacheContent[contract] = entry;
 		}
 
-		public object SynchronizationObject
-		{
-			get { return synchronizationObject; }
-		}
+		public object SynchronizationObject => synchronizationObject;
 
-		#endregion
+	    #endregion
 	}
 }

@@ -5,7 +5,7 @@
 	[ComponentCache(null)]
 	public class ContractAgnosticComponentCache : IComponentCache
 	{
-		private ComponentCacheEntry _cacheContent = null;
+		private ComponentCacheEntry _cacheContent;
 
 		#region Implementation of IComponentCache
 
@@ -19,11 +19,8 @@
 			_cacheContent = entry;
 		}
 
-		public object SynchronizationObject
-		{
-			get { return this; }
-		}
+		public object SynchronizationObject => this;
 
-		#endregion
+	    #endregion
 	}
 }

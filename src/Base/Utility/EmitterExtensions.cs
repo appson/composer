@@ -15,9 +15,9 @@ namespace Appson.Composer.Utility
 		                                               IEnumerable<CustomAttributeBuilder> attributeBuilders = null)
 		{
 			if (classEmitter == null)
-				throw new ArgumentNullException("classEmitter");
+				throw new ArgumentNullException(nameof(classEmitter));
 			if (interfaceType == null)
-				throw new ArgumentNullException("interfaceType");
+				throw new ArgumentNullException(nameof(interfaceType));
 			if (!interfaceType.IsInterface)
 				throw new ArgumentException("interfaceType should point to an interface type definition.");
 
@@ -33,7 +33,7 @@ namespace Appson.Composer.Utility
 			where T : class
 		{
 			if (classEmitter == null)
-				throw new ArgumentNullException("classEmitter");
+				throw new ArgumentNullException(nameof(classEmitter));
 
 			var interfaceType = typeof (T);
 			if (!interfaceType.IsInterface)
@@ -50,9 +50,9 @@ namespace Appson.Composer.Utility
 		                                           IEnumerable<CustomAttributeBuilder> attributeBuilders = null)
 		{
 			if (classEmitter == null)
-				throw new ArgumentNullException("classEmitter");
+				throw new ArgumentNullException(nameof(classEmitter));
 			if (interfaceType == null)
-				throw new ArgumentNullException("interfaceType");
+				throw new ArgumentNullException(nameof(interfaceType));
 			if (!interfaceType.IsInterface)
 				throw new ArgumentException("interfaceType should point to an interface type definition.");
 
@@ -71,9 +71,9 @@ namespace Appson.Composer.Utility
 		                                  IEnumerable<CustomAttributeBuilder> attributeBuilders = null)
 		{
 			if (classEmitter == null)
-				throw new ArgumentNullException("classEmitter");
+				throw new ArgumentNullException(nameof(classEmitter));
 			if (handler == null)
-				throw new ArgumentNullException("handler");
+				throw new ArgumentNullException(nameof(handler));
 
 			var emittedType = classEmitter.EmitClass(interfaceTypes, baseType, methodsToOverride, propertiesToOverride,
 			                                         eventsToOverride, baseConstructor, attributeBuilders);

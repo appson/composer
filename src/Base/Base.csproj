@@ -67,6 +67,7 @@
     <Compile Include="Cache\ContractAgnosticComponentCache.cs" />
     <Compile Include="Cache\DefaultComponentCache.cs" />
     <Compile Include="Cache\StaticComponentCache.cs" />
+    <Compile Include="Cache\ThreadLocalComponentCache.cs" />
     <Compile Include="ComponentCacheAttribute.cs" />
     <Compile Include="ComponentMultiPlugAttribute.cs" />
     <Compile Include="CompositionException.cs" />
