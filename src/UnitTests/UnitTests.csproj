@@ -62,9 +62,11 @@
     <Compile Include="ComponentCaching\Components\NonSharedComponent.cs" />
     <Compile Include="ComponentCaching\Components\SpcComponent.cs" />
     <Compile Include="ComponentCaching\Components\SprComponent.cs" />
+    <Compile Include="ComponentCaching\Components\ThreadLocalComponent.cs" />
     <Compile Include="ComponentCaching\NonSharedTest.cs" />
     <Compile Include="ComponentCaching\SharedPerContractTest.cs" />
     <Compile Include="ComponentCaching\SharedPerRegistrationTest.cs" />
+    <Compile Include="ComponentCaching\ThreadLocalTest.cs" />
     <Compile Include="ComponentNaming\Components\ComponentWithDefaultName.cs" />
     <Compile Include="ComponentNaming\Components\ComponentWithoutName.cs" />
     <Compile Include="ComponentNaming\RegWithNameTest.cs" />
