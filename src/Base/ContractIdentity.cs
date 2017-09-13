@@ -21,26 +21,17 @@ namespace Appson.Composer
 
 		public ContractIdentity(Type type, string name)
 		{
-			if (type == null)
-				throw new ArgumentNullException("type");
-
-			_type = type;
+            _type = type ?? throw new ArgumentNullException(nameof(type));
 			_name = name;
 		}
 
-		public Type Type
-		{
-			get { return _type; }
-		}
+		public Type Type => _type;
 
-		public string Name
-		{
-			get { return _name; }
-		}
+	    public string Name => _name;
 
-		public bool Equals(Type type, string name)
+	    public bool Equals(Type type, string name)
 		{
-			return Equals(_type, type) && Equals(_name, name);
+			return _type == type && Equals(_name, name);
 		}
 		
 		public override bool Equals(object obj)
@@ -52,7 +43,7 @@ namespace Appson.Composer
 			if (contractIdentity == null)
 				return false;
 
-			return Equals(_type, contractIdentity._type) && Equals(_name, contractIdentity._name);
+			return _type == contractIdentity._type && Equals(_name, contractIdentity._name);
 		}
 
 		public override int GetHashCode()

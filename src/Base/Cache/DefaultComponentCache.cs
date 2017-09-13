@@ -14,7 +14,7 @@ namespace Appson.Composer.Cache
 
 		public ComponentCacheEntry GetFromCache(ContractIdentity contract)
 		{
-			return _cacheContent.ContainsKey(contract) ? _cacheContent[contract] : null;
+		    return _cacheContent.TryGetValue(contract, out var entry) ? entry : null;
 		}
 
 		public void PutInCache(ContractIdentity contract, ComponentCacheEntry entry)

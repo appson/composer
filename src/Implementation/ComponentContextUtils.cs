@@ -13,27 +13,27 @@ namespace Appson.Composer
 	{
 		public static bool HasComponentAttribute(Type component)
 		{
-			return (component.GetCustomAttributes(typeof(ComponentAttribute), false).Length > 0);
+			return component.GetCustomAttributes(typeof(ComponentAttribute), false).Length > 0;
 		}
 
 		public static bool HasIgnoredOnAssemblyRegistrationAttribute(Type component)
 		{
-			return (component.GetCustomAttributes(typeof(IgnoredOnAssemblyRegistrationAttribute), false).Length > 0);
+			return component.GetCustomAttributes(typeof(IgnoredOnAssemblyRegistrationAttribute), false).Length > 0;
 		}
 
 		public static bool HasComponentPlugAttribute(MemberInfo memberInfo)
 		{
-			return (memberInfo.GetCustomAttributes(typeof(ComponentPlugAttribute), false).Length > 0);
+			return memberInfo.GetCustomAttributes(typeof(ComponentPlugAttribute), false).Length > 0;
 		}
 
 		public static bool HasResourceManagerPlugAttribute(MemberInfo memberInfo)
 		{
-			return (memberInfo.GetCustomAttributes(typeof(ResourceManagerPlugAttribute), false).Length > 0);
+			return memberInfo.GetCustomAttributes(typeof(ResourceManagerPlugAttribute), false).Length > 0;
 		}
 
 		public static bool HasConfigurationPointAttribute(MemberInfo memberInfo)
 		{
-			return (memberInfo.GetCustomAttributes(typeof(ConfigurationPointAttribute), false).Length > 0);
+			return memberInfo.GetCustomAttributes(typeof(ConfigurationPointAttribute), false).Length > 0;
 		}
 
 		public static bool IsInitializationPoint(MemberInfo memberInfo)
@@ -46,12 +46,12 @@ namespace Appson.Composer
 
 		public static bool HasOnCompositionCompleteAttribute(MethodInfo methodInfo)
 		{
-			return (methodInfo.GetCustomAttributes(typeof(OnCompositionCompleteAttribute), false).Length > 0);
+			return methodInfo.GetCustomAttributes(typeof(OnCompositionCompleteAttribute), false).Length > 0;
 		}
 
 		public static bool HasCompositionConstructorAttribute(ConstructorInfo constructorInfo)
 		{
-			return (constructorInfo.GetCustomAttributes(typeof(CompositionConstructorAttribute), false).Length > 0);
+			return constructorInfo.GetCustomAttributes(typeof(CompositionConstructorAttribute), false).Length > 0;
 		}
 
 		public static bool HasContractAttribute(Type contract)
