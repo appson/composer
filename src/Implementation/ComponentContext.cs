@@ -221,8 +221,6 @@ namespace Appson.Composer
 
         public virtual object GetComponent(Type contract, string name)
 		{
-			ComponentContextUtils.ThrowIfNotContract(contract);
-
 			if (contract.ContainsGenericParameters)
 				throw new CompositionException("Requested contract type " + contract.Name +
 				                               " contains open generic parameters. Can not construct a concrete type.");
