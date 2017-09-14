@@ -40,7 +40,7 @@ namespace Appson.Composer
 				return true;
 
 			var contractIdentity = obj as ContractIdentity;
-			if (contractIdentity == null)
+			if (ReferenceEquals(contractIdentity, null))
 				return false;
 
 			return _type == contractIdentity._type && Equals(_name, contractIdentity._name);

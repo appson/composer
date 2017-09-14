@@ -228,9 +228,20 @@ namespace Appson.Composer
 			var identity = new ContractIdentity(contract, name);
 			var factories = _repository.FindFactories(identity);
 
-            return factories
-                .Select(f => f.GetComponentInstance(identity, _compositionListeners.Values))
-                .FirstOrDefault(result => result != null);
+		    using (var enumerator = factories?.GetEnumerator())
+		    {
+		        if (enumerator == null)
+		            return null;
+
+		        while (enumerator.MoveNext())
+		        {
+                    var result = enumerator.Current?.GetComponentInstance(identity, _compositionListeners.Values);
+		            if (result != null)
+		                return result;
+		        }
+            }
+
+		    return null;
 		}
 
         public virtual IEnumerable<TContract> GetAllComponents<TContract>()
