@@ -35,23 +35,19 @@ namespace Appson.Composer
 
 		public IEnumerable<IComponentFactory> FindFactories(ContractIdentity identity)
 		{
-			var closedResults = (_contracts.ContainsKey(identity)
-			                     	? _contracts[identity]
-			                     	: Enumerable.Empty<IComponentFactory>());
+		    _contracts.TryGetValue(identity, out var closedResults);
+		    if (!identity.Type.IsGenericType)
+                return closedResults ?? Enumerable.Empty<IComponentFactory>();
 
-			if (identity.Type.IsGenericType)
-			{
-				var genericContractType = identity.Type.GetGenericTypeDefinition();
-				var genericIdentity = new ContractIdentity(genericContractType, identity.Name);
+		    var genericContractType = identity.Type.GetGenericTypeDefinition();
+		    var genericIdentity = new ContractIdentity(genericContractType, identity.Name);
 
-				var genericResults = (_contracts.ContainsKey(genericIdentity)
-				                      	? _contracts[genericIdentity]
-				                      	: Enumerable.Empty<IComponentFactory>());
+		    if (_contracts.TryGetValue(genericIdentity, out var genericResults))
+		    {
+		        return closedResults?.Concat(genericResults) ?? genericResults;
+		    }
 
-				return closedResults.Concat(genericResults);
-			}
-
-			return closedResults;
+		    return closedResults ?? Enumerable.Empty<IComponentFactory>();
 		}
 
 		public IEnumerable<ContractIdentity> GetContractIdentityFamily(Type type)

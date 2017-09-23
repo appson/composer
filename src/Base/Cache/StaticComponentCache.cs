@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Appson.Composer.Cache
 {
@@ -17,7 +16,7 @@ namespace Appson.Composer.Cache
 
 		public ComponentCacheEntry GetFromCache(ContractIdentity contract)
 		{
-			return cacheContent.ContainsKey(contract) ? cacheContent[contract] : null;
+		    return cacheContent.TryGetValue(contract, out var entry) ? entry : null;
 		}
 
 		public void PutInCache(ContractIdentity contract, ComponentCacheEntry entry)
