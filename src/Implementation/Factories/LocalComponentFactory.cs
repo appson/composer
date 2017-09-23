@@ -24,10 +24,7 @@ namespace Appson.Composer.Factories
 
 		public LocalComponentFactory(Type targetType)
 		{
-            if (targetType == null)
-                throw new ArgumentNullException(nameof(targetType));
-
-			_targetType = targetType;
+            _targetType = targetType ?? throw new ArgumentNullException(nameof(targetType));
 
 			_composer = null;
 			_componentCache = null;
@@ -132,8 +129,8 @@ namespace Appson.Composer.Factories
 
 	    public ConstructorInfo TargetConstructor
 		{
-			get { return _targetConstructor; }
-			set
+			get => _targetConstructor;
+	        set
 			{
 				if (_composer != null)
 					throw new InvalidOperationException("Cannot change TargetConstructor when the factory is initialized.");
@@ -498,8 +495,8 @@ namespace Appson.Composer.Factories
 
 				// Check if the required initialization points get a value.
 				if (initializationPoint.Required && initializationPointResult == null)
-					throw new CompositionException(string.Format("Could not fill initialization point '{0}' of type '{1}'.",
-					                                             initializationPoint.Name, _targetType.FullName));
+					throw new CompositionException(
+					        $"Could not fill initialization point '{initializationPoint.Name}' of type '{_targetType.FullName}'.");
 
 				initializationPointResults.Add(initializationPointResult);
 				ComponentContextUtils.ApplyInitializationPoint(originalComponentInstance,

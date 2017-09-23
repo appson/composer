@@ -8,18 +8,15 @@ namespace Appson.Composer
 	{
 		public InitializationPointSpecification(string name, MemberTypes memberType, bool required = true, ICompositionalQuery query = null)
 		{
-			if (name == null)
-				throw new ArgumentNullException("name");
-
-			Name = name;
+		    Name = name ?? throw new ArgumentNullException(nameof(name));
 			MemberType = memberType;
 			Required = required;
 			Query = query;
 		}
 
-		public string Name { get; private set; }
-		public MemberTypes MemberType { get; private set; }
-		public bool Required { get; private set; }
+		public string Name { get; }
+		public MemberTypes MemberType { get; }
+		public bool Required { get; }
 
 		public ICompositionalQuery Query { get; set; }
 	}

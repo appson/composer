@@ -11,7 +11,7 @@ namespace Appson.Composer
 	[Contract]
 	[Component]
 	[ComponentCache(null)]
-	public class ComponentContext : IComposer, IComponentContext
+	public class ComponentContext : IComponentContext
 	{
 		#region Private Data
 
@@ -263,8 +263,6 @@ namespace Appson.Composer
 
         public virtual IEnumerable<object> GetAllComponents(Type contract, string name)
 		{
-			ComponentContextUtils.ThrowIfNotContract(contract);
-
 			var identity = new ContractIdentity(contract, name);
 			var factories = _repository.FindFactories(identity);
 

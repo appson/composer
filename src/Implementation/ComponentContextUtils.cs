@@ -59,14 +59,6 @@ namespace Appson.Composer
 			return (contract.GetCustomAttributes(typeof(ContractAttribute), false).Length > 0);
 		}
 
-		internal static void ThrowIfNotComponent(Type component)
-		{
-			// TODO: Move throwing to usage, provide a better message. (why should be a [component])
-			if (!HasComponentAttribute(component))
-				throw new CompositionException(
-				        $"The type {component.FullName} should be marked with [Component] attribute.");
-		}
-
 		internal static void ThrowIfNotContract(Type contract)
 		{
 			// TODO: Move throwing to usage, provide a better message. (why should be a [contract])
