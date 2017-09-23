@@ -239,11 +239,16 @@
     <Compile Include="QueryVariety\Components\SampleComponent.cs" />
     <Compile Include="QueryVariety\NamedComponentTest.cs" />
     <Compile Include="QueryVariety\UnnamedComponentTest.cs" />
+    <Compile Include="RegisterVariety\Components\AttributedComponentOne.cs" />
     <Compile Include="RegisterVariety\Components\ComponentBoth.cs" />
     <Compile Include="RegisterVariety\Components\ComponentOne.cs" />
     <Compile Include="RegisterVariety\Components\ComponentTwo.cs" />
     <Compile Include="RegisterVariety\Components\IContractOne.cs" />
     <Compile Include="RegisterVariety\Components\IContractTwo.cs" />
+    <Compile Include="RegisterVariety\Components\INonAttributedContractOne.cs" />
+    <Compile Include="RegisterVariety\Components\NonAttributedComponentOne.cs" />
+    <Compile Include="RegisterVariety\Components\NonAttributedComponentTwo.cs" />
+    <Compile Include="RegisterVariety\RegisterNonAttributedTest.cs" />
     <Compile Include="RegisterVariety\RegisterVarietyTest.cs" />
     <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithOptionalConfig.cs" />
     <Compile Include="RequiredAndOptionalInitPoint\Components\ComponentWithOptionalNamedConfig.cs" />

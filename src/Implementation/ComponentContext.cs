@@ -13,9 +13,15 @@ namespace Appson.Composer
 	[ComponentCache(null)]
 	public class ComponentContext : IComponentContext
 	{
-		#region Private Data
+        #region Settings
 
-		private readonly Dictionary<string, ICompositionListener> _compositionListeners;
+        public bool DisableAttributeChecking { get; set; }
+
+        #endregion
+
+        #region Private Data
+
+        private readonly Dictionary<string, ICompositionListener> _compositionListeners;
 		private readonly Repository _repository;
 		private readonly Dictionary<string, object> _variables;
 
