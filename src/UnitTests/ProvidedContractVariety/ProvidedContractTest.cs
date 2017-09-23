@@ -28,7 +28,6 @@ namespace Appson.Composer.UnitTests.ProvidedContractVariety
 			_context.Register(typeof(InterfaceContractComponent));
 			_context.Register(typeof(AbstractContractComponent));
 			_context.Register(typeof(ConcreteContractComponent));
-			_context.Register(typeof(SelfContractComponent));
 		}
 
 		[TestCleanup]
@@ -63,9 +62,20 @@ namespace Appson.Composer.UnitTests.ProvidedContractVariety
 		}
 
 		[TestMethod]
-		public void SelfContractTest()
+		public void SelfContractWithoutExplicitContractRegistrationTest()
 		{
-			var c = _context.GetComponent<SelfContractComponent>();
+		    _context.Register(typeof(SelfContractComponent));
+
+            var c = _context.GetComponent<SelfContractComponent>();
+			Assert.IsNotNull(c);
+		}
+
+		[TestMethod]
+		public void SelfContractWithExplicitContractRegistrationTest()
+		{
+		    _context.Register(typeof(SelfContractComponent), typeof(SelfContractComponent));
+
+            var c = _context.GetComponent<SelfContractComponent>();
 			Assert.IsNotNull(c);
 		}
 	}

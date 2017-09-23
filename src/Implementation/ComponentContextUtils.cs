@@ -77,6 +77,9 @@ namespace Appson.Composer
 
 		internal static void ThrowIfNotSubTypeOf(Type contract, Type component)
 		{
+		    if (contract == component)
+		        return;
+
 			if (!component.IsSubclassOf(contract) && component.GetInterface(contract.Name) == null)
 				throw new CompositionException(
 				        $"Component type '{component.FullName}' is not a sub-type of contract '{contract.FullName}");
