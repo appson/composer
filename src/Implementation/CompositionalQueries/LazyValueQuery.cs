@@ -6,10 +6,7 @@ namespace Appson.Composer.CompositionalQueries
 	{
 		public LazyValueQuery(Lazy<object> value)
 		{
-			if (value == null)
-				throw new ArgumentNullException("value");
-
-			Value = value;
+		    Value = value ?? throw new ArgumentNullException(nameof(value));
 		}
 
 		#region Implementation of ICompositionalQuery
@@ -23,9 +20,9 @@ namespace Appson.Composer.CompositionalQueries
 
 		public override string ToString()
 		{
-			return string.Format("Query for a specific pre-defined value: '{0}'", Value);
+			return $"Query for a specific pre-defined value: '{Value}'";
 		}
 
-		public Lazy<object> Value { get; private set; }
+		public Lazy<object> Value { get; }
 	}
 }
