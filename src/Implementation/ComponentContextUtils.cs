@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Resources;
 using System.Linq;
 using Appson.Composer.CompositionalQueries;
+using Appson.Composer.Factories;
 
 
 namespace Appson.Composer
@@ -455,5 +456,17 @@ namespace Appson.Composer
 
 			throw new ArgumentException("Specified member type is not supported: " + memberType);
 		}
-	}
+
+	    internal static ILocalComponentFactory CreateLocalFactory(Type component)
+	    {
+	        ILocalComponentFactory result;
+	        if ((component.IsGenericType) && (component.ContainsGenericParameters))
+	            result = new GenericLocalComponentFactory(component);
+	        else
+	            result = new LocalComponentFactory(component);
+
+	        return result;
+	    }
+
+    }
 }

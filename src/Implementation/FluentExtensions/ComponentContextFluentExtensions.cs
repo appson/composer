@@ -14,12 +14,9 @@ namespace Appson.Composer.FluentExtensions
             return new FluentLocalComponentConfig(context, componentType);
         }
 
-        public static FluentPreInitializedComponentConfig ForObject(this ComponentContext context, object instance)
+        public static FluentPreInitializedComponentConfig ForObject(this ComponentContext context, object componentInstance)
         {
-            var result = new FluentPreInitializedComponentConfig(context);
-            result.Instance = instance ?? throw new ArgumentNullException(nameof(context));
-
-            return result;
+            return new FluentPreInitializedComponentConfig(context, componentInstance);
         }
     }
 }

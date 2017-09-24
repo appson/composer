@@ -114,6 +114,7 @@
     <Compile Include="Emitter\DefaultPropertyEmitter.cs" />
     <Compile Include="Factories\ConstructorArgSpecification.cs" />
     <Compile Include="Factories\GenericLocalComponentFactory.cs" />
+    <Compile Include="Factories\ILocalComponentFactory.cs" />
     <Compile Include="Factories\Remote\CustomDataContractSerializerOperationBehavior.cs" />
     <Compile Include="Factories\Remote\CustomOperationBehavior.cs" />
     <Compile Include="FluentExtensions\ComponentContextFluentExtensions.cs" />

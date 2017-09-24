@@ -8,7 +8,7 @@ using Appson.Composer.CompositionalQueries;
 
 namespace Appson.Composer.Factories
 {
-	public class LocalComponentFactory : IComponentFactory
+	public class LocalComponentFactory : ILocalComponentFactory
 	{
 		private IComposer _composer;
 

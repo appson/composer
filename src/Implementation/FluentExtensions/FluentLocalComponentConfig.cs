@@ -1,18 +1,19 @@
 ﻿using System;
+using Appson.Composer.Factories;
 
 namespace Appson.Composer.FluentExtensions
 {
     public class FluentLocalComponentConfig
     {
-        private ComponentContext _context;
-        private Type _componentType;
+        private readonly ComponentContext _context;
+        private readonly LocalComponentFactory _factory;
 
         #region Constructors
 
         public FluentLocalComponentConfig(ComponentContext context, Type componentType)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
-            _componentType = componentType ?? throw new ArgumentNullException(nameof(componentType));
+            _factory = (LocalComponentFactory) ComponentContextUtils.CreateLocalFactory(componentType);
         }
 
         #endregion
@@ -21,17 +22,17 @@ namespace Appson.Composer.FluentExtensions
 
         public void Register(string contractName = null)
         {
-            // TODO
+            _context.Register(contractName, _factory);
         }
 
         public void RegisterWith<TContract>(string contractName = null)
         {
-            // TODO
+            RegisterWith(typeof(TContract), contractName);
         }
 
         public void RegisterWith(Type contractType, string contractName = null)
         {
-            // TODO
+            _context.Register(contractType, contractName, _factory);
         }
 
         public FluentLocalComponentConfig SetComponent<TPlugContract>(

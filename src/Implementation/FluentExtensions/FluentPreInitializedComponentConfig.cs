@@ -1,18 +1,19 @@
 ﻿using System;
+using Appson.Composer.Factories;
 
 namespace Appson.Composer.FluentExtensions
 {
     public class FluentPreInitializedComponentConfig
     {
-        private ComponentContext _context;
-
-        public object Instance { get; set; }
+        private readonly ComponentContext _context;
+        private readonly PreInitializedComponentFactory _factory;
 
         #region Constructors
 
-        public FluentPreInitializedComponentConfig(ComponentContext context)
+        public FluentPreInitializedComponentConfig(ComponentContext context, object componentInstance)
         {
             _context = context;
+            _factory = new PreInitializedComponentFactory(componentInstance);
         }
 
         #endregion
@@ -21,17 +22,17 @@ namespace Appson.Composer.FluentExtensions
 
         public void Register(string contractName = null)
         {
-            // TODO
+            _context.Register(contractName, _factory);
         }
 
-        public void RegisterWith<T>(string contractName = null)
+        public void RegisterWith<TContract>(string contractName = null)
         {
-            // TODO
+            RegisterWith(typeof(TContract), contractName);
         }
 
         public void RegisterWith(Type contractType, string contractName = null)
         {
-            // TODO
+            _context.Register(contractType, contractName, _factory);
         }
 
         #endregion
