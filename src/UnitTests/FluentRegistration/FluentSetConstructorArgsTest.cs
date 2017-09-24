@@ -1,4 +1,5 @@
-﻿using Appson.Composer.UnitTests.FluentRegistration.Components;
+﻿using Appson.Composer.FluentExtensions;
+using Appson.Composer.UnitTests.FluentRegistration.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Appson.Composer.UnitTests.FluentRegistration
@@ -127,8 +128,8 @@ namespace Appson.Composer.UnitTests.FluentRegistration
         public void ConstructorVariable()
         {
             _context.ForComponent<NonAttributedComponent>()
-                .AddConstructorVariable("one")
-                .AddConstructorVariable("two")
+                .AddConstructorValueFromVariable("one")
+                .AddConstructorValueFromVariable("two")
                 .RegisterWith<INonAttributedContract>();
 
             var i = _context.GetComponent<INonAttributedContract>();
@@ -146,7 +147,7 @@ namespace Appson.Composer.UnitTests.FluentRegistration
             _context.ForComponent<NonAttributedComponent>()
                 .AddConstructorValue(cmpsr => new ComponentOne())
                 .AddConstructorComponent<IComponentTwo>("name")
-                .AddConstructorVariable("one")
+                .AddConstructorValueFromVariable("one")
                 .AddConstructorValue(5)
                 .RegisterWith<INonAttributedContract>();
 

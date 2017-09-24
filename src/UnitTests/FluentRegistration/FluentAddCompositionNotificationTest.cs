@@ -1,4 +1,5 @@
-﻿using Appson.Composer.UnitTests.FluentRegistration.Components;
+﻿using Appson.Composer.FluentExtensions;
+using Appson.Composer.UnitTests.FluentRegistration.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Appson.Composer.UnitTests.FluentRegistration
@@ -53,7 +54,7 @@ namespace Appson.Composer.UnitTests.FluentRegistration
         public void AddInitializationDelegate()
         {
             _context.ForComponent<NonAttributedComponent>()
-                .NotifyInitialized(x => x.ParameterizedInit(5))
+                .NotifyInitialized((cmpsr, x) => x.ParameterizedInit(5))
                 .RegisterWith<INonAttributedContract>();
 
             var i = _context.GetComponent<INonAttributedContract>();
@@ -70,7 +71,7 @@ namespace Appson.Composer.UnitTests.FluentRegistration
             _context.ForComponent<NonAttributedComponent>()
                 .NotifyInitialized(nameof(NonAttributedComponent.Initialize))
                 .NotifyInitialized(nameof(NonAttributedComponent.Initialize2))
-                .NotifyInitialized(x => x.ParameterizedInit(5))
+                .NotifyInitialized((cmpsr, x) => x.ParameterizedInit(5))
                 .RegisterWith<INonAttributedContract>();
 
             var i = _context.GetComponent<INonAttributedContract>();

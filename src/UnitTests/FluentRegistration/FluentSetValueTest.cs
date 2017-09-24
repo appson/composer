@@ -1,4 +1,5 @@
-﻿using Appson.Composer.UnitTests.FluentRegistration.Components;
+﻿using Appson.Composer.FluentExtensions;
+using Appson.Composer.UnitTests.FluentRegistration.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Appson.Composer.UnitTests.FluentRegistration

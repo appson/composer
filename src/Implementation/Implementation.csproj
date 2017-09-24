@@ -115,6 +115,10 @@
     <Compile Include="Factories\GenericLocalComponentFactory.cs" />
     <Compile Include="Factories\Remote\CustomDataContractSerializerOperationBehavior.cs" />
     <Compile Include="Factories\Remote\CustomOperationBehavior.cs" />
+    <Compile Include="FluentExtensions\ComponentContextFluentExtensions.cs" />
+    <Compile Include="FluentExtensions\FluentLocalComponentConfig.cs" />
+    <Compile Include="FluentExtensions\FluentLocalComponentConfigT.cs" />
+    <Compile Include="FluentExtensions\FluentPreInitializedComponentConfig.cs" />
     <Compile Include="Interceptor\AdaptedException.cs" />
     <Compile Include="Interceptor\CallInfo.cs" />
     <Compile Include="Interceptor\ICallInterceptor.cs" />

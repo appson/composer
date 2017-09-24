@@ -1,4 +1,5 @@
-﻿using Appson.Composer.UnitTests.FluentRegistration.Components;
+﻿using Appson.Composer.FluentExtensions;
+using Appson.Composer.UnitTests.FluentRegistration.Components;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Appson.Composer.UnitTests.FluentRegistration
@@ -76,8 +77,8 @@ namespace Appson.Composer.UnitTests.FluentRegistration
         public void QueryOptionalComponentPlugs()
         {
             _context.ForComponent<NonAttributedComponent>()
-                .SetComponent(x => x.ComponentOne, "unknown", required: false)
-                .SetComponent(x => x.ComponentTwo, "unknown", required: false)
+                .SetComponent(x => x.ComponentOne, "unknown", false)
+                .SetComponent(x => x.ComponentTwo, "unknown", false)
                 .RegisterWith<INonAttributedContract>();
 
             var i = _context.GetComponent<INonAttributedContract>();
