@@ -19,6 +19,7 @@ namespace Appson.Composer.Factories
 		private List<ConstructorArgSpecification> _constructorArgs;
 		private readonly List<InitializationPointSpecification> _initializationPoints;
 		private IEnumerable<MethodInfo> _compositionNotificationMethods;
+	    private ComponentQuery _componentCacheQuery;
 
 		#region Constructors
 
@@ -178,6 +179,7 @@ namespace Appson.Composer.Factories
 		    {
 		        LoadInitializationPoints();
 		        LoadTargetConstructor();
+		        LoadComponentCacheQuery();
 		        LoadComponentCache();
 		        LoadCompositionNotificationMethods();
 
@@ -271,28 +273,41 @@ namespace Appson.Composer.Factories
 			}
 		}
 
-		private void LoadComponentCache()
+	    private void LoadComponentCacheQuery()
+	    {
+	        if (_componentCacheQuery != null)
+                return;
+
+            var attribute = ComponentContextUtils.GetComponentCacheAttribute(_targetType);
+	        if (attribute == null)
+	        {
+	            _componentCacheQuery = new ComponentQuery(typeof(DefaultComponentCache), null);
+                return;
+	        }
+
+	        if (attribute.ComponentCacheType == null)
+	        {
+	            _componentCacheQuery = null;
+                return;
+	        }
+
+            _componentCacheQuery = new ComponentQuery(attribute.ComponentCacheType, attribute.ComponentCacheName);
+        }
+
+        private void LoadComponentCache()
 		{
-			var attribute = ComponentContextUtils.GetComponentCacheAttribute(_targetType);
-
-			if (attribute == null)
-			{
-				_componentCache = _composer.GetComponent<DefaultComponentCache>();
-				return;
-			}
-
-			if (attribute.ComponentCacheType == null)
+			if (_componentCacheQuery == null)
 			{
 				_componentCache = null;
 				return;
 			}
 
-			var result = _composer.GetComponent(attribute.ComponentCacheType, attribute.ComponentCacheName);
+			var result = _componentCacheQuery.Query(_composer);
 			if (result == null)
 				throw new CompositionException("Can not register component type " + _targetType.FullName +
 				                               " because the specified ComponentCache contract (type=" +
-				                               attribute.ComponentCacheType.FullName +
-				                               ", name=" + (attribute.ComponentCacheName ?? "null") +
+				                               _componentCacheQuery.ContractType.FullName +
+				                               ", name=" + (_componentCacheQuery.ContractName ?? "null") +
 				                               ") could not be queried from Composer.");
 
 			if (!(result is IComponentCache))

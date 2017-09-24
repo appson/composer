@@ -72,6 +72,7 @@
     <Compile Include="ComponentContextUtils.cs" />
     <Compile Include="CompositionalQueries\ComponentQuery.cs" />
     <Compile Include="CompositionalQueries\LazyValueQuery.cs" />
+    <Compile Include="CompositionalQueries\NullQuery.cs" />
     <Compile Include="CompositionalQueries\ResourcePlugQuery.cs" />
     <Compile Include="CompositionalQueries\VariableQuery.cs" />
     <Compile Include="CompositionXml\CompositionInfoApplicator.cs" />
