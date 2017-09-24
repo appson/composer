@@ -4,7 +4,6 @@ using System.Reflection;
 using System.Resources;
 using System.Linq;
 using Appson.Composer.CompositionalQueries;
-using Appson.Composer.Utility;
 
 
 namespace Appson.Composer
@@ -97,30 +96,6 @@ namespace Appson.Composer
 			return ((ComponentAttribute)attributes[0]).DefaultName;
 		}
 
-		internal static IEnumerable<Lazy<object>> CheckAndRetrieveCompositionConstructorArgs(IComposer composer, MemberInfo memberInfo)
-		{
-			// If the member is not a composition constructor, ignore the member
-
-			if (!(memberInfo is ConstructorInfo))
-				return null;
-
-			if (!HasCompositionConstructorAttribute((ConstructorInfo)memberInfo))
-				return null;
-
-			// Extract parameter information from the member, and set them
-			// as the parameters of ther constructor for creating the component
-
-			var parameterInfos = ((ConstructorInfo)memberInfo).GetParameters();
-			var compositionConstructorAttribute = GetCompositionConstructorAttribute(memberInfo);
-
-			return parameterInfos.Select((parameterInfo, index) =>
-										 composer.LazyGetComponent(parameterInfo.ParameterType,
-																   compositionConstructorAttribute.Names != null &&
-																   index < compositionConstructorAttribute.Names.Length
-																	? compositionConstructorAttribute.Names[index]
-																	: null));
-		}
-
 		internal static void CheckAndAddInitializationPoint(IComposer composer,
 															List<InitializationPointSpecification> initializationPoints,
 															MemberInfo memberInfo)
@@ -131,7 +106,7 @@ namespace Appson.Composer
 
 			if (initializationPoints.Any(i => i.Name == memberInfo.Name))
 			{
-				if (!IsInitializationPoint(memberInfo))
+				if (!composer.Configuration.DisableAttributeChecking && !IsInitializationPoint(memberInfo))
 					throw new CompositionException(
 					        $"The member '{memberInfo.Name}' of type '{memberInfo.ReflectedType?.FullName}' is in the list of initialization points, " +
 					        "but it doesn't have any of the attributes for an initialization point associated.");
@@ -180,7 +155,7 @@ namespace Appson.Composer
 						    "An initialization point should either be a field or a property.");
 				}
 
-				if (!HasContractAttribute(contractType))
+				if (!composer.Configuration.DisableAttributeChecking && !HasContractAttribute(contractType))
 					throw new CompositionException("Component Plug '" + memberInfo.Name + "' on type '" +
 					                               memberInfo.ReflectedType?.FullName + "' is of type '" + contractType.FullName +
 					                               "' which is not a contract (is not marked with [Contract])");

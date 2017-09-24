@@ -46,7 +46,7 @@ namespace Appson.Composer.Factories
 			if (_targetType == null)
 				throw new InvalidOperationException("TargetType is not specified.");
 
-			if (!ComponentContextUtils.HasComponentAttribute(_targetType))
+			if (!composer.Configuration.DisableAttributeChecking && !ComponentContextUtils.HasComponentAttribute(_targetType))
 				throw new CompositionException("The type '" + _targetType +
 				                               "' is not a component, but it is being registered as one. Only classes marked with [Component] attribute can be registered.");
 
@@ -234,7 +234,7 @@ namespace Appson.Composer.Factories
 
 			foreach (var parameterInfo in _targetConstructor.GetParameters())
 			{
-				if (!ComponentContextUtils.HasContractAttribute(parameterInfo.ParameterType))
+				if (!_composer.Configuration.DisableAttributeChecking && !ComponentContextUtils.HasContractAttribute(parameterInfo.ParameterType))
 					throw new CompositionException(
 					        $"Parameter '{parameterInfo.Name}' of the constructor of type '{_targetType.FullName}' is not of a Contract type. " +
 					        "All parameters of the composition constructor must be of Contract types, so that Composer can query for a component and pass it to them.");

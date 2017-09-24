@@ -52,7 +52,7 @@ namespace Appson.Composer.FluentExtensions
             return this;
         }
 
-        public new FluentLocalComponentConfig<TComponent> AddConstructorValue(Func<IComposer, object> valueCalculator)
+        public new FluentLocalComponentConfig<TComponent> AddConstructorValue<TValue>(Func<IComposer, TValue> valueCalculator)
         {
             // TODO
             return this;

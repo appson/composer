@@ -26,10 +26,13 @@ namespace Appson.Composer.Web.Components
 		{
 			object result = null;
 
-			if (ComponentContextUtils.HasContractAttribute(serviceType))
-				result = Composer.GetComponent(serviceType);
+		    if (Composer.Configuration.DisableAttributeChecking ||
+		        ComponentContextUtils.HasContractAttribute(serviceType))
+		    {
+		        result = Composer.GetComponent(serviceType);
+		    }
 
-			if (result == null)
+            if (result == null)
 			{
 				result = _baseResolver.GetService(serviceType);
 
@@ -46,7 +49,10 @@ namespace Appson.Composer.Web.Components
 			var baseResult = _baseResolver.GetServices(serviceType);
 
 			baseResult.ToList().ForEach(o => Composer.InitializePlugs(o, o.GetType()));
-			return ComponentContextUtils.HasContractAttribute(serviceType) ? Composer.GetAllComponents(serviceType).Concat(baseResult) : baseResult;
+		    return Composer.Configuration.DisableAttributeChecking ||
+		           ComponentContextUtils.HasContractAttribute(serviceType)
+		        ? Composer.GetAllComponents(serviceType).Concat(baseResult)
+		        : baseResult;
 		}
 
 		#endregion

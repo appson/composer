@@ -70,6 +70,7 @@
     <Compile Include="Cache\ThreadLocalComponentCache.cs" />
     <Compile Include="ComponentCacheAttribute.cs" />
     <Compile Include="ComponentMultiPlugAttribute.cs" />
+    <Compile Include="ComposerConfiguration.cs" />
     <Compile Include="CompositionException.cs" />
     <Compile Include="Emitter\IClassEmitter.cs" />
     <Compile Include="Emitter\IEmittedClass.cs" />

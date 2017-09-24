@@ -12,6 +12,8 @@ namespace Appson.Composer
 	[Contract]
 	public interface IComposer
 	{
+        ComposerConfiguration Configuration { get; }
+
 		// Component Lookup methods
 
 		TContract GetComponent<TContract>() where TContract : class;

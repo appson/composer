@@ -37,7 +37,7 @@ namespace Appson.Composer.UnitTests.RegisterVariety
         [TestMethod]
         public void NoAttributesAtAll()
         {
-            _context.DisableAttributeChecking = true;
+            _context.Configuration.DisableAttributeChecking = true;
             _context.Register(typeof(INonAttributedContractOne), typeof(NonAttributedComponentOne));
 
             var c = _context.GetComponent<INonAttributedContractOne>();
@@ -48,7 +48,7 @@ namespace Appson.Composer.UnitTests.RegisterVariety
         [TestMethod]
         public void AttributeOnComponentOnly()
         {
-            _context.DisableAttributeChecking = true;
+            _context.Configuration.DisableAttributeChecking = true;
             _context.Register(typeof(INonAttributedContractOne), typeof(AttributedComponentOne));
 
             var c = _context.GetComponent<INonAttributedContractOne>();
@@ -59,7 +59,7 @@ namespace Appson.Composer.UnitTests.RegisterVariety
         [TestMethod]
         public void SpecifiedAttributeOnContract()
         {
-            _context.DisableAttributeChecking = true;
+            _context.Configuration.DisableAttributeChecking = true;
             _context.Register(typeof(IContractTwo), typeof(NonAttributedComponentTwo));
 
             var c = _context.GetComponent<IContractTwo>();
@@ -70,7 +70,7 @@ namespace Appson.Composer.UnitTests.RegisterVariety
         [TestMethod]
         public void UnspecifiedAttributeOnContract()
         {
-            _context.DisableAttributeChecking = true;
+            _context.Configuration.DisableAttributeChecking = true;
             _context.Register(typeof(NonAttributedComponentTwo));
 
             var c = _context.GetComponent<IContractTwo>();

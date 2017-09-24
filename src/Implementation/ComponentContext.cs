@@ -13,12 +13,6 @@ namespace Appson.Composer
 	[ComponentCache(null)]
 	public class ComponentContext : IComponentContext
 	{
-        #region Settings
-
-        public bool DisableAttributeChecking { get; set; }
-
-        #endregion
-
         #region Private Data
 
         private readonly Dictionary<string, ICompositionListener> _compositionListeners;
@@ -35,6 +29,8 @@ namespace Appson.Composer
 
 		public ComponentContext(bool registerBuiltInComponents)
 		{
+            Configuration = new ComposerConfiguration();
+
 			_repository = new Repository();
 			_variables = new Dictionary<string, object>();
 			_compositionListeners = new Dictionary<string, ICompositionListener>();
@@ -208,7 +204,9 @@ namespace Appson.Composer
 
 		#region IComposer implementation
 
-        public virtual TContract GetComponent<TContract>()
+	    public ComposerConfiguration Configuration { get; }
+
+	    public virtual TContract GetComponent<TContract>()
 			where TContract : class
 		{
 			return GetComponent(typeof (TContract), null) as TContract;
@@ -369,7 +367,7 @@ namespace Appson.Composer
 			if (factory == null)
 				throw new ArgumentNullException(nameof(factory));
 
-			if (performChecking)
+			if (performChecking && !Configuration.DisableAttributeChecking)
 				ComponentContextUtils.ThrowIfNotContract(contract);
 
 			factory.Initialize(this);
