@@ -194,6 +194,7 @@
     <Compile Include="FluentRegistration\Components\INonAttributedContract.cs" />
     <Compile Include="FluentRegistration\Components\NonAttributedComponent.cs" />
     <Compile Include="FluentRegistration\FluentAddCompositionNotificationTest.cs" />
+    <Compile Include="FluentRegistration\FluentComponentCacheTest.cs" />
     <Compile Include="FluentRegistration\FluentSetComponentTest.cs" />
     <Compile Include="FluentRegistration\FluentSetConstructorArgsTest.cs" />
     <Compile Include="FluentRegistration\FluentSetValueTest.cs" />

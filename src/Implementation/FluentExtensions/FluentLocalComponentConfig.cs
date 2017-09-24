@@ -106,6 +106,18 @@ namespace Appson.Composer.FluentExtensions
             return this;
         }
 
+        public FluentLocalComponentConfig UseComponentCache(Type cacheContractType, string cacheContractName = null)
+        {
+            // TODO
+            return this;
+        }
+
+        public FluentLocalComponentConfig UseComponentCache<TCacheContract>(string cacheContractName = null)
+        {
+            // TODO
+            return this;
+        }
+
         #endregion
     }
 }
