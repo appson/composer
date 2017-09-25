@@ -11,10 +11,7 @@ namespace Appson.Composer.Factories
 
 		public PreInitializedComponentFactory(object componentInstance)
 		{
-			if (componentInstance == null)
-				throw new ArgumentNullException("componentInstance");
-
-			_componentInstance = componentInstance;
+		    _componentInstance = componentInstance ?? throw new ArgumentNullException(nameof(componentInstance));
 		}
 
 		#endregion
@@ -40,12 +37,9 @@ namespace Appson.Composer.Factories
 			return ComponentContextUtils.FindContracts(_componentInstance.GetType());
 		}
 
-		public bool SharedAmongContracts
-		{
-			get { return true; }
-		}
+		public bool SharedAmongContracts => true;
 
-		public object GetComponentInstance(ContractIdentity contract,
+	    public object GetComponentInstance(ContractIdentity contract,
 		                                   IEnumerable<ICompositionListener> listenerChain)
 		{
 			return _componentInstance;

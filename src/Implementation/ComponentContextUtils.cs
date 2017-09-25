@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Resources;
 using System.Linq;
 using Appson.Composer.CompositionalQueries;
-using Appson.Composer.Utility;
+using Appson.Composer.Factories;
 
 
 namespace Appson.Composer
@@ -59,14 +59,6 @@ namespace Appson.Composer
 			return (contract.GetCustomAttributes(typeof(ContractAttribute), false).Length > 0);
 		}
 
-		internal static void ThrowIfNotComponent(Type component)
-		{
-			// TODO: Move throwing to usage, provide a better message. (why should be a [component])
-			if (!HasComponentAttribute(component))
-				throw new CompositionException(
-				        $"The type {component.FullName} should be marked with [Component] attribute.");
-		}
-
 		internal static void ThrowIfNotContract(Type contract)
 		{
 			// TODO: Move throwing to usage, provide a better message. (why should be a [contract])
@@ -77,6 +69,9 @@ namespace Appson.Composer
 
 		internal static void ThrowIfNotSubTypeOf(Type contract, Type component)
 		{
+		    if (contract == component)
+		        return;
+
 			if (!component.IsSubclassOf(contract) && component.GetInterface(contract.Name) == null)
 				throw new CompositionException(
 				        $"Component type '{component.FullName}' is not a sub-type of contract '{contract.FullName}");
@@ -102,30 +97,6 @@ namespace Appson.Composer
 			return ((ComponentAttribute)attributes[0]).DefaultName;
 		}
 
-		internal static IEnumerable<Lazy<object>> CheckAndRetrieveCompositionConstructorArgs(IComposer composer, MemberInfo memberInfo)
-		{
-			// If the member is not a composition constructor, ignore the member
-
-			if (!(memberInfo is ConstructorInfo))
-				return null;
-
-			if (!HasCompositionConstructorAttribute((ConstructorInfo)memberInfo))
-				return null;
-
-			// Extract parameter information from the member, and set them
-			// as the parameters of ther constructor for creating the component
-
-			var parameterInfos = ((ConstructorInfo)memberInfo).GetParameters();
-			var compositionConstructorAttribute = GetCompositionConstructorAttribute(memberInfo);
-
-			return parameterInfos.Select((parameterInfo, index) =>
-										 composer.LazyGetComponent(parameterInfo.ParameterType,
-																   compositionConstructorAttribute.Names != null &&
-																   index < compositionConstructorAttribute.Names.Length
-																	? compositionConstructorAttribute.Names[index]
-																	: null));
-		}
-
 		internal static void CheckAndAddInitializationPoint(IComposer composer,
 															List<InitializationPointSpecification> initializationPoints,
 															MemberInfo memberInfo)
@@ -136,7 +107,7 @@ namespace Appson.Composer
 
 			if (initializationPoints.Any(i => i.Name == memberInfo.Name))
 			{
-				if (!IsInitializationPoint(memberInfo))
+				if (!composer.Configuration.DisableAttributeChecking && !IsInitializationPoint(memberInfo))
 					throw new CompositionException(
 					        $"The member '{memberInfo.Name}' of type '{memberInfo.ReflectedType?.FullName}' is in the list of initialization points, " +
 					        "but it doesn't have any of the attributes for an initialization point associated.");
@@ -185,7 +156,7 @@ namespace Appson.Composer
 						    "An initialization point should either be a field or a property.");
 				}
 
-				if (!HasContractAttribute(contractType))
+				if (!composer.Configuration.DisableAttributeChecking && !HasContractAttribute(contractType))
 					throw new CompositionException("Component Plug '" + memberInfo.Name + "' on type '" +
 					                               memberInfo.ReflectedType?.FullName + "' is of type '" + contractType.FullName +
 					                               "' which is not a contract (is not marked with [Contract])");
@@ -391,7 +362,7 @@ namespace Appson.Composer
 			return result;
 		}
 
-		internal static IEnumerable<MethodInfo> FindCompositionNotificationMethods(Type targetType)
+		internal static IEnumerable<Action<IComposer, object>> FindCompositionNotificationMethods(Type targetType)
 		{
 			var result = new List<MethodInfo>();
 
@@ -427,7 +398,7 @@ namespace Appson.Composer
 			if (interfaceMethod != null)
 				result.Add(interfaceMethod);
 
-			return result;
+		    return result.Select<MethodInfo, Action<IComposer, object>>(mi => (c, o) => mi.Invoke(o, new object[0]));
 		}
 
 		internal static void ApplyInitializationPoint(object targetObject, string memberName, MemberTypes memberType, object value)
@@ -485,5 +456,17 @@ namespace Appson.Composer
 
 			throw new ArgumentException("Specified member type is not supported: " + memberType);
 		}
-	}
+
+	    internal static ILocalComponentFactory CreateLocalFactory(Type component)
+	    {
+	        ILocalComponentFactory result;
+	        if ((component.IsGenericType) && (component.ContainsGenericParameters))
+	            result = new GenericLocalComponentFactory(component);
+	        else
+	            result = new LocalComponentFactory(component);
+
+	        return result;
+	    }
+
+    }
 }

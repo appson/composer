@@ -8,7 +8,7 @@ using Appson.Composer.CompositionalQueries;
 
 namespace Appson.Composer.Factories
 {
-	public class LocalComponentFactory : IComponentFactory
+	public class LocalComponentFactory : ILocalComponentFactory
 	{
 		private IComposer _composer;
 
@@ -18,19 +18,18 @@ namespace Appson.Composer.Factories
 		private ConstructorInfo _targetConstructor;
 		private List<ConstructorArgSpecification> _constructorArgs;
 		private readonly List<InitializationPointSpecification> _initializationPoints;
-		private IEnumerable<MethodInfo> _compositionNotificationMethods;
+		private List<Action<IComposer, object>> _compositionNotificationMethods;
+	    private ICompositionalQuery _componentCacheQuery;
 
 		#region Constructors
 
 		public LocalComponentFactory(Type targetType)
 		{
-            if (targetType == null)
-                throw new ArgumentNullException(nameof(targetType));
-
-			_targetType = targetType;
+            _targetType = targetType ?? throw new ArgumentNullException(nameof(targetType));
 
 			_composer = null;
 			_componentCache = null;
+            _componentCacheQuery = null;
 			_targetConstructor = null;
 			_constructorArgs = null;
 			_initializationPoints = new List<InitializationPointSpecification>();
@@ -49,7 +48,7 @@ namespace Appson.Composer.Factories
 			if (_targetType == null)
 				throw new InvalidOperationException("TargetType is not specified.");
 
-			if (!ComponentContextUtils.HasComponentAttribute(_targetType))
+			if (!composer.Configuration.DisableAttributeChecking && !ComponentContextUtils.HasComponentAttribute(_targetType))
 				throw new CompositionException("The type '" + _targetType +
 				                               "' is not a component, but it is being registered as one. Only classes marked with [Component] attribute can be registered.");
 
@@ -132,8 +131,8 @@ namespace Appson.Composer.Factories
 
 	    public ConstructorInfo TargetConstructor
 		{
-			get { return _targetConstructor; }
-			set
+			get => _targetConstructor;
+	        set
 			{
 				if (_composer != null)
 					throw new InvalidOperationException("Cannot change TargetConstructor when the factory is initialized.");
@@ -146,17 +145,10 @@ namespace Appson.Composer.Factories
 		{
 			get
 			{
-				if (_composer != null)
+			    if (_composer != null)
 					throw new InvalidOperationException("Cannot access ConstructorArgs when the factory is initialized.");
 
-				return _constructorArgs;
-			}
-			set
-			{
-				if (_composer != null)
-					throw new InvalidOperationException("Cannot access ConstructorArgs when the factory is initialized.");
-
-				_constructorArgs = value;
+			    return _constructorArgs ?? (_constructorArgs = new List<ConstructorArgSpecification>());
 			}
 		}
 
@@ -171,7 +163,36 @@ namespace Appson.Composer.Factories
 			}
 		}
 
-		#endregion
+	    public List<Action<IComposer, object>> CompositionNotificationMethods
+	    {
+	        get
+	        {
+	            if (_composer != null)
+	                throw new InvalidOperationException("Cannot access CompositionNotificationMethods when the factory is initialized.");
+
+	            return _compositionNotificationMethods ?? (_compositionNotificationMethods = new List<Action<IComposer, object>>());
+	        }
+        }
+
+	    public ICompositionalQuery ComponentCacheQuery
+	    {
+	        get
+	        {
+	            if (_composer != null)
+	                throw new InvalidOperationException("Cannot access ComponentCacheQuery when the factory is initialized.");
+
+	            return _componentCacheQuery;
+	        }
+	        set
+	        {
+	            if (_composer != null)
+	                throw new InvalidOperationException("Cannot access ComponentCacheQuery when the factory is initialized.");
+
+	            _componentCacheQuery = value;
+	        }
+	    }
+
+	    #endregion
 
 		#region Private helper methods
 
@@ -181,9 +202,9 @@ namespace Appson.Composer.Factories
 		    {
 		        LoadInitializationPoints();
 		        LoadTargetConstructor();
+		        LoadComponentCacheQuery();
 		        LoadComponentCache();
 		        LoadCompositionNotificationMethods();
-
 		    }
 		    catch(Exception e)
 		    {
@@ -200,10 +221,7 @@ namespace Appson.Composer.Factories
 			// when creating the component.
 
 			if (_constructorArgs != null)
-			{
-				_targetConstructor = null;
 				return;
-			}
 
 			// Ignore finding the constructor if the creator of the factory has specified one.
 			// Just extract the constructor args.
@@ -237,7 +255,7 @@ namespace Appson.Composer.Factories
 
 			foreach (var parameterInfo in _targetConstructor.GetParameters())
 			{
-				if (!ComponentContextUtils.HasContractAttribute(parameterInfo.ParameterType))
+				if (!_composer.Configuration.DisableAttributeChecking && !ComponentContextUtils.HasContractAttribute(parameterInfo.ParameterType))
 					throw new CompositionException(
 					        $"Parameter '{parameterInfo.Name}' of the constructor of type '{_targetType.FullName}' is not of a Contract type. " +
 					        "All parameters of the composition constructor must be of Contract types, so that Composer can query for a component and pass it to them.");
@@ -274,41 +292,52 @@ namespace Appson.Composer.Factories
 			}
 		}
 
-		private void LoadComponentCache()
+	    private void LoadComponentCacheQuery()
+	    {
+	        if (_componentCacheQuery != null)
+                return;
+
+            var attribute = ComponentContextUtils.GetComponentCacheAttribute(_targetType);
+	        if (attribute == null)
+	        {
+	            _componentCacheQuery = new ComponentQuery(typeof(DefaultComponentCache), null);
+                return;
+	        }
+
+	        if (attribute.ComponentCacheType == null)
+	        {
+	            _componentCacheQuery = null;
+                return;
+	        }
+
+            _componentCacheQuery = new ComponentQuery(attribute.ComponentCacheType, attribute.ComponentCacheName);
+        }
+
+        private void LoadComponentCache()
 		{
-			var attribute = ComponentContextUtils.GetComponentCacheAttribute(_targetType);
-
-			if (attribute == null)
-			{
-				_componentCache = _composer.GetComponent<DefaultComponentCache>();
-				return;
-			}
-
-			if (attribute.ComponentCacheType == null)
+			if (_componentCacheQuery == null || _componentCacheQuery is NullQuery)
 			{
 				_componentCache = null;
 				return;
 			}
 
-			var result = _composer.GetComponent(attribute.ComponentCacheType, attribute.ComponentCacheName);
+			var result = _componentCacheQuery.Query(_composer);
 			if (result == null)
-				throw new CompositionException("Can not register component type " + _targetType.FullName +
-				                               " because the specified ComponentCache contract (type=" +
-				                               attribute.ComponentCacheType.FullName +
-				                               ", name=" + (attribute.ComponentCacheName ?? "null") +
-				                               ") could not be queried from Composer.");
+				throw new CompositionException($"Can not register component type {_targetType.FullName} because " +
+				                               $"the specified ComponentCache contract ({_componentCache}) could not be queried from Composer.");
 
 			if (!(result is IComponentCache))
-				throw new CompositionException("Component cache type " + result.GetType().FullName +
-				                               " that is specified as component cache handler on component " + _targetType.FullName +
-				                               " does not implement IComponentCache interface.");
+				throw new CompositionException($"Component cache type {result.GetType().FullName} that is specified " +
+				                               $"as component cache handler on component {_targetType.FullName} does not implement " +
+				                               "IComponentCache interface.");
 
 			_componentCache = (IComponentCache) result;
 		}
 
 		private void LoadCompositionNotificationMethods()
 		{
-			_compositionNotificationMethods = ComponentContextUtils.FindCompositionNotificationMethods(_targetType);
+		    var methodsFound = ComponentContextUtils.FindCompositionNotificationMethods(_targetType).ToList();
+		    _compositionNotificationMethods = _compositionNotificationMethods?.Concat(methodsFound).ToList() ?? methodsFound;
 		}
 
 		private void InvokeCompositionNotifications(object componentInstance)
@@ -318,7 +347,7 @@ namespace Appson.Composer.Factories
 
 			foreach (var method in _compositionNotificationMethods)
 			{
-				method.Invoke(componentInstance, new object[0]);
+			    method(_composer, componentInstance);
 			}
 		}
 
@@ -468,18 +497,23 @@ namespace Appson.Composer.Factories
 			return result;
 		}
 
-		private ConstructorInfo FindTargetConstructor(IEnumerable<object> constructorArguments)
+		private ConstructorInfo FindTargetConstructor(List<object> constructorArguments)
 		{
 			ConstructorInfo targetConstructor = _targetConstructor;
 
 			if (targetConstructor == null)
 			{
+                if (constructorArguments.Any(arg => arg == null))
+                    throw new CompositionException($"Canntot find an appropriate constructor to initialize type {_targetType.FullName} " +
+                                                   "because some of the constructor arguments are null. You can specify the constructor " +
+                                                   "to use to avoid this problem when passing null values.");
+
 				var constructorArgTypes = constructorArguments.Select(arg => arg.GetType()).ToArray();
 				targetConstructor = _targetType.GetConstructor(constructorArgTypes.ToArray());
 			}
 
 			if (targetConstructor == null)
-				throw new CompositionException("No constructor found for the component type '" + _targetType.FullName + "'");
+				throw new CompositionException($"No constructor found for the component type '{_targetType.FullName}'");
 
 			return targetConstructor;
 		}
@@ -498,8 +532,8 @@ namespace Appson.Composer.Factories
 
 				// Check if the required initialization points get a value.
 				if (initializationPoint.Required && initializationPointResult == null)
-					throw new CompositionException(string.Format("Could not fill initialization point '{0}' of type '{1}'.",
-					                                             initializationPoint.Name, _targetType.FullName));
+					throw new CompositionException(
+					        $"Could not fill initialization point '{initializationPoint.Name}' of type '{_targetType.FullName}'.");
 
 				initializationPointResults.Add(initializationPointResult);
 				ComponentContextUtils.ApplyInitializationPoint(originalComponentInstance,
@@ -510,6 +544,7 @@ namespace Appson.Composer.Factories
 
 			return initializationPointResults;
 		}
+
 
 		#endregion
 	}

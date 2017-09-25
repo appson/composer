@@ -16,11 +16,11 @@ namespace Appson.Composer.CompositionXml
 	{
 		#region Initialization
 
-		private static readonly Dictionary<Type, CommandRunner> runners;
+		private static readonly Dictionary<Type, CommandRunner> Runners;
 
 		static CompositionInfoApplicator()
 		{
-			runners = new Dictionary<Type, CommandRunner>
+			Runners = new Dictionary<Type, CommandRunner>
 			          	{
 			          		{typeof (UsingInfo), RunUsing},
 			          		{typeof (UsingAssemblyInfo), RunUsingAssembly},
@@ -48,11 +48,11 @@ namespace Appson.Composer.CompositionXml
 
 			foreach (var commandInfo in info.CommandInfos)
 			{
-				if (!runners.ContainsKey(commandInfo.GetType()))
+				if (!Runners.ContainsKey(commandInfo.GetType()))
 					throw new CompositionException("Provided type is not supported for applying to a component context: " +
 					                               commandInfo.GetType().FullName);
 
-				var runner = runners[commandInfo.GetType()];
+				var runner = Runners[commandInfo.GetType()];
 
 
 				try
@@ -89,9 +89,7 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunUsing(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var usingInfo = info as UsingInfo;
-
-			if (usingInfo == null)
+		    if (!(info is UsingInfo usingInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			xmlProcessingContext.TypeCache.NamespaceUsings.Add(usingInfo.Namespace);
@@ -99,9 +97,7 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunUsingAssembly(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var usingAssemblyInfo = info as UsingAssemblyInfo;
-
-			if (usingAssemblyInfo == null)
+		    if (!(info is UsingAssemblyInfo usingAssemblyInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			var assembly = Assembly.Load(usingAssemblyInfo.FullName);
@@ -110,9 +106,7 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunInclude(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var includeInfo = info as IncludeInfo;
-
-			if (includeInfo == null)
+		    if (!(info is IncludeInfo includeInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			if (includeInfo.Path != null)
@@ -132,9 +126,7 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunSetVariable(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var setVariableInfo = info as SetVariableInfo;
-
-			if (setVariableInfo == null)
+		    if (!(info is SetVariableInfo setVariableInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			var value = CreateLazyXmlValue(setVariableInfo.XElements, setVariableInfo.XAttributes, xmlProcessingContext);
@@ -143,9 +135,7 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunRemoveVariable(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var removeVariableInfo = info as RemoveVariableInfo;
-
-			if (removeVariableInfo == null)
+		    if (!(info is RemoveVariableInfo removeVariableInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			xmlProcessingContext.ComponentContext.RemoveVariable(removeVariableInfo.Name);
@@ -158,9 +148,7 @@ namespace Appson.Composer.CompositionXml
 		private static void RunRegisterCompositionListener(CompositionCommandInfo info,
 		                                                   XmlProcessingContext xmlProcessingContext)
 		{
-			var registerCompositionListenerInfo = info as RegisterCompositionListenerInfo;
-
-			if (registerCompositionListenerInfo == null)
+		    if (!(info is RegisterCompositionListenerInfo registerCompositionListenerInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			var listener = XmlValueParser.ParseValue(registerCompositionListenerInfo.XElements,
@@ -173,9 +161,7 @@ namespace Appson.Composer.CompositionXml
 				return;
 			}
 
-			var compositionListener = listener as ICompositionListener;
-
-			if (compositionListener == null)
+		    if (!(listener is ICompositionListener compositionListener))
 			{
 				xmlProcessingContext.ReportError(
 					"Registering composition listeners are only allowed for ICompositionListener implementations. Provided type: " +
@@ -190,9 +176,7 @@ namespace Appson.Composer.CompositionXml
 		private static void RunUnregisterCompositionListener(CompositionCommandInfo info,
 		                                                     XmlProcessingContext xmlProcessingContext)
 		{
-			var unregisterCompositionListenerInfo = info as UnregisterCompositionListenerInfo;
-
-			if (unregisterCompositionListenerInfo == null)
+		    if (!(info is UnregisterCompositionListenerInfo unregisterCompositionListenerInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			xmlProcessingContext.ComponentContext.UnregisterCompositionListener(unregisterCompositionListenerInfo.Name);
@@ -204,9 +188,7 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunRegisterAssembly(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var registerAssemblyInfo = info as RegisterAssemblyInfo;
-
-			if (registerAssemblyInfo == null)
+		    if (!(info is RegisterAssemblyInfo registerAssemblyInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			var assembly = Assembly.Load(registerAssemblyInfo.FullName);
@@ -216,9 +198,7 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunRegisterComponent(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var registerComponentInfo = info as RegisterComponentInfo;
-
-			if (registerComponentInfo == null)
+		    if (!(info is RegisterComponentInfo registerComponentInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			// Extract and load contract type
@@ -232,7 +212,7 @@ namespace Appson.Composer.CompositionXml
 				if (contractType == null)
 				{
 					xmlProcessingContext.ReportError(
-						string.Format("Type '{0}' could not be loaded.", registerComponentInfo.ContractType));
+					    $"Type '{registerComponentInfo.ContractType}' could not be loaded.");
 					return;
 				}
 			}
@@ -246,7 +226,7 @@ namespace Appson.Composer.CompositionXml
 			var componentType = SimpleTypeParserUtil.ParseType(registerComponentInfo.Type, xmlProcessingContext);
 			if (componentType == null)
 			{
-				xmlProcessingContext.ReportError(string.Format("Type '{0}' could not be loaded.", registerComponentInfo.Type));
+				xmlProcessingContext.ReportError($"Type '{registerComponentInfo.Type}' could not be loaded.");
 				return;
 			}
 			
@@ -273,12 +253,12 @@ namespace Appson.Composer.CompositionXml
 
 			foreach (var plugInfo in registerComponentInfo.Plugs)
 			{
-				xmlProcessingContext.EnterRunningLocation(string.Format("Plug '{0}'", plugInfo.Name));
+				xmlProcessingContext.EnterRunningLocation($"Plug '{plugInfo.Name}'");
 
 				var plugRefType = SimpleTypeParserUtil.ParseType(plugInfo.RefType, xmlProcessingContext);
 				if (plugRefType == null)
 				{
-					xmlProcessingContext.ReportError(string.Format("Type '{0}' could not be loaded.", plugInfo.RefType));
+					xmlProcessingContext.ReportError($"Type '{plugInfo.RefType}' could not be loaded.");
 					xmlProcessingContext.LeaveRunningLocation();
 					return;
 				}
@@ -301,7 +281,7 @@ namespace Appson.Composer.CompositionXml
 
 			foreach (var configurationPointInfo in registerComponentInfo.ConfigurationPoints)
 			{
-				xmlProcessingContext.EnterRunningLocation(string.Format("ConfigurationPoint '{0}'", configurationPointInfo.Name));
+				xmlProcessingContext.EnterRunningLocation($"ConfigurationPoint '{configurationPointInfo.Name}'");
 
 				var value = CreateLazyXmlValue(configurationPointInfo.XElements,
 				                               configurationPointInfo.XAttributes,
@@ -326,9 +306,7 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunRemoteComponent(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var remoteComponentInfo = info as RemoteComponentInfo;
-
-			if (remoteComponentInfo == null)
+		    if (!(info is RemoteComponentInfo remoteComponentInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			// Extract and load contract type
@@ -338,7 +316,7 @@ namespace Appson.Composer.CompositionXml
 			if (contractType == null)
 			{
 				xmlProcessingContext.ReportError(
-					string.Format("Type '{0}' could not be loaded.", remoteComponentInfo.ContractType));
+				    $"Type '{remoteComponentInfo.ContractType}' could not be loaded.");
 				return;
 			}
 
@@ -405,16 +383,14 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunUnregister(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var unregisterInfo = info as UnregisterInfo;
-
-			if (unregisterInfo == null)
+		    if (!(info is UnregisterInfo unregisterInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			var contractType = SimpleTypeParserUtil.ParseType(unregisterInfo.ContractType, xmlProcessingContext);
 
 			if (contractType == null)
 			{
-				xmlProcessingContext.ReportError(string.Format("Type '{0}' could not be loaded.", unregisterInfo.ContractType));
+				xmlProcessingContext.ReportError($"Type '{unregisterInfo.ContractType}' could not be loaded.");
 				return;
 			}
 			var contractIdentity = new ContractIdentity(contractType, unregisterInfo.ContractName);
@@ -424,16 +400,14 @@ namespace Appson.Composer.CompositionXml
 
 		private static void RunUnregisterFamily(CompositionCommandInfo info, XmlProcessingContext xmlProcessingContext)
 		{
-			var unregisterFamilyInfo = info as UnregisterFamilyInfo;
-
-			if (unregisterFamilyInfo == null)
+		    if (!(info is UnregisterFamilyInfo unregisterFamilyInfo))
 				throw new ArgumentException("Invalid runner input type: error in static setup.");
 
 			var contractType = SimpleTypeParserUtil.ParseType(unregisterFamilyInfo.ContractType, xmlProcessingContext);
 
 			if (contractType == null)
 			{
-				xmlProcessingContext.ReportError(string.Format("Type '{0}' could not be loaded.", unregisterFamilyInfo.ContractType));
+				xmlProcessingContext.ReportError($"Type '{unregisterFamilyInfo.ContractType}' could not be loaded.");
 				return;
 			}
 

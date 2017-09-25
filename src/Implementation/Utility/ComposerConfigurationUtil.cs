@@ -9,6 +9,8 @@ namespace Appson.Composer.Utility
         public static void ProcessApplicationConfiguration(this IComponentContext composer)
         {
             var configuration = LoadConfiguration();
+            if (configuration?.SetupCompositionXmls == null)
+                return;
 
             foreach (SetupCompositionXml xml in configuration.SetupCompositionXmls)
                 RunCompositionXml(composer, xml.AssemblyName, xml.ManifestResourceName, xml.Path);
@@ -18,8 +20,7 @@ namespace Appson.Composer.Utility
 
         private static CompositionConfiguration LoadConfiguration()
         {
-            var configuration = (CompositionConfiguration)ConfigurationManager.GetSection("composition");
-            return configuration;
+            return ConfigurationManager.GetSection("composition") as CompositionConfiguration;
         }
 
         private static void RunCompositionXml(IComponentContext composer, string assemblyName,
