@@ -3,6 +3,5 @@
     [Contract]
     public interface IComponentOne
     {
-        
     }
 }

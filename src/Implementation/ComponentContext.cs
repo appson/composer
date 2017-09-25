@@ -339,7 +339,7 @@ namespace Appson.Composer
 			{
 				foreach (var method in compositionNotificationMethods)
 				{
-					method.Invoke(componentInstance, new object[0]);
+				    method(this, componentInstance);
 				}
 			}
 		}

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Reflection;
+using Appson.Composer.CompositionalQueries;
 
 namespace Appson.Composer.FluentExtensions
 {
@@ -24,13 +26,24 @@ namespace Appson.Composer.FluentExtensions
         public new FluentLocalComponentConfig<TComponent> SetComponent(
             string memberName, Type contractType, string contractName = null, bool required = true)
         {
-            // TODO
+            base.SetComponent(memberName, contractType, contractName, required);
             return this;
         }
 
         public FluentLocalComponentConfig<TComponent> SetComponent<TPlugContract>(
             Expression<Func<TComponent, TPlugContract>> member, string contractName = null, bool required = true)
         {
+            if (!(member.Body is MemberExpression memberExpression) ||
+                !(memberExpression.Expression is ParameterExpression parameterExpression) ||
+                parameterExpression.Type != typeof(TComponent))
+            {
+                throw new ArgumentException("Member pointer should point to an immediate member. " +
+                                            "The only acceptable expression format is <x => x.MemberName>.");
+            }
+
+            Factory.InitializationPoints.Add(new InitializationPointSpecification(memberExpression.Member.Name, memberExpression.Member.MemberType,
+                required, new ComponentQuery(typeof(TPlugContract), contractName)));
+
             return this;
         }
 
@@ -96,15 +109,9 @@ namespace Appson.Composer.FluentExtensions
             return this;
         }
 
-        public new FluentLocalComponentConfig<TComponent> NotifyInitialized(string methodName)
-        {
-            // TODO
-            return this;
-        }
-
         public FluentLocalComponentConfig<TComponent> NotifyInitialized(Action<IComposer, TComponent> initAction)
         {
-            // TODO
+            base.NotifyInitialized((c, o) => initAction(c, (TComponent)o));
             return this;
         }
 

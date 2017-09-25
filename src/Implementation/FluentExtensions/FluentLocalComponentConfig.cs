@@ -1,19 +1,21 @@
 ﻿using System;
+using System.Reflection;
+using Appson.Composer.CompositionalQueries;
 using Appson.Composer.Factories;
 
 namespace Appson.Composer.FluentExtensions
 {
     public class FluentLocalComponentConfig
     {
-        private readonly ComponentContext _context;
-        private readonly LocalComponentFactory _factory;
+        protected readonly ComponentContext Context;
+        protected readonly LocalComponentFactory Factory;
 
         #region Constructors
 
         public FluentLocalComponentConfig(ComponentContext context, Type componentType)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
-            _factory = (LocalComponentFactory) ComponentContextUtils.CreateLocalFactory(componentType);
+            Context = context ?? throw new ArgumentNullException(nameof(context));
+            Factory = (LocalComponentFactory) ComponentContextUtils.CreateLocalFactory(componentType);
         }
 
         #endregion
@@ -22,7 +24,7 @@ namespace Appson.Composer.FluentExtensions
 
         public void Register(string contractName = null)
         {
-            _context.Register(contractName, _factory);
+            Context.Register(contractName, Factory);
         }
 
         public void RegisterWith<TContract>(string contractName = null)
@@ -32,7 +34,7 @@ namespace Appson.Composer.FluentExtensions
 
         public void RegisterWith(Type contractType, string contractName = null)
         {
-            _context.Register(contractType, contractName, _factory);
+            Context.Register(contractType, contractName, Factory);
         }
 
         public FluentLocalComponentConfig SetComponent<TPlugContract>(
@@ -44,7 +46,9 @@ namespace Appson.Composer.FluentExtensions
         public FluentLocalComponentConfig SetComponent(
             string memberName, Type contractType, string contractName = null, bool required = true)
         {
-            // TODO
+            Factory.InitializationPoints.Add(new InitializationPointSpecification(memberName, MemberTypes.All,
+                required, new ComponentQuery(contractType, contractName)));
+
             return this;
         }
 
@@ -95,15 +99,9 @@ namespace Appson.Composer.FluentExtensions
             return this;
         }
 
-        public FluentLocalComponentConfig NotifyInitialized(string methodName)
+        public FluentLocalComponentConfig NotifyInitialized(Action<IComposer, object> initAction)
         {
-            // TODO
-            return this;
-        }
-
-        public FluentLocalComponentConfig NotifyInitialized(Action<IComposer> initAction)
-        {
-            // TODO
+            Factory.CompositionNotificationMethods.Add(initAction);
             return this;
         }
 

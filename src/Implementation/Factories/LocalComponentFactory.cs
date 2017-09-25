@@ -18,7 +18,7 @@ namespace Appson.Composer.Factories
 		private ConstructorInfo _targetConstructor;
 		private List<ConstructorArgSpecification> _constructorArgs;
 		private readonly List<InitializationPointSpecification> _initializationPoints;
-		private IEnumerable<MethodInfo> _compositionNotificationMethods;
+		private List<Action<IComposer, object>> _compositionNotificationMethods;
 	    private ComponentQuery _componentCacheQuery;
 
 		#region Constructors
@@ -29,6 +29,7 @@ namespace Appson.Composer.Factories
 
 			_composer = null;
 			_componentCache = null;
+            _componentCacheQuery = null;
 			_targetConstructor = null;
 			_constructorArgs = null;
 			_initializationPoints = new List<InitializationPointSpecification>();
@@ -144,17 +145,10 @@ namespace Appson.Composer.Factories
 		{
 			get
 			{
-				if (_composer != null)
+			    if (_composer != null)
 					throw new InvalidOperationException("Cannot access ConstructorArgs when the factory is initialized.");
 
-				return _constructorArgs;
-			}
-			set
-			{
-				if (_composer != null)
-					throw new InvalidOperationException("Cannot access ConstructorArgs when the factory is initialized.");
-
-				_constructorArgs = value;
+			    return _constructorArgs ?? (_constructorArgs = new List<ConstructorArgSpecification>());
 			}
 		}
 
@@ -169,7 +163,18 @@ namespace Appson.Composer.Factories
 			}
 		}
 
-		#endregion
+	    public List<Action<IComposer, object>> CompositionNotificationMethods
+	    {
+	        get
+	        {
+	            if (_composer != null)
+	                throw new InvalidOperationException("Cannot access CompositionNotificationMethods when the factory is initialized.");
+
+	            return _compositionNotificationMethods ?? (_compositionNotificationMethods = new List<Action<IComposer, object>>());
+	        }
+        }
+
+	    #endregion
 
 		#region Private helper methods
 
@@ -320,7 +325,8 @@ namespace Appson.Composer.Factories
 
 		private void LoadCompositionNotificationMethods()
 		{
-			_compositionNotificationMethods = ComponentContextUtils.FindCompositionNotificationMethods(_targetType);
+		    var methodsFound = ComponentContextUtils.FindCompositionNotificationMethods(_targetType).ToList();
+		    _compositionNotificationMethods = _compositionNotificationMethods?.Concat(methodsFound).ToList() ?? methodsFound;
 		}
 
 		private void InvokeCompositionNotifications(object componentInstance)
@@ -330,7 +336,7 @@ namespace Appson.Composer.Factories
 
 			foreach (var method in _compositionNotificationMethods)
 			{
-				method.Invoke(componentInstance, new object[0]);
+			    method(_composer, componentInstance);
 			}
 		}
 

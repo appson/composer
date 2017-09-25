@@ -26,6 +26,8 @@ namespace Appson.Composer.UnitTests.FluentRegistration
         public void TestInitialize()
         {
             _context = new ComponentContext();
+            _context.Configuration.DisableAttributeChecking = true;
+
             _context.Register(typeof(ComponentOne));
             _context.Register(typeof(ComponentTwo));
             _context.Register(typeof(IComponentOne), "name", typeof(ComponentOne));

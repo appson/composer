@@ -26,6 +26,8 @@ namespace Appson.Composer.UnitTests.FluentRegistration
         public void TestInitialize()
         {
             _context = new ComponentContext();
+            _context.Configuration.DisableAttributeChecking = true;
+
             _context.SetVariableValue("one", "someString");
             _context.SetVariableValue("two", 5);
         }

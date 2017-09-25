@@ -362,7 +362,7 @@ namespace Appson.Composer
 			return result;
 		}
 
-		internal static IEnumerable<MethodInfo> FindCompositionNotificationMethods(Type targetType)
+		internal static IEnumerable<Action<IComposer, object>> FindCompositionNotificationMethods(Type targetType)
 		{
 			var result = new List<MethodInfo>();
 
@@ -398,7 +398,7 @@ namespace Appson.Composer
 			if (interfaceMethod != null)
 				result.Add(interfaceMethod);
 
-			return result;
+		    return result.Select<MethodInfo, Action<IComposer, object>>(mi => (c, o) => mi.Invoke(o, new object[0]));
 		}
 
 		internal static void ApplyInitializationPoint(object targetObject, string memberName, MemberTypes memberType, object value)

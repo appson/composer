@@ -3,6 +3,5 @@
     [Component]
     public class ComponentOne : IComponentOne
     {
-        
     }
 }
