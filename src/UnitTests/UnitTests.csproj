@@ -186,6 +186,8 @@
     <Compile Include="ErrorConditions\NotificationErrors.cs" />
     <Compile Include="ErrorConditions\PlugErrors.cs" />
     <Compile Include="ErrorConditions\ResourceErrors.cs" />
+    <Compile Include="FluentRegistration\FluentGenericComposition.cs" />
+    <Compile Include="FluentRegistration\Components\GenericComponents.cs" />
     <Compile Include="FluentRegistration\FluentBasicRegistrationTest.cs" />
     <Compile Include="FluentRegistration\Components\ComponentOne.cs" />
     <Compile Include="FluentRegistration\Components\ComponentTwo.cs" />
