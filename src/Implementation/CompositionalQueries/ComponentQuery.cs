@@ -6,7 +6,7 @@ namespace Appson.Composer.CompositionalQueries
 	{
 		public ComponentQuery(Type contractType, string contractName)
 		{
-            ContractType = contractType ?? throw new ArgumentNullException(nameof(contractType));
+		    ContractType = contractType ?? throw new ArgumentNullException(nameof(contractType));
 			ContractName = contractName;
 		}
 
@@ -14,6 +14,9 @@ namespace Appson.Composer.CompositionalQueries
 
 		public object Query(IComposer composer)
 		{
+		    if (ContractType == null)
+		        return null;
+
 			IComposer composerToUse = ComposerOverride ?? composer;
 			if (composerToUse == null)
 				throw new ArgumentNullException(nameof(composer));
@@ -26,7 +29,7 @@ namespace Appson.Composer.CompositionalQueries
 		public override string ToString()
 		{
 			return
-			    $"Query for Component with ContractType: '{ContractType.FullName}', ContractName: '{ContractName ?? "<null>"}'";
+			    $"ComponentQuery('{ContractType.FullName}', '{ContractName ?? "<null>"}')";
 		}
 
 		public Type ContractType { get; }

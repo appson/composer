@@ -117,13 +117,13 @@ namespace Appson.Composer.FluentExtensions
 
         public new FluentLocalComponentConfig<TComponent> UseComponentCache(Type cacheContractType, string cacheContractName = null)
         {
-            // TODO
+            base.UseComponentCache(cacheContractType, cacheContractName);
             return this;
         }
 
         public new FluentLocalComponentConfig<TComponent> UseComponentCache<TCacheContract>(string cacheContractName = null)
         {
-            // TODO
+            base.UseComponentCache<TCacheContract>(cacheContractName);
             return this;
         }
 

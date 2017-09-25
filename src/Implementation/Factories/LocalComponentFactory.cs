@@ -19,7 +19,7 @@ namespace Appson.Composer.Factories
 		private List<ConstructorArgSpecification> _constructorArgs;
 		private readonly List<InitializationPointSpecification> _initializationPoints;
 		private List<Action<IComposer, object>> _compositionNotificationMethods;
-	    private ComponentQuery _componentCacheQuery;
+	    private ICompositionalQuery _componentCacheQuery;
 
 		#region Constructors
 
@@ -174,6 +174,24 @@ namespace Appson.Composer.Factories
 	        }
         }
 
+	    public ICompositionalQuery ComponentCacheQuery
+	    {
+	        get
+	        {
+	            if (_composer != null)
+	                throw new InvalidOperationException("Cannot access ComponentCacheQuery when the factory is initialized.");
+
+	            return _componentCacheQuery;
+	        }
+	        set
+	        {
+	            if (_composer != null)
+	                throw new InvalidOperationException("Cannot access ComponentCacheQuery when the factory is initialized.");
+
+	            _componentCacheQuery = value;
+	        }
+	    }
+
 	    #endregion
 
 		#region Private helper methods
@@ -301,7 +319,7 @@ namespace Appson.Composer.Factories
 
         private void LoadComponentCache()
 		{
-			if (_componentCacheQuery == null)
+			if (_componentCacheQuery == null || _componentCacheQuery is NullQuery)
 			{
 				_componentCache = null;
 				return;
@@ -309,16 +327,13 @@ namespace Appson.Composer.Factories
 
 			var result = _componentCacheQuery.Query(_composer);
 			if (result == null)
-				throw new CompositionException("Can not register component type " + _targetType.FullName +
-				                               " because the specified ComponentCache contract (type=" +
-				                               _componentCacheQuery.ContractType.FullName +
-				                               ", name=" + (_componentCacheQuery.ContractName ?? "null") +
-				                               ") could not be queried from Composer.");
+				throw new CompositionException($"Can not register component type {_targetType.FullName} because " +
+				                               $"the specified ComponentCache contract ({_componentCache}) could not be queried from Composer.");
 
 			if (!(result is IComponentCache))
-				throw new CompositionException("Component cache type " + result.GetType().FullName +
-				                               " that is specified as component cache handler on component " + _targetType.FullName +
-				                               " does not implement IComponentCache interface.");
+				throw new CompositionException($"Component cache type {result.GetType().FullName} that is specified " +
+				                               $"as component cache handler on component {_targetType.FullName} does not implement " +
+				                               "IComponentCache interface.");
 
 			_componentCache = (IComponentCache) result;
 		}
