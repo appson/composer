@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq.Expressions;
-using System.Reflection;
 using Appson.Composer.CompositionalQueries;
 
 namespace Appson.Composer.FluentExtensions
@@ -47,65 +46,110 @@ namespace Appson.Composer.FluentExtensions
             return this;
         }
 
+        public new FluentLocalComponentConfig<TComponent> UseConstructor(params Type[] argTypes)
+        {
+            base.UseConstructor(argTypes);
+            return this;
+        }
+
         public new FluentLocalComponentConfig<TComponent> AddConstructorComponent<TPlugContract>(string contractName = null, bool required = true)
         {
-            // TODO
+            base.AddConstructorComponent<TPlugContract>(contractName, required);
             return this;
         }
 
         public new FluentLocalComponentConfig<TComponent> AddConstructorComponent(Type contractType, string contractName = null, bool required = true)
         {
-            // TODO
+            base.AddConstructorComponent(contractType, contractName, required);
             return this;
         }
 
         public new FluentLocalComponentConfig<TComponent> AddConstructorValue(object value)
         {
-            // TODO
+            base.AddConstructorValue(value);
             return this;
         }
 
-        public new FluentLocalComponentConfig<TComponent> AddConstructorValue<TValue>(Func<IComposer, TValue> valueCalculator)
+        public new FluentLocalComponentConfig<TComponent> AddConstructorValue<TValue>(Func<IComposer, TValue> valueCalculator, bool required = true)
         {
-            // TODO
+            base.AddConstructorValue(valueCalculator, required);
             return this;
         }
 
-        public new FluentLocalComponentConfig<TComponent> AddConstructorValueFromVariable(string variableName)
+        public new FluentLocalComponentConfig<TComponent> AddConstructorValueFromVariable(string variableName, bool required = true)
         {
-            // TODO
+            base.AddConstructorValueFromVariable(variableName, required);
             return this;
         }
 
         public new FluentLocalComponentConfig<TComponent> SetValue(string memberName, object value)
         {
-            // TODO
+            base.SetValue(memberName, value);
             return this;
         }
 
         public FluentLocalComponentConfig<TComponent> SetValue<TMember>(Expression<Func<TComponent, TMember>> member, TMember value)
         {
-            // TODO
+            if (!(member.Body is MemberExpression memberExpression) ||
+                !(memberExpression.Expression is ParameterExpression parameterExpression) ||
+                parameterExpression.Type != typeof(TComponent))
+            {
+                throw new ArgumentException("Member pointer should point to an immediate member. " +
+                                            "The only acceptable expression format is <x => x.MemberName>.");
+            }
+
+            Factory.InitializationPoints.Add(new InitializationPointSpecification(memberExpression.Member.Name,
+                memberExpression.Member.MemberType,
+                false, new SimpleValueQuery(value)));
+
             return this;
         }
 
         public FluentLocalComponentConfig<TComponent> SetValue<TMember>(Expression<Func<TComponent, TMember>> member,
-            Func<IComposer, TMember> valueCalculator)
+            Func<IComposer, TMember> valueCalculator, bool required = true)
         {
-            // TODO
+            if (!(member.Body is MemberExpression memberExpression) ||
+                !(memberExpression.Expression is ParameterExpression parameterExpression) ||
+                parameterExpression.Type != typeof(TComponent))
+            {
+                throw new ArgumentException("Member pointer should point to an immediate member. " +
+                                            "The only acceptable expression format is <x => x.MemberName>.");
+            }
+
+            Factory.InitializationPoints.Add(new InitializationPointSpecification(memberExpression.Member.Name,
+                memberExpression.Member.MemberType,
+                required, new FuncValueQuery(c => valueCalculator(c))));
+
             return this;
         }
 
-        public new FluentLocalComponentConfig<TComponent> SetValueFromVariable(string memberName, string variableName)
+        public new FluentLocalComponentConfig<TComponent> SetValue<TMember>(string memberName, Func<IComposer, TMember> valueCalculator, bool required = true)
         {
-            // TODO
+            base.SetValue(memberName, valueCalculator, required);
+            return this;
+        }
+
+        public new FluentLocalComponentConfig<TComponent> SetValueFromVariable(string memberName, string variableName, bool required = true)
+        {
+            base.SetValueFromVariable(memberName, variableName, required);
             return this;
         }
 
         public FluentLocalComponentConfig<TComponent> SetValueFromVariable<TMember>(
-            Expression<Func<TComponent, TMember>> member, string variableName)
+            Expression<Func<TComponent, TMember>> member, string variableName, bool required = true)
         {
-            // TODO
+            if (!(member.Body is MemberExpression memberExpression) ||
+                !(memberExpression.Expression is ParameterExpression parameterExpression) ||
+                parameterExpression.Type != typeof(TComponent))
+            {
+                throw new ArgumentException("Member pointer should point to an immediate member. " +
+                                            "The only acceptable expression format is <x => x.MemberName>.");
+            }
+
+            Factory.InitializationPoints.Add(new InitializationPointSpecification(memberExpression.Member.Name,
+                memberExpression.Member.MemberType,
+                required, new VariableQuery(variableName)));
+
             return this;
         }
 
@@ -128,6 +172,5 @@ namespace Appson.Composer.FluentExtensions
         }
 
         #endregion
-
     }
 }

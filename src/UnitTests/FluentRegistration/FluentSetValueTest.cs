@@ -28,6 +28,7 @@ namespace Appson.Composer.UnitTests.FluentRegistration
             _context = new ComponentContext();
             _context.Configuration.DisableAttributeChecking = true;
 
+            _context.Register(typeof(ComponentOne));
             _context.SetVariableValue("one", "someString");
             _context.SetVariableValue("two", 5);
         }
@@ -86,7 +87,7 @@ namespace Appson.Composer.UnitTests.FluentRegistration
 
             Assert.IsNotNull(i);
             Assert.IsNotNull(c);
-            Assert.AreEqual("someString", c.SomeValue);
+            Assert.AreEqual("someValue", c.SomeValue);
             Assert.AreEqual(5, c.SomeOtherValue);
         }
 
@@ -95,7 +96,7 @@ namespace Appson.Composer.UnitTests.FluentRegistration
         {
             _context.ForComponent<NonAttributedComponent>()
                 .SetValue(x => x.ComponentOne, cmpsr => cmpsr.GetComponent<IComponentOne>())
-                .SetValue(x => x.ComponentTwo, cmpsr => cmpsr.GetComponent<IComponentTwo>())
+                .SetValue(x => x.ComponentTwo, cmpsr => cmpsr.GetComponent<IComponentTwo>(), false)
                 .RegisterWith<INonAttributedContract>();
 
             var i = _context.GetComponent<INonAttributedContract>();
@@ -103,7 +104,7 @@ namespace Appson.Composer.UnitTests.FluentRegistration
 
             Assert.IsNotNull(i);
             Assert.IsNotNull(c);
-            Assert.IsNull(c.ComponentOne);
+            Assert.IsNotNull(c.ComponentOne);
             Assert.IsNull(c.ComponentTwo);
         }
     }

@@ -52,6 +52,12 @@ namespace Appson.Composer.FluentExtensions
             return this;
         }
 
+        public FluentLocalComponentConfig UseConstructor(params Type[] argTypes)
+        {
+            Factory.TargetConstructor = Factory.TargetType.GetConstructor(argTypes);
+            return this;
+        }
+
         public FluentLocalComponentConfig AddConstructorComponent<TPlugContract>(string contractName = null, bool required = true)
         {
             return AddConstructorComponent(typeof(TPlugContract), contractName, required);
@@ -59,43 +65,51 @@ namespace Appson.Composer.FluentExtensions
 
         public FluentLocalComponentConfig AddConstructorComponent(Type contractType, string contractName = null, bool required = true)
         {
-            // TODO
+            Factory.ConstructorArgs.Add(new ConstructorArgSpecification(required, new ComponentQuery(contractType, contractName)));
             return this;
         }
 
         public FluentLocalComponentConfig AddConstructorValue(object value)
         {
-            // TODO
+            Factory.ConstructorArgs.Add(new ConstructorArgSpecification(false, new SimpleValueQuery(value)));
             return this;
         }
 
-        public FluentLocalComponentConfig AddConstructorValue<TMember>(Func<IComposer, TMember> valueCalculator)
+        public FluentLocalComponentConfig AddConstructorValue<TMember>(Func<IComposer, TMember> valueCalculator, bool required = true)
         {
-            // TODO
+            Factory.ConstructorArgs.Add(new ConstructorArgSpecification(required, 
+                new FuncValueQuery(c => valueCalculator(c))));
+
             return this;
         }
 
-        public FluentLocalComponentConfig AddConstructorValueFromVariable(string variableName)
+        public FluentLocalComponentConfig AddConstructorValueFromVariable(string variableName, bool required = true)
         {
-            // TODO
+            Factory.ConstructorArgs.Add(new ConstructorArgSpecification(required, new VariableQuery(variableName)));
             return this;
         }
 
         public FluentLocalComponentConfig SetValue(string memberName, object value)
         {
-            // TODO
+            Factory.InitializationPoints.Add(new InitializationPointSpecification(memberName, MemberTypes.All, false, 
+                new SimpleValueQuery(value)));
+
             return this;
         }
 
-        public FluentLocalComponentConfig SetValue<TMember>(string memberName, Func<IComposer, TMember> valueCalculator)
+        public FluentLocalComponentConfig SetValue<TMember>(string memberName, Func<IComposer, TMember> valueCalculator, bool required = true)
         {
-            // TODO
+            Factory.InitializationPoints.Add(new InitializationPointSpecification(memberName, MemberTypes.All, required,
+                new FuncValueQuery(c => valueCalculator(c))));
+
             return this;
         }
 
-        public FluentLocalComponentConfig SetValueFromVariable(string memberName, string variableName)
+        public FluentLocalComponentConfig SetValueFromVariable(string memberName, string variableName, bool required = true)
         {
-            // TODO
+            Factory.InitializationPoints.Add(new InitializationPointSpecification(memberName, MemberTypes.All, required,
+                new VariableQuery(variableName)));
+
             return this;
         }
 

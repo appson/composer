@@ -29,7 +29,7 @@ namespace Appson.Composer.CompositionalQueries
 
 		public override string ToString()
 		{
-			return $"Query for Resource with Id: '{ResourceId}'";
+			return $"ResourceQuery('{ResourceId}')";
 		}
 
 		public string ResourceId { get; }

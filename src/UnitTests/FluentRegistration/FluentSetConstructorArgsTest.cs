@@ -62,6 +62,7 @@ namespace Appson.Composer.UnitTests.FluentRegistration
         public void OptionalConstructorComponent()
         {
             _context.ForComponent<NonAttributedComponent>()
+                .UseConstructor(typeof(IComponentOne), typeof(IComponentTwo))
                 .AddConstructorComponent<IComponentOne>(required: false)
                 .AddConstructorComponent<IComponentTwo>(required: false)
                 .RegisterWith<INonAttributedContract>();

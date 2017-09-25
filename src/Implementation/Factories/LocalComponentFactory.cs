@@ -205,7 +205,6 @@ namespace Appson.Composer.Factories
 		        LoadComponentCacheQuery();
 		        LoadComponentCache();
 		        LoadCompositionNotificationMethods();
-
 		    }
 		    catch(Exception e)
 		    {
@@ -222,10 +221,7 @@ namespace Appson.Composer.Factories
 			// when creating the component.
 
 			if (_constructorArgs != null)
-			{
-				_targetConstructor = null;
 				return;
-			}
 
 			// Ignore finding the constructor if the creator of the factory has specified one.
 			// Just extract the constructor args.
@@ -501,18 +497,23 @@ namespace Appson.Composer.Factories
 			return result;
 		}
 
-		private ConstructorInfo FindTargetConstructor(IEnumerable<object> constructorArguments)
+		private ConstructorInfo FindTargetConstructor(List<object> constructorArguments)
 		{
 			ConstructorInfo targetConstructor = _targetConstructor;
 
 			if (targetConstructor == null)
 			{
+                if (constructorArguments.Any(arg => arg == null))
+                    throw new CompositionException($"Canntot find an appropriate constructor to initialize type {_targetType.FullName} " +
+                                                   "because some of the constructor arguments are null. You can specify the constructor " +
+                                                   "to use to avoid this problem when passing null values.");
+
 				var constructorArgTypes = constructorArguments.Select(arg => arg.GetType()).ToArray();
 				targetConstructor = _targetType.GetConstructor(constructorArgTypes.ToArray());
 			}
 
 			if (targetConstructor == null)
-				throw new CompositionException("No constructor found for the component type '" + _targetType.FullName + "'");
+				throw new CompositionException($"No constructor found for the component type '{_targetType.FullName}'");
 
 			return targetConstructor;
 		}
@@ -543,6 +544,7 @@ namespace Appson.Composer.Factories
 
 			return initializationPointResults;
 		}
+
 
 		#endregion
 	}

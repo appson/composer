@@ -20,7 +20,7 @@ namespace Appson.Composer.CompositionalQueries
 
 		public override string ToString()
 		{
-			return $"Query for a specific pre-defined value: '{Value}'";
+			return $"LazyValueQuery('{Value}')";
 		}
 
 		public Lazy<object> Value { get; }

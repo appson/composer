@@ -24,7 +24,7 @@ namespace Appson.Composer.CompositionalQueries
 
 		public override string ToString()
 		{
-			return $"Query for Variable named: '{VariableName}'";
+			return $"VariableQuery('{VariableName}')";
 		}
 
 		public string VariableName { get; }
