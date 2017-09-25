@@ -6,10 +6,7 @@ namespace Appson.Composer.CompositionalQueries
 	{
 		public VariableQuery(string variableName)
 		{
-			if (variableName == null)
-				throw new ArgumentNullException("variableName");
-
-			VariableName = variableName;
+		    VariableName = variableName ?? throw new ArgumentNullException(nameof(variableName));
 		}
 
 		#region Implementation of ICompositionalQuery
@@ -18,7 +15,7 @@ namespace Appson.Composer.CompositionalQueries
 		{
 			IComposer composerToUse = ComposerOverride ?? composer;
 			if (composerToUse == null)
-				throw new ArgumentNullException("composer");
+				throw new ArgumentNullException(nameof(composer));
 
 			return composerToUse.GetVariable(VariableName);
 		}
@@ -27,10 +24,10 @@ namespace Appson.Composer.CompositionalQueries
 
 		public override string ToString()
 		{
-			return string.Format("Query for Variable named: '{0}'", VariableName);
+			return $"VariableQuery('{VariableName}')";
 		}
 
-		public string VariableName { get; private set; }
+		public string VariableName { get; }
 
 		/// <summary>
 		/// Specifies the instance of IComposer to use for resolving references.

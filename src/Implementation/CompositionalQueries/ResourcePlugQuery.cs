@@ -6,10 +6,7 @@ namespace Appson.Composer.CompositionalQueries
 	{
 		public ResourcePlugQuery(string resourceId)
 		{
-			if (resourceId == null)
-				throw new ArgumentNullException("resourceId");
-
-			ResourceId = resourceId;
+		    ResourceId = resourceId ?? throw new ArgumentNullException(nameof(resourceId));
 		}
 
 		#region Implementation of ICompositionalQuery
@@ -18,7 +15,7 @@ namespace Appson.Composer.CompositionalQueries
 		{
 			IComposer composerToUse = ComposerOverride ?? composer;
 			if (composerToUse == null)
-				throw new ArgumentNullException("composer");
+				throw new ArgumentNullException(nameof(composer));
 
 			var provider = composerToUse.GetComponent<IResourceProvider>();
 			if (provider == null)
@@ -32,10 +29,10 @@ namespace Appson.Composer.CompositionalQueries
 
 		public override string ToString()
 		{
-			return string.Format("Query for Resource with Id: '{0}'", ResourceId);
+			return $"ResourceQuery('{ResourceId}')";
 		}
 
-		public string ResourceId { get; private set; }
+		public string ResourceId { get; }
 
 		/// <summary>
 		/// Specifies the instance of IComposer to use for resolving references.

@@ -8,7 +8,7 @@
 			Query = query;
 		}
 
-		public bool Required { get; private set; }
+		public bool Required { get; }
 		public ICompositionalQuery Query { get; set; }
 	}
 }

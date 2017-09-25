@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Appson.Composer.Factories
 {
-    public class GenericLocalComponentFactory : IComponentFactory
+    public class GenericLocalComponentFactory : ILocalComponentFactory
     {
         private IComposer _composer;
 

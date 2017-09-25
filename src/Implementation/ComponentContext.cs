@@ -13,12 +13,6 @@ namespace Appson.Composer
 	[ComponentCache(null)]
 	public class ComponentContext : IComponentContext
 	{
-        #region Settings
-
-        public bool DisableAttributeChecking { get; set; }
-
-        #endregion
-
         #region Private Data
 
         private readonly Dictionary<string, ICompositionListener> _compositionListeners;
@@ -35,6 +29,8 @@ namespace Appson.Composer
 
 		public ComponentContext(bool registerBuiltInComponents)
 		{
+            Configuration = new ComposerConfiguration();
+
 			_repository = new Repository();
 			_variables = new Dictionary<string, object>();
 			_compositionListeners = new Dictionary<string, ICompositionListener>();
@@ -51,22 +47,22 @@ namespace Appson.Composer
 		private void RegisterBuildInComponents()
 		{
 		    InternalRegister(typeof (DefaultComponentCache), null,
-		        CreateDefaultFactory(typeof (DefaultComponentCache)), false);
+		        ComponentContextUtils.CreateLocalFactory(typeof (DefaultComponentCache)), false);
             InternalRegister(typeof(ContractAgnosticComponentCache), null,
-                CreateDefaultFactory(typeof(ContractAgnosticComponentCache)), false);
+                ComponentContextUtils.CreateLocalFactory(typeof(ContractAgnosticComponentCache)), false);
             InternalRegister(typeof(StaticComponentCache), null,
-                CreateDefaultFactory(typeof(StaticComponentCache)), false);
+                ComponentContextUtils.CreateLocalFactory(typeof(StaticComponentCache)), false);
             InternalRegister(typeof(ThreadLocalComponentCache), null,
-                CreateDefaultFactory(typeof(ThreadLocalComponentCache)), false);
+                ComponentContextUtils.CreateLocalFactory(typeof(ThreadLocalComponentCache)), false);
 
             InternalRegister(typeof(IClassEmitter), null,
-                CreateDefaultFactory(typeof(DefaultClassEmitter)), false);
+                ComponentContextUtils.CreateLocalFactory(typeof(DefaultClassEmitter)), false);
             InternalRegister(typeof(IMethodEmitter), null,
-                CreateDefaultFactory(typeof(DefaultMethodEmitter)), false);
+                ComponentContextUtils.CreateLocalFactory(typeof(DefaultMethodEmitter)), false);
             InternalRegister(typeof(IPropertyEmitter), null,
-                CreateDefaultFactory(typeof(DefaultPropertyEmitter)), false);
+                ComponentContextUtils.CreateLocalFactory(typeof(DefaultPropertyEmitter)), false);
             InternalRegister(typeof(IEventEmitter), null,
-                CreateDefaultFactory(typeof(DefaultEventEmitter)), false);
+                ComponentContextUtils.CreateLocalFactory(typeof(DefaultEventEmitter)), false);
 		}
 
 		#endregion
@@ -83,7 +79,7 @@ namespace Appson.Composer
 			if (component == null)
 				throw new ArgumentNullException();
 
-			Register(ComponentContextUtils.GetComponentDefaultName(component), CreateDefaultFactory(component));
+			Register(ComponentContextUtils.GetComponentDefaultName(component), ComponentContextUtils.CreateLocalFactory(component));
 		}
 
         public virtual void Register(Type contract, string name, Type component)
@@ -95,7 +91,7 @@ namespace Appson.Composer
 
 			ComponentContextUtils.ThrowIfNotSubTypeOf(contract, component);
 
-			InternalRegister(contract, name, CreateDefaultFactory(component), true);
+			InternalRegister(contract, name, ComponentContextUtils.CreateLocalFactory(component), true);
 		}
 
         public virtual void Register(IComponentFactory componentFactory)
@@ -125,7 +121,7 @@ namespace Appson.Composer
 			if (componentType == null)
 				throw new ArgumentNullException(nameof(componentType));
 
-			Register(name, CreateDefaultFactory(componentType));
+			Register(name, ComponentContextUtils.CreateLocalFactory(componentType));
 		}
 
         public virtual void Register(Type contract, IComponentFactory factory)
@@ -208,7 +204,9 @@ namespace Appson.Composer
 
 		#region IComposer implementation
 
-        public virtual TContract GetComponent<TContract>()
+	    public ComposerConfiguration Configuration { get; }
+
+	    public virtual TContract GetComponent<TContract>()
 			where TContract : class
 		{
 			return GetComponent(typeof (TContract), null) as TContract;
@@ -341,25 +339,14 @@ namespace Appson.Composer
 			{
 				foreach (var method in compositionNotificationMethods)
 				{
-					method.Invoke(componentInstance, new object[0]);
+				    method(this, componentInstance);
 				}
 			}
 		}
 
 		#endregion
 
-		#region Private helper methods
-
-		private IComponentFactory CreateDefaultFactory(Type component)
-		{
-			IComponentFactory result;
-			if ((component.IsGenericType) && (component.ContainsGenericParameters))
-				result = new GenericLocalComponentFactory(component);
-			else
-				result = new LocalComponentFactory(component);
-
-			return result;
-		}
+		#region Internal and Private helper methods
 
 		private void InternalRegister(Type contract, string name, IComponentFactory factory,
 									  bool performChecking)
@@ -369,7 +356,7 @@ namespace Appson.Composer
 			if (factory == null)
 				throw new ArgumentNullException(nameof(factory));
 
-			if (performChecking)
+			if (performChecking && !Configuration.DisableAttributeChecking)
 				ComponentContextUtils.ThrowIfNotContract(contract);
 
 			factory.Initialize(this);
