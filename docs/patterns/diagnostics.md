@@ -1,0 +1,3 @@
+# Composer Patterns - Diagnostics
+
+TODO
