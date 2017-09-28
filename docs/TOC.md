@@ -24,7 +24,7 @@
 
 ## API Quick Reference
 
-> TODO: [Configuring Composer](api-ref/configuration.md) - Settings that affect how Composer works
+> [Configuring Composer](api-ref/configuration.md) - Settings that affect how Composer works
 >
 > [Attributes](api-ref/attributes.md) - Reference of the meta data attributes for declarative composition
 >
