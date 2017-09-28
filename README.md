@@ -1,9 +1,15 @@
+[Documentation](docs/TOC.md) -
+[Quick Start](docs/quickstart.md) -
+[Concepts](docs/concepts.md) -
+[Frequently Asked Questions](docs/FAQ.md)
+
 # Project Description
-Composer is an extensible Compositional Architecture framework, providing a set of functionality such as Inversion of Control container (IoC), Dependency Injection (DI), Plug-in framework, Aspect Oriented Programming (AOP), Configurability and Composability for components.
+Composer is an extensible Compositional Architecture framework, providing a set of functionality such as Inversion of Control container (IoC), Dependency Injection (DI), Plug-in framework, Aspect Oriented Programming (AOP), Configurability and Composability for components. See [Documentation](docs/TOC.md) for more details.
 
 # What is Composer?
 
 Composer is a framework to enable software to be developed in a **Compositional** manner. A complete software system can be formed by composing various smaller re-usable parts together. It simplifies the software development process, and help developers and architects meet design goals such as Configurability, Extensibility, Reusability and Customizability.
+[More...](docs/FAQ.md)
 
 # What problems are addressed by Composer?
 
@@ -25,3 +31,8 @@ The items below are high-level benefits of building software in Compositional ar
 * **Lazy Initialization** Composer makes it easy to defer instantiation of components until when they are actually needed.
 * **XML Based composition**: Composer has utilities to parse XML documents that specify the composition and registration of components.
 * **Extend Composition Logic**: Composer is extensible itself, allowing you to customize and add your own logic to the composition flow in several ways.
+
+[Documentation](docs/TOC.md) -
+[Quick Start](docs/quickstart.md) -
+[Concepts](docs/concepts.md) -
+[Frequently Asked Questions](docs/FAQ.md)

@@ -21,4 +21,18 @@
 > It's a relatively-popular design pattern used in Object Oriented programming. 
 > The basic ideas behind the pattern is best described by Martin Fowler here: https://martinfowler.com/articles/injection.html
 
+## Features
+
+#### Which injection style does Composer support? Property-injection or Constructor-injection?
+> Both.
+>
+> It's recommended to use property-injection, but Composer can also identify constructor arguments and inject
+> them as well, when creating a component instance. You can even use them together at the same time, having both
+> constructor arguments and injection properties on a single component at the same time.
+
+#### Does Composer support cyclic dependencies
+> Yes. Also it might be a sign that you have a flaw in your design, Composer can handle cyclic dependencies between
+> components and will not throw `StackOverflowException` or anything when there's a loop instantiating the components.
+> Although this is only true when you're using property injection. For constructor injection, there's no way of
+> instantiating an object with arguments that will be created later!
 

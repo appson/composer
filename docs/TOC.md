@@ -45,6 +45,10 @@
 > [XML utilities](api-ref/utils-xml.md)
 >
 > [app.config utilities](api-ref/utils-appconfig.md)
+>
+> [Thread safety and concurrency](api-ref/concurrency.md)
+>
+> [Exceptions](api-ref/exceptions.md)
 
 ## XML Quick Reference
 
