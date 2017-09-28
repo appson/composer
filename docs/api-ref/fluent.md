@@ -8,7 +8,7 @@ Composer provides a set of Fluent APIs to register and configure components in a
 
 The following code sample registers `ComponentType` class as a component, with the `IContractType` contract. It's the simplest form of using Fluent API.
 
-```
+```csharp
 composer
     .ForComponent<ComponentType>()
     .RegisterWith<IContractType>();
@@ -16,7 +16,7 @@ composer
 
 You can also use `Register()` with no contract type specified, so that Composer looks for all provided contracts on the specified component:
 
-```
+```csharp
 composer.ForComponent<ComponentType>().Register();
 ```
 
@@ -24,7 +24,7 @@ Between `ForComponent<T>()` method call and `RegisterWith<T>()` method call, you
 
 You can also register an already-instantiated component (an `object`) in composer using the `ForObject(...)` extension method. It's equivalent of using `PreInitializedComponentFactory` to register a component. Here's the sample:
 
-```
+```csharp
 composer.ForObject(o).RegisterWith<IContract>();
 ```
 
@@ -32,7 +32,7 @@ composer.ForObject(o).RegisterWith<IContract>();
 
 There are various methods for you to specify how Composer should instantiate and initialize the component. Here's a relatively complete sample:
 
-```
+```csharp
 composer
     .ForComponent<ComponentType>()
     .SetComponent(x => x.ComponentOne)

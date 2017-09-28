@@ -23,7 +23,7 @@ and doesn't have any external dependencies, so you can easily add it to your pro
 See these examples to get to up and running fast with Composer:
 
 * [Quick start sample 1](samples/quickstart1.md) - minimal use of composer to create a component instance
-* [Quick start sample 2](samples/quickstart1.md) - adding dependency injection to the first sample
+* [Quick start sample 2](samples/quickstart2.md) - adding dependency injection to the first sample
 
 
 
@@ -33,9 +33,9 @@ Check out the following topics in the documentation to develop a mindset about w
 make sure you know what you're doing when adding Composer to your mix:
 
 * [Concepts](concepts.md) - basic concepts introduced or used by Composer
-* [IComponentContext](icomponentcontext.md) - APIs for registering components
-* [IComposer](icomposer.md) - APIs for querying for components
-* [Fluent API](fluent.md) - Fluent APIs for registering and configuring components
+* [IComponentContext](api-ref/icomponentcontext.md) - APIs for registering components
+* [IComposer](api-ref/icomposer.md) - APIs for querying for components
+* [Fluent API](api-ref/fluent.md) - Fluent APIs for registering and configuring components
 
 To check-out all documentation topics, see
 [Table of Contents](TOC.md) 
