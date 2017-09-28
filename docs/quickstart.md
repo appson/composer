@@ -1,174 +1,41 @@
+
 # Composer Quick Start Guide
 
-## Scenario one: Simple component instantiation
+## Installing Composer
 
-#### Install NuGet packages
+Composer is published on 
+[nuget.org](https://www.nuget.org/packages/Appson.Composer.Implementation)
+and doesn't have any external dependencies, so you can easily add it to your project.
 
-To start using Composer, start by installing the NuGet packages. Run this in Package Manager console:
+* **Package Manager:**
+  * `Install-Package Appson.Composer.Implementation`
 
-```
-Install-Package Appson.Composer.Implementation
-```
+* **.NET CLI:**
+  * `dotnet add package Appson.Composer.Implementation`
 
-or install the `Appson.Composer.Implementation` package using NuGet Package Manager UI.
-
-#### Declare a contract type
-
-Declare a `class` or `interface` to be a contract for a component. You use such contracts
-to look up a component from Composer, that is, when you're looking for some component to *provide* the
-services specified by the contract. Use `[Contract]` meta data attribute on a type to do so.
-
-```csharp
-    [Contract]
-    public interface ILogger
-    {
-        void Log(string log);
-    }
-```
-
-#### Write a component
-
-Implement a concrete class that implements / extends the contract type
-
-```csharp
-    [Component]
-    public class DefaultLogger : ILogger
-    {
-        public void Log(string log)
-        {
-            Console.WriteLine(log);
-        }
-    }
-```
-
-#### Create an instance of Composer and register the component type
-
-Composer is a simple class library, and you can simply instantiate the `ComponentContext` class
-to have a new instance of Composer ready to use. Then use the `Register` method on the instance to
-introduce component types to Composer.
-
-```csharp
-    var composer = new ComponentContext();
-    composer.Register(typeof(DefaultLogger));
-```
-
-Composer will reflect the component type, and discover the *provided contracts*. After doing so, the
-Composer **knows** someone who can *provide* the mentioned contract, so you can ask for it.
-
-#### Query for the component
-
-Ask Composer that "I want some object who can provide this service" using `GetComponent` method.
-
-```csharp
-    composer.GetComponent<ILogger>().Log("Hello, compositional world!");
-```
-
-Composer will find the appropriate component type (which is previously registered), instantiate it,
-initialize it and return it.
-
-Composer will also keep a reference to the component, so that it can respond to the later requests
-with the same instance. So if you ask for the component again, the same instance is returned. (You can
-change this behavior by specifying [component cache settings](api-ref/component-cache.md).)
+* **Paket CLI:**
+  * `paket add Appson.Composer.Implementation`
 
 
 
+## Using Composer
+
+See these examples to get to up and running fast with Composer:
+
+* [Quick start sample 1](samples/quickstart1.md) - minimal use of composer to create a component instance
+* [Quick start sample 2](samples/quickstart1.md) - adding dependency injection to the first sample
 
 
-## Scenario two: Dependency injection
 
-When you ask Composer to prepare a component for you, it will also inject any declared dependencies
-on the component to other components. Here's an example: you have three contracts declared as below:
+## Further reading
 
-```csharp
-    [Contract]
-    public interface IOrderLogic
-    {
-        void PlaceOrder(string customerName, int amount);
-    }
+Check out the following topics in the documentation to develop a mindset about what can Composer do, and
+make sure you know what you're doing when adding Composer to your mix:
 
-    [Contract]
-    public interface IOrderData
-    {
-        void SaveOrderData(string description);
-    }
+* [Concepts](concepts.md) - basic concepts introduced or used by Composer
+* [IComponentContext](icomponentcontext.md) - APIs for registering components
+* [IComposer](icomposer.md) - APIs for querying for components
+* [Fluent API](fluent.md) - Fluent APIs for registering and configuring components
 
-    [Contract]
-    public interface ICustomerData
-    {
-        int GetCustomerId(string customerName);
-    }
-```
-
-Each of the above contracts can have an implementation class (a class marked with `[Component]`).
-But each of the components will need help from other components to achieve the goal. For placing
-the order, `DefaultOrderLogic` will need to have a component that provides `ICustomerData` to
-lookup the customer id, and it will also need someone with `IOrderData` capabilities to store
-the new order. All of them will also need to log some data for later.
-
-By placing `[ComponentPlug]` attribute on properties, each component can declare 
-**required contracts**. It means that the component needs Composer to provide them with an
-implementation of the contract before the component can function properly. Here's the code:
-
-```csharp
-
-    [Component]
-    public class DefaultOrderLogic : IOrderLogic
-    {
-        [ComponentPlug] public IOrderData OrderData { get; set; }
-        [ComponentPlug] public ICustomerData CustomerData { get; set; }
-        [ComponentPlug] public ILogger Logger { get; set; }
-
-        public void PlaceOrder(string customerName, int amount)
-        {
-            Logger.Log($"Placing order for {customerName} with the amount = {amount}");
-
-            var customerId = CustomerData.GetCustomerId(customerName);
-            OrderData.SaveOrderData($"Order for customer {customerId}: {amount} items");
-
-            Logger.Log("Done.");
-        }
-    }
-
-    [Component]
-    public class DefaultOrderData : IOrderData
-    {
-        [ComponentPlug] public ILogger Logger { get; set; }
-
-        public void SaveOrderData(string description)
-        {
-            Logger.Log($"Saving order: {description}");    
-        }
-    }
-
-    [Component] public class DefaultCustomerData : ICustomerData
-    {
-        [ComponentPlug] public ILogger Logger { get; set; }
-
-        public int GetCustomerId(string customerName)
-        {
-            Logger.Log($"Looking up customer with name {customerName}...");
-            return 5;
-        }
-    }
-```
-
-When registering these components, Composer will identify these required contracts and build a graph.
-Upon querying, when Composer instantiates the components, it will then **compose** them to each other
-and form a completely initialized component before returning it.
-
-After registering all components:
-
-```csharp
-    var composer = new ComponentContext();
-    composer.Register(typeof(ConsoleLogger));
-    composer.Register(typeof(DefaultCustomerData));
-    composer.Register(typeof(DefaultOrderData));
-    composer.Register(typeof(DefaultOrderLogic));
-```
-
-you can use the same `GetComponent` method to ask for an `IOrderLogic` component, and use it immediately,
-without worrying about dependencies.
-
-```csharp
-    composer.GetComponent<IOrderLogic>().PlaceOrder("John", 17);
-```
+To check-out all documentation topics, see
+[Table of Contents](TOC.md) 

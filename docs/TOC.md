@@ -3,7 +3,10 @@
 > [Project Readme](../README.md)
 >
 > [Frequently Asked Questions](FAQ.md)
-
+>
+> [Release notes](release-notes.md)
+>
+> [Roadmap](roadmap.md)
 
 
 ## General
