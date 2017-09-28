@@ -34,7 +34,7 @@
 >
 > [Fluent Configuration](api-ref/fluent.md) - Method reference for prescriptive syntax of composition
 >
-> TODO: [Component Caching](api-ref/component-cache.md) - Different options on component lifecycle management
+> [Component Caching](api-ref/component-cache.md) - Different options on component lifecycle management
 >
 > TODO: [Composition Listeners](api-ref/composition-listener.md) - How to extend composer's behavior while composing
 >
