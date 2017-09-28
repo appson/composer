@@ -59,6 +59,13 @@ component registrations, you're free to call the `IComposer` methods in any way.
 life-cycle management of component instances, are thread-safe and prevent creation of multiple
 component instances (when cached) even if called concurrently.
 
+#### IComposer is a Contract itself
+
+The `IComposer` interface is itself marked with `[Contract]` attribute, and automatically registered
+in the Composer upon creation of the `ComponentContext` class. So, you can reach an instance of the
+`IComposer` similar to any other components in the composition (like as a constructor argument, using
+`[ComponentPlug]` on a property or a field, ...)
+
 
 
 ## Configuration
