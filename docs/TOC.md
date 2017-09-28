@@ -1,87 +1,95 @@
 
 # Composer Documentation
-> [Project Readme](../README.md)
+> [Readme](../README.md) - Introduction to the Composer and what it does
 >
-> [Frequently Asked Questions](FAQ.md)
+> [FAQ](FAQ.md) - Frequently Asked Questions and Answers
 >
-> [Release notes](release-notes.md)
+> [Release notes](release-notes.md) - Version release history and changes
 >
-> [Roadmap](roadmap.md)
+> [Roadmap](roadmap.md) - What to expect in the future versions
+
 
 
 ## General
 
 > Make sure you know the concepts and terminology used in Composer before you dive into other features.
 >
-> [Concepts](concepts.md)
+> TODO: [Concepts](concepts.md) - General concepts used or introduced by Composer
 >
-> [Conventions and Defaults](conventions.md)
+> TODO: [Conventions and Defaults](conventions.md) - What happens when you don't set something explicitly
 >
-> [Quick Start Guide](quickstart.md)
+> [Quick Start Guide](quickstart.md) - Start understanding and using Composer, quickly and easily
 
 
 
 ## API Quick Reference
 
-> [Configuring Composer](api-ref/configuration.md)
+> TODO: [Configuring Composer](api-ref/configuration.md) - Settings that affect how Composer works
 >
-> [Attributes](api-ref/attributes.md)
+> [Attributes](api-ref/attributes.md) - Reference of the meta data attributes for declarative composition
 >
-> [IComponentContext methods](api-ref/icomponentcontext.md)
+> [IComponentContext methods](api-ref/icomponentcontext.md) - Method refernce for setting up the composition
 >
-> [IComposer methods](api-ref/icomposer.md)
+> [IComposer methods](api-ref/icomposer.md) - Method reference for querying Composer and getting component instances
 >
-> [Fluent Configuration](api-ref/fluent.md)
+> [Fluent Configuration](api-ref/fluent.md) - Method reference for prescriptive syntax of composition
 >
-> [Component Caching](api-ref/component-cache.md)
+> TODO: [Component Caching](api-ref/component-cache.md) - Different options on component lifecycle management
 >
-> [Composition Listeners](api-ref/composition-listener.md)
+> TODO: [Composition Listeners](api-ref/composition-listener.md) - How to extend composer's behavior while composing
 >
-> [Code emitting and interceptors](api-ref/emitting.md)
+> TODO: [Code emitting and interceptors](api-ref/emitting.md) - Placing call interceptors between components for AOP
 >
-> [Assembly utilities](api-ref/utils-assembly.md)
+> TODO: [Assembly utilities](api-ref/utils-assembly.md) - Easily working with whole assemblies full of components
 >
-> [XML utilities](api-ref/utils-xml.md)
+> TODO: [XML utilities](api-ref/utils-xml.md) - Using XML to describe composition
 >
-> [app.config utilities](api-ref/utils-appconfig.md)
+> TODO: [app.config utilities](api-ref/utils-appconfig.md) - How to use app.config or web.config to initialize Composer
 >
-> [Thread safety and concurrency](api-ref/concurrency.md)
+> TODO: [Thread safety and concurrency](api-ref/concurrency.md) - Notes on using Composer in concurrent threads
 >
-> [Exceptions](api-ref/exceptions.md)
+> TODO: [Exceptions](api-ref/exceptions.md) - How does Composer report errors
 
 
 
 ## XML Quick Reference
 
-> [Introduction to XML configuration](xml-ref/intro.md)
+> TODO: [Introduction to XML configuration](xml-ref/intro.md)
 >
-> [Registration and Configuration](xml-ref/registration.md)
+> TODO: [Registration and Configuration](xml-ref/registration.md)
 >
-> [Value nodes in XML](xml-ref/value-nodes.md)
+> TODO: [Value nodes in XML](xml-ref/value-nodes.md)
 
 
 
 ## Extending Composer
 
-> [Custom component factories](extention/factories.md)
+> TODO: [Custom component factories](extention/factories.md)
 >
-> [Custom component caches](extension/cache.md)
+> TODO: [Custom component caches](extension/cache.md)
 >
-> [Custom IComposer implementation](extension/custom-impl.md)
+> TODO: [Custom IComposer implementation](extension/custom-impl.md)
 
 
 
 ## Scenarios and Patterns
 
-> [Configuration parameters](patterns/configuration.md)
+> TODO: [Managing application conig using Composer](patterns/configuration.md)
 > 
-> [Aspect Oriented Programming](patterns/aop.md)
+> TODO: [Aspect Oriented Programming using Composer](patterns/aop.md)
 >
-> [Diagnostics](patterns/diagnostics.md)
+> TODO: [Application Diagnostics using Composer](patterns/diagnostics.md)
+
+
+
+## Samples
+> [Quick Start sample one](samples/quickstart1.md)
+>
+> [Quick Start sample two](samples/quickstart2.md)
 
 
 
 ## Integrations
 
-> [WebAPI integration](integrations/webapi.md)
+> TODO: [WebAPI integration](integrations/webapi.md)
 >
