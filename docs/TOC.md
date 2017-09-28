@@ -1,24 +1,20 @@
+
 # Composer Documentation
-
-
-
-## General pages
-
 > [Project Readme](../README.md)
->
-> [Quick Start Guide](quickstart.md)
->
-> [Integrations](integrations.md)
 >
 > [Frequently Asked Questions](FAQ.md)
 
 
 
-## Concepts
+## General
 
 > Make sure you know the concepts and terminology used in Composer before you dive into other features.
 >
 > [Concepts](concepts.md)
+>
+> [Conventions and Defaults](conventions.md)
+>
+> [Quick Start Guide](quickstart.md)
 
 
 
@@ -50,6 +46,8 @@
 >
 > [Exceptions](api-ref/exceptions.md)
 
+
+
 ## XML Quick Reference
 
 > [Introduction to XML configuration](xml-ref/intro.md)
@@ -57,6 +55,8 @@
 > [Registration and Configuration](xml-ref/registration.md)
 >
 > [Value nodes in XML](xml-ref/value-nodes.md)
+
+
 
 ## Extending Composer
 
@@ -66,6 +66,8 @@
 >
 > [Custom IComposer implementation](extension/custom-impl.md)
 
+
+
 ## Scenarios and Patterns
 
 > [Configuration parameters](patterns/configuration.md)
@@ -74,3 +76,9 @@
 >
 > [Diagnostics](patterns/diagnostics.md)
 
+
+
+## Integrations
+
+> [WebAPI integration](integrations/webapi.md)
+>
