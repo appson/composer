@@ -112,13 +112,21 @@ namespace Appson.Composer.Utility
 			if (configurationPath == null)
 				throw new ArgumentNullException(nameof(configurationPath));
 
-			if (!File.Exists(configurationPath))
-			{
-				xmlProcessingContext.ReportError($"Specified configuration file '{configurationPath}' does not exist.");
-				return;
-			}
+		    if (!File.Exists(configurationPath))
+		    {
+		        var fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configurationPath);
+		        if (File.Exists(fullPath))
+		        {
+		            configurationPath = fullPath;
+		        }
+		        else
+		        {
+		            xmlProcessingContext.ReportError($"Specified configuration file '{configurationPath}' does not exist.");
+		            return;
+		        }
+		    }
 
-			using (Stream configurationStream = File.Open(configurationPath, FileMode.Open, FileAccess.Read))
+            using (Stream configurationStream = File.Open(configurationPath, FileMode.Open, FileAccess.Read))
 			{
 				ProcessCompositionXml(configurationStream, xmlProcessingContext);
 			}
