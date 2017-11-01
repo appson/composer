@@ -112,6 +112,11 @@ namespace Appson.Composer.Utility
 			if (configurationPath == null)
 				throw new ArgumentNullException(nameof(configurationPath));
 
+			if (!Path.IsPathRooted(configurationPath))
+			{
+				configurationPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, configurationPath);
+			}
+			
 			if (!File.Exists(configurationPath))
 			{
 				xmlProcessingContext.ReportError($"Specified configuration file '{configurationPath}' does not exist.");
